@@ -87,18 +87,32 @@ class BilingualTests(unittest.TestCase):
         self.assertEqual(self.calls, [])
 
 class LayoutTests(unittest.TestCase):
-    def test_qwerty_with_period_beside_space(self):
-        env, calls = load('rares-qwerty')
-        (lay,) = env['layouts']({})
-        self.assertEqual(lay['args'][:2], ('rares-qwerty', 'Rares QWERTY'))
-        rows = lay['kwargs']['rows']
-        self.assertEqual([''.join(r) for r in rows], ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'])
-        letters = ''.join(''.join(r) for r in rows)
-        self.assertEqual(sorted(letters), sorted('abcdefghijklmnopqrstuvwxyz'))
-        (key,) = lay['kwargs']['right']
-        self.assertEqual(key['args'], ('.',))
-        self.assertNotIn('left', lay['kwargs'])  # no emoji key added
-        self.assertEqual(calls, [])
+    def setUp(self):
+        self.env, self.calls = load('rares-qwerty')
+        self.lays = {l['args'][0]: l for l in self.env['layouts']({})}
+    def test_two_variants(self):
+        self.assertEqual(set(self.lays), {'rares-qwerty', 'rares-qwerty-compact'})
+        self.assertEqual(self.calls, [])
+    def test_letters_are_plain_qwerty(self):
+        for lay in self.lays.values():
+            rows = lay['kwargs']['rows']
+            self.assertEqual([''.join(r) for r in rows], ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'])
+    def test_symmetric_emoji_and_period(self):
+        for lay in self.lays.values():
+            (emoji,) = lay['kwargs']['left']
+            period = lay['kwargs']['right'][0]
+            self.assertEqual(emoji['kwargs']['action'], 'emoji')
+            self.assertEqual(period['args'], ('.',))
+            self.assertNotIn('action', period['kwargs'])
+            self.assertEqual(emoji['kwargs']['width'], period['kwargs']['width'])
+    def test_compact_has_narrow_return_and_plain_does_not(self):
+        self.assertEqual(len(self.lays['rares-qwerty']['kwargs']['right']), 1)
+        ret = self.lays['rares-qwerty-compact']['kwargs']['right'][1]
+        self.assertEqual(ret['kwargs']['action'], 'return')
+        self.assertLessEqual(ret['kwargs']['width'], 1.5)
+        for lay in self.lays.values():
+            self.assertLessEqual(len(lay['kwargs']['left']), 3)
+            self.assertLessEqual(len(lay['kwargs']['right']), 3)
 
 class FeedbackTests(unittest.TestCase):
     def setUp(self):
