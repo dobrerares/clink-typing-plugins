@@ -4,7 +4,7 @@ Four opt-in Clink Pro plugins, designed to go with the **Rares Glass** profile i
 
 - **Period Guard** shrinks the period key's tap area after a one-time calibration. It doesn't change how keys look or how tall they are.
 - **Quiet Feedback** gives each key its own gentle haptic. It never plays sounds or takes over native settings.
-- **Bilingual Guard** keeps every Romanian or English word exactly as you typed it. Any curated fix appears as a suggestion; it is never applied automatically.
+- **Bilingual Guard** leaves Clink's autocorrect on, but blocks the corrections that tend to go wrong: links, emails, numbers, codes, ACRONYMS, Romanian hyphen forms (s-a, mi-am, într-un), case-only changes, and fixes that strip your diacritics. A Strict switch keeps every word exactly as typed.
 - **Explicit Proofread** is an Apple Intelligence button that acts only on selected text, after you acknowledge a warning. It isn't safe to use on Romanian text.
 
 Full phone setup: [SETUP-rares-glass.md](https://github.com/dobrerares/clink-typing-profiles/blob/main/SETUP-rares-glass.md).

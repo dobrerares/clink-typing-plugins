@@ -25,50 +25,60 @@ def load(name):
     return env, calls
 
 class BilingualTests(unittest.TestCase):
+    """v0.2 smart mode: defer to Clink's autocorrect, veto only risky fixes."""
     def setUp(self):
         self.p, self.calls = load('bilingual-guard')
         self.s = self.p['initial']()
-    def test_mixed_sentences_preserved(self):
+    def c(self, word, fix, state=None):
+        return self.p['correct'](word, fix, self.s if state is None else state)
+    def test_never_returns_a_replacement_word(self):
         sentences = [
             'Ne vedem after the meeting și discutăm deployment-ul.',
             'I can send raportul mâine, please review când ai timp.',
             'Am făcut push pe branch, but tests încă fail.',
             'The actual plan e să mai verificăm feedback-ul.',
             'Sorry, sunt late; ajung în 10 minutes.',
-            'Read this: ea are un deal bun, not a bad deal.',
         ]
         for sentence in sentences:
             for token in sentence.split():
                 with self.subTest(token=token):
-                    self.assertIs(self.p['correct'](token, 'WRONG-LANGUAGE', self.s), False)
+                    self.assertIn(self.c(token, 'WRONG-LANGUAGE'), (False, None))
         self.assertEqual(self.s, self.p['initial']())
-    def test_valid_words_and_ambiguous_ascii(self):
-        for token in ['actual', 'care', 'fine', 'data', 'chat', 'sunt', 'și', 'mulțumesc', 'fata', 'fată', 'peste', 'pestei', 'read', 'the', 'RO', 'API']:
-            self.assertIs(self.p['correct'](token, 'different', self.s), False)
-    def test_special_tokens(self):
-        for token in ['https://example.com', 'a@b.ro', '3.14', 'v1.2.3', 's-a', 'mi-am', 'într-un', 'word.word', 'os.path', 'e.g.', 'foo_bar', '12:30']:
-            self.assertIs(self.p['correct'](token, 'different', self.s), False)
-            self.assertEqual(self.p['suggestions'](token, {'on':True,'suggest':True}), [])
-    def test_empty_long_and_nonstring(self):
-        for token in ['', 'a'*10000, None, 12]:
-            self.assertIs(self.p['correct'](token, 'wrong', self.s), False)
-            self.assertEqual(self.p['suggestions'](token, {'on':True,'suggest':True}), [])
-    def test_disabled_delegates(self):
+    def test_smart_mode_lets_autocorrect_fix_plain_typos(self):
+        for word, fix in [('teh', 'the'), ('recieve', 'receive'), ('multumesc', 'mulțumesc'), ('meetign', 'meeting'), ('maine', 'mâine')]:
+            with self.subTest(word=word):
+                self.assertIsNone(self.c(word, fix))
+    def test_protected_tokens_are_kept(self):
+        for token in ['https://example.com', 'a@b.ro', '3.14', 'v1.2.3', 's-a', 'mi-am', 'într-un', 'deployment-ul',
+                      'word.word', 'os.path', 'e.g.', 'foo_bar', '12:30', 'API', 'RO', 'NASA', "don't", 'a'*200]:
+            with self.subTest(token=token):
+                self.assertIs(self.c(token, 'different'), False)
+                self.assertEqual(self.p['suggestions'](token, {'on':True,'suggest':True}), [])
+    def test_diacritics_never_stripped_and_case_never_changed(self):
+        self.assertIs(self.c('fată', 'fata'), False)
+        self.assertIs(self.c('mâine', 'maine'), False)
+        self.assertIs(self.c('și', 'si'), False)
+        self.assertIs(self.c('iphone', 'iPhone'), False)
+        self.assertIs(self.c('Care', 'care'), False)
+    def test_strict_mode_keeps_every_word(self):
+        self.s = self.p['on_action']('strict', True, self.s)
+        for word, fix in [('teh', 'the'), ('care', 'car'), ('actual', 'actually')]:
+            self.assertIs(self.c(word, fix), False)
+    def test_disabled_delegates_everything(self):
         self.s = self.p['on_action']('on', False, self.s)
-        self.assertIsNone(self.p['correct']('care', 'wrong', self.s))
-    def test_missing_and_corrupted_on_fail_safe(self):
-        for state in [{}, {'on':None}, {'on':1}, {'on':'false'}]:
+        for token in ['care', 'https://example.com', 'API']:
+            self.assertIsNone(self.c(token, 'wrong'))
+    def test_bad_input_fail_safe(self):
+        for token in ['', None, 12]:
+            self.assertIs(self.c(token, 'wrong'), False)
+        for state in [None, {'on':None}, {'on':1}, {'on':'false'}]:
             self.assertIs(self.p['correct']('care', 'wrong', state), False)
-    def test_suggestions_opt_in_never_commit(self):
+    def test_suggestions_opt_in_only(self):
         self.assertEqual(self.p['suggestions']('teh', self.s), [])
         self.s = self.p['on_action']('suggest', True, self.s)
         self.assertEqual(self.p['suggestions']('teh', self.s), ['the'])
-        self.assertEqual(self.p['suggestions']('multumesc', self.s), ['mulțumesc'])
-        self.assertIs(self.p['correct']('teh', 'the', self.s), False)
-    def test_no_case_or_valid_word_suggestions(self):
-        state = {'on':True,'suggest':True}
-        for token in ['TEH', 'Teh', 'care', 'actual', 'the', 'mulțumesc']:
-            self.assertEqual(self.p['suggestions'](token, state), [])
+        for token in ['TEH', 'Teh', 'care', 'the']:
+            self.assertEqual(self.p['suggestions'](token, self.s), [])
     def test_unknown_action_and_ui_no_effects(self):
         before = dict(self.s)
         self.p['on_action']('unknown', 'text', self.s)
