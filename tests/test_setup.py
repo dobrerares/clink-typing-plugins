@@ -124,6 +124,9 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(set(table), {'letters','keys','space','return','delete','shift'})
         self.assertGreater(table['space']['kwargs']['intensity'], table['letters']['kwargs']['intensity'])
         self.assertLess(table['delete']['kwargs']['intensity'], table['letters']['kwargs']['intensity'])
+        self.assertGreater(table['return']['kwargs']['intensity'], table['space']['kwargs']['intensity'])
+        self.assertGreaterEqual(table['letters']['kwargs']['intensity'], 0.45)  # clearly felt
+        self.assertGreaterEqual(table['letters']['kwargs']['sharpness'], 0.65)  # crisp
     def test_bounds_and_bad_values(self):
         for value in [-100, 100, float('nan'), float('inf'), None, True, '1']:
             table = self.p['haptics']({'on':True,'strength':value})
@@ -140,7 +143,7 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(self.s, before)
         self.assertEqual(self.calls, [])
     def test_slider_and_unknown_actions(self):
-        self.assertEqual(self.p['on_action']('strength', 9, self.s)['strength'], 1.2)
+        self.assertEqual(self.p['on_action']('strength', 9, self.s)['strength'], 1.4)
         before = dict(self.s)
         self.assertEqual(self.p['on_action']('other', None, self.s), before)
 
