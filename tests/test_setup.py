@@ -102,6 +102,7 @@ class LayoutTests(unittest.TestCase):
             (emoji,) = lay['kwargs']['left']
             period = lay['kwargs']['right'][0]
             self.assertEqual(emoji['kwargs']['action'], 'emoji')
+            self.assertEqual(emoji['args'], ('\u263a\ufe0e',))  # monochrome text smiley, not colour emoji
             self.assertEqual(period['args'], ('.',))
             self.assertNotIn('action', period['kwargs'])
             self.assertEqual(emoji['kwargs']['width'], period['kwargs']['width'])
