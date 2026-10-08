@@ -255,7 +255,7 @@ class PackagingTests(unittest.TestCase):
 
     def test_manifest_matches_local_artifact(self):
         manifest = json.loads((ROOT / "manifest.json").read_text())
-        self.assertEqual(len(manifest["plugins"]), 4)
+        self.assertEqual(len(manifest["plugins"]), 5)
         entry = next(x for x in manifest["plugins"] if x["id"] == "period-guard")
         self.assertEqual(entry["id"], "period-guard")
         data = (ROOT / "build/period-guard.clinkplugin").read_bytes()

@@ -7,14 +7,14 @@ import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = {'period-guard', 'quiet-feedback', 'bilingual-guard', 'explicit-proofread'}
+IDS = {'period-guard', 'quiet-feedback', 'bilingual-guard', 'explicit-proofread', 'rares-qwerty'}
 
 def load(name):
     calls = []
     env = {}
     def builder(name):
         return lambda *args, **kwargs: {'kind': name, 'args': args, 'kwargs': kwargs}
-    for key in ['section', 'vstack', 'toggle', 'slider', 'text', 'button', 'bar_button']:
+    for key in ['section', 'vstack', 'toggle', 'slider', 'text', 'button', 'bar_button', 'layout', 'layout_key']:
         env[key] = builder(key)
     env['feel'] = builder('feel')
     env['hitbox'] = builder('hitbox')
@@ -85,6 +85,20 @@ class BilingualTests(unittest.TestCase):
         self.p['settings'](self.s)
         self.assertEqual(before, self.s)
         self.assertEqual(self.calls, [])
+
+class LayoutTests(unittest.TestCase):
+    def test_qwerty_with_period_beside_space(self):
+        env, calls = load('rares-qwerty')
+        (lay,) = env['layouts']({})
+        self.assertEqual(lay['args'][:2], ('rares-qwerty', 'Rares QWERTY'))
+        rows = lay['kwargs']['rows']
+        self.assertEqual([''.join(r) for r in rows], ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'])
+        letters = ''.join(''.join(r) for r in rows)
+        self.assertEqual(sorted(letters), sorted('abcdefghijklmnopqrstuvwxyz'))
+        (key,) = lay['kwargs']['right']
+        self.assertEqual(key['args'], ('.',))
+        self.assertNotIn('left', lay['kwargs'])  # no emoji key added
+        self.assertEqual(calls, [])
 
 class FeedbackTests(unittest.TestCase):
     def setUp(self):
@@ -184,10 +198,11 @@ class PolicyAndPackageTests(unittest.TestCase):
             self.assertEqual(asset['sha256'], hashlib.sha256(raw).hexdigest())
             self.assertIn('/'+manifest['version']+'/', asset['url'])
             plugin = json.loads(raw)
-            self.assertIs(plugin['enabled'], False)
+            # Layout-only plugin follows the official Colemak-DH (enabled, no settings).
+            self.assertIs(plugin['enabled'], plugin['id'] == 'rares-qwerty')
             self.assertIn('def ', plugin['source'])
     def test_all_settings_render_without_native_commands(self):
-        for plugin in IDS:
+        for plugin in IDS - {'rares-qwerty'}:
             p, calls = load(plugin)
             p['settings'](p['initial']())
             self.assertEqual(calls, [])
