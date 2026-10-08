@@ -42,12 +42,43 @@ class BilingualTests(unittest.TestCase):
         for sentence in sentences:
             for token in sentence.split():
                 with self.subTest(token=token):
-                    self.assertIn(self.c(token, 'WRONG-LANGUAGE'), (False, None))
+                    self.assertIn(self.c(token, 'WRONG-LANGUAGE'), (False, None))  # none of these are in DIACRITICS
         self.assertEqual(self.s, self.p['initial']())
     def test_smart_mode_lets_autocorrect_fix_plain_typos(self):
-        for word, fix in [('teh', 'the'), ('recieve', 'receive'), ('multumesc', 'mulțumesc'), ('meetign', 'meeting'), ('maine', 'mâine')]:
+        for word, fix in [('teh', 'the'), ('recieve', 'receive'), ('meetign', 'meeting')]:
             with self.subTest(word=word):
                 self.assertIsNone(self.c(word, fix))
+    def test_restores_diacritics(self):
+        for word, want in [('rau', 'rău'), ('maine', 'mâine'), ('si', 'și'), ('dupa', 'după'), ('multumesc', 'mulțumesc'),
+                           ('inca', 'încă'), ('pana', 'până'), ('Dupa', 'După'), ('Si', 'Și'), ('Rau', 'Rău'), ('stiu', 'știu')]:
+            with self.subTest(word=word):
+                self.assertEqual(self.c(word, None), want)
+                self.assertEqual(self.c(word, 'something-else'), want)
+    def test_restore_leaves_valid_and_english_words(self):
+        D = self.p['DIACRITICS']
+        for word in ['a', 'are', 'care', 'cat', 'tie', 'paste', 'in', 'pe', 'de', 'la', 'sa', 'ca', 'fata', 'tara',
+                     'casa', 'masa', 'buna', 'seara', 'noua', 'apa', 'sat', 'vin', 'mare', 'cine', 'tine', 'va', 'desi', 'usa', 'scoala']:
+            with self.subTest(word=word):
+                self.assertNotIn(word, D)
+                self.assertIsNone(self.c(word, None))
+    def test_restore_respects_case_and_english_names(self):
+        for word in ['Maine', 'Ma', 'Cate', 'Marti', 'Inca', 'RAU', 'rAu', 'MAINE']:
+            with self.subTest(word=word):
+                self.assertIn(self.c(word, None), (None, False))
+    def test_dictionary_is_only_diacritics(self):
+        D = self.p['DIACRITICS']
+        self.assertGreaterEqual(len(D), 120)
+        for k, v in D.items():
+            with self.subTest(k=k):
+                self.assertEqual(k, k.lower())
+                self.assertEqual(self.p['_plain'](v), k)
+                self.assertNotEqual(v, k)
+    def test_restore_switch_and_strict(self):
+        self.s = self.p['on_action']('restore', False, self.s)
+        self.assertIsNone(self.c('rau', None))
+        self.s = self.p['on_action']('restore', True, self.s)
+        self.s = self.p['on_action']('strict', True, self.s)
+        self.assertIs(self.c('rau', None), False)
     def test_protected_tokens_are_kept(self):
         for token in ['https://example.com', 'a@b.ro', '3.14', 'v1.2.3', 's-a', 'mi-am', 'într-un', 'deployment-ul',
                       'word.word', 'os.path', 'e.g.', 'foo_bar', '12:30', 'API', 'RO', 'NASA', "don't", 'a'*200]:

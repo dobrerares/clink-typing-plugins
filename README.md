@@ -4,7 +4,7 @@ Five Clink Pro plugins, designed to go with the **Rares Glass** profile in [`dob
 
 - **Period Guard** shrinks the period key's tap area after a one-time calibration. It doesn't change how keys look or how tall they are.
 - **Quiet Feedback** gives each key its own crisp, clearly felt haptic. It never plays sounds or takes over native settings.
-- **Bilingual Guard** leaves Clink's autocorrect on, but blocks the corrections that tend to go wrong: links, emails, numbers, codes, ACRONYMS, Romanian hyphen forms (s-a, mi-am, într-un), case-only changes, and fixes that strip your diacritics. A Strict switch keeps every word exactly as typed.
+- **Bilingual Guard** leaves Clink's autocorrect on, but blocks the corrections that tend to go wrong: links, emails, numbers, codes, ACRONYMS, Romanian hyphen forms (s-a, mi-am, într-un), case-only changes, and fixes that strip your diacritics. It also **restores Romanian diacritics** for about 120 common words that are never valid without them (rau → rău, maine → mâine, si → și, dupa → după). A Strict switch keeps every word exactly as typed.
 - **Rares QWERTY** adds two layouts, both standard QWERTY with an **emoji key left and a period key right of the space bar**. **Rares QWERTY Compact** also adds its own narrow, SwiftKey-style return key. It's built the same way as Clink's official Colemak-DH plugin. Pick it in Layout → Arrangement; it installs as a normal custom layout.
 - **Explicit Proofread** is an Apple Intelligence button that acts only on selected text, after you acknowledge a warning. It isn't safe to use on Romanian text.
 
