@@ -1,21 +1,27 @@
-# Rares Quiet Bilingual plugins — unpublished phone-test candidate
+# Clink plugins (Rares)
 
-Four focused, opt-in Clink Pro plugins. Each package installs disabled.
+Four opt-in Clink Pro plugins, designed to go with the **Rares Glass** profile in [`dobrerares/clink-typing-profiles`](https://github.com/dobrerares/clink-typing-profiles). Each one installs switched off.
 
-- Period Guard: calibrated period-only hitboxes, no visual/height changes; off and inert until confirmed.
-- Quiet Feedback: gentle per-key haptics; no native setting claims or sounds.
-- Bilingual Guard: preserve space-ended RO/EN words. Optional curated fixes are manual suggestions, never automatic replacements.
-- Explicit Proofread: selected text only, explicit button and warning acknowledgment. Not a Romanian-safe AI guarantee.
+- **Period Guard** shrinks the period key's tap area after a one-time calibration. It doesn't change how keys look or how tall they are.
+- **Quiet Feedback** gives each key its own gentle haptic. It never plays sounds or takes over native settings.
+- **Bilingual Guard** keeps every Romanian or English word exactly as you typed it. Any curated fix appears as a suggestion; it is never applied automatically.
+- **Explicit Proofread** is an Apple Intelligence button that acts only on selected text, after you acknowledge a warning. It isn't safe to use on Romanian text.
 
-Read SETUP-rares-quiet-bilingual.md for the whole setup and phone acceptance tests. The profile is in the separate clink-typing-profiles repository. These desktop tests use fake Clink API builders; no PyMini or phone runtime is included or claimed.
+Full phone setup: [SETUP-rares-glass.md](https://github.com/dobrerares/clink-typing-profiles/blob/main/SETUP-rares-glass.md).
 
-Local build and test:
+## Install
 
-    GITHUB_REPOSITORY=UNPUBLISHED-LOCAL-ONLY/clink-typing-plugins python3 -B tools/build-manifest.py
-    python3 -B -m unittest discover -s tests -v
+In Clink, add `dobrerares/clink-typing-plugins` under repositories, then install the plugins from the plugin catalogue.
 
-The placeholder manifest is not installable. Do not publish or run the release workflow before explicit user approval. On approved GitHub CI, GITHUB_REPOSITORY identifies the real repository and assets use permanent content-addressed release URLs. The workflow builds and tests before publishing a draft release. Source changes require a plugin version bump for future installed updates.
+## Build and test
 
-Provenance and material changes:
+```sh
+python3 -B tools/build-manifest.py
+python3 -B -m unittest discover -s tests -v
+```
 
-The builder is copied unchanged from https://github.com/anti-ltd/clink-plugins (SHA-256 2c740c06017fd7d22f4bbd3703bffa67b861d2f0d86ca6be97d97e534ce68921). The official release workflow is copied with an added unittest gate. The APIs, Heavy Space example and plugin contracts informed our implementation; all four custom plugins and tests are local additions. No official plugin is redistributed here: install Language Flag from the official repository. This material is for Clink only and distributed without paid access under the included Clink Community Assets License 1.0. No official endorsement is claimed.
+CI builds the manifest, runs the tests, then publishes a permanent, content-addressed release. Any source change needs a plugin version bump so installed copies update. The desktop tests use fake Clink API builders and don't prove behaviour on a phone. This is a v0.1 phone-test release.
+
+## Provenance
+
+The builder is copied unchanged from https://github.com/anti-ltd/clink-plugins (SHA-256 2c740c06017fd7d22f4bbd3703bffa67b861d2f0d86ca6be97d97e534ce68921). The official release workflow is copied with an added unittest gate. The four plugins and their tests are original work. No official plugin is redistributed: install Language Flag from the official repository. This material is for Clink only and is distributed for free under the included Clink Community Assets License 1.0. No official endorsement is claimed.
