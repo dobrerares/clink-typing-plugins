@@ -18,372 +18,22 @@
 import math
 import re
 
-DATA_RO = """BAStia!ia1MlaOea1Ksta0LISi1JTi1Ji1Jl!mbrAcat_ac2Ii.pArTit/iedicat:nge;s^otrivA8Na3LreunA%umut>a+tPuScat1En]AlTime>aEuntru]Sel&at;i.TeleagA6Mg7Ne>Ti>m*re?ea7Ni<pciune=t6Ms2Kainte)aPlt;A3Lpoi2JcA_lcatPQntat>A4Nt/a$eapA5NrcAFp;Qnd5MeHm&i5LutWul4NrcVAm(QndHa=Ti=m)re7Mt<eHi4Nt`aTi(tUeazA<zi/heiat:id{AHe|Ti;riat5Ns(A<eHoare~ea;zi$oace:lo_tro3Mredere+a#datA/eajuns:pArtatPoialA&esc$rAgostit;zneSti:eaptA`ptat.ecat.fricoSAtor.ger^heTat*A/rijora?TiYt?tA}eazA_opat`zitoare?r.mormQntare.nebunit.oTi/atePt:a]registrare~area?atDsA_Si%rcinatA/cris3LeamnA:mna$uSi%Ti:mi_rat2NtQi:lneSti=ascAWscViWmJre+a>i7Nt4MmplA7Na>re8LtWe:rziaKt|e>re=i/eleg<s/inde;s$oarcA7Me}TiXm}re4NrcVi5Ns4Ltdeauna3Lr4Me&abA<gAJa5Nb{AmJri?leVa|Ti)m7NreYa7NtVi&g(i=me(ul_u/unecatAVricDvAT;AmGa<Ti{rea6NtPaTA$eTeUi[siNtiZSah.mpanie2NnsA%a:e;leDpte.rpe2Nse1McoalAGa^li;i-edinTA{a#f$uFl;e;ui]rif1Ei.r[oc^at#fer;ul]setele-terge:sDi3NTi3Na:TiFi4Mm:u3Ke3Ji%nTA<a{ifice3Nm^re%i`le3Iu4NtMTAri:i_le1NarAEa1KiDe]gAri/arADiDn$A3Le:Ti_a%m^tA:aEut.pA^a_t/i0Ea1JS2Ha$dar#ezat2MteaptARpTi5NtHAmHaWTiWm=reJt(e1KTi-bTine.andonat]by2Nia]ordare]senTa`tEolut;vit^urd{ANcTiune<i=le2KasA.cepTi;t<A(aWt%sEident*ul~luiDeSti(a3Ma4JstA6La3Mea5NSiPi%a;Si3Ml4Na5NSiFe;a(Si`i:ui3Jst5La5Le6NaHi&orGui2Jolo^peri)S=re)t}A3Mrd;at.t/ele^iv`itate^or/ualA2Ium_a^zaTii&t-dApost/ugatOQnc#amPptareaOeseaPvAr6LatXA>a>e>ul6Mul2MicA$o]mir]n]optat$r_A%mit.resAUa#u3Nc%AFe;Ti;mRi/lt^nA:at3NsCer$oport$ulNfacere)aHi=le3LrA%a.ecteazA2NlA%m$a_TiFt$e$iPu#rica[gATatOent&ulCh1Gi2La2NbA2Hci.ureaCjuTiEngUA5MeVmUi4Ms3NtFA&m4Ma;TiGt4Ne4Mor6Nul1JlDAturi#TiFi.an/rmADbEA$astrAWu/e_rt/i.cool2Me/a:rgA^e/gRe&re=a{i=le:i/rg;a<t`i{c3Ms$x#geria.iceDo2Nt3MAPa3Nceva4Nineva3Ne%le:rnativAEfel/or;a/uiaFl1Fm2NQndoi(uA.abil/ndaObele^ii^ulanTA.eTit/ninTare>tPricaWn>A>i?i<ii/stec#iazA;aEce^nFte(SteKi6Nsc&i<Ti<ri<t]prenteleDuzant|A.y1Nn]a^lizA.chetA.d/yOgajat^ela`es$lia2Ji$iPmalVe)le^versarea.na^e/ie]terior^renament{or>ul2Nul:at%uiPme:it{A(e$nT`a{t1MpA/rare|a:eaFut2Na$r:A_TinWe_at<ul%e;nt_iTiaRtamentYtul.ei$l:e_ul2Loi.recia(ez$ilie_nde;s3Loape:pia=Ti)t}AVe=re{i&oRximativ]ucA:at1HrDATiEtFa;TiUt.anjat3MtA%e#de2IePstat.gint2NmA$aRtA;aPe%le]ogant#s#tA/a/hur/icol=ul:ficialA:st.uncUA{m`a<TiVt`e`iNsculTi&t6NA|mVa)Ti)t{e:nd<AVeUs&ziDearA^mAnAtoare4Menea#igur<A<a=re^stent>A2LtAzi3Ga3Lea`ptA3Nfel2Nupra-tQTia3JtFaReaOac:A%at_ul.enTi(aHeFt;A^rizat.ingUe;iRs^tudine~a.mosfera]rage:s2Kunci1Hu2Nd$A/e.gustDr/ulDstralia.toRbuzJul:rul2Nzi:Ti:m4Lt!vQnd]ans`at:taj2MeTi3Ka%i4NmRu3Km/nturA/re_tisment<zat=ezOionUul]ocaTiUt(ul2Kut1LziBbA.T.ga%t2NiatGul^eTel5NiViRte#nuiescOrbaTiWi5NtHul#taiePrQn{A{i(ulPutDut%urA{a<i!a.Ti]ftA.g^A/ajele/i.iaEe]l^con$tA.nEcA:a^dA:a3Li4Mi:lorOr/A$cA:a^ry.schet/eball.tAPe.zAEa^eazA-eTi2Na$tEu.beluS=ulOi#m#n/zinAOre/lin]tty[iblia`e&otecA#cicletAXa]g#let;e<le;ul$l%y2GneFInTeles%leDrou5NlOsericA!locat!oalA:aOb$by.gaTiRt&A]liiEnavVA#mbA_oane.rd2Mston{ul!rQnzA;a.aTe;le:ul^dPvoPzilia.ian]ownOusc-ucATi:tAriaXe;ar$atA3Nur&A&ie&os2Kn3JA3Me3NiRca;iiUul=ui.ton]ze:le/unar0EcA]Tea#ci.dea_rea.i
-.lAtoresc=iXaXe>t/cat^durA<a.maSA;a]pSuni$itanWeWul2NrTiGle/ei$or`a$ui;a.sAtoreSti>ascA*scWi>Ti>a*eKt2Ntre#utAm_Qnd%a&Ti;m`re)aUtDzut!Ind-QStig(A|mHaJt(e<iDTiFvaDine5Nle:i&i#mp.nTi3Hd:vaPtRA;reT_QndRa`t%eUc(ul2Jt/A3MeRodatA4Lva1Ha]d/A^a:vru)l$eEou;ri/rul2NfeaUua_nea.iiOl/culator+rulEd:A3NeFa/ifornia%tate}aPm_a$ul2Mm3NerA5Ma&e{i<le/ion<ul^panie]nada`ian:pea$cer2NpPAt`ulPabil|A/cana/italA)a3Nul`ui]r/dul3Ge/ierA<a/l_osPne&a^ol3Mte5Ma;r%ier=ul:ofi|i2LsA3La$eRi:le_tA/tel<ulDuTiEtFA%e$zA4Ma`t2Nz3Nul:ri1Fe2La/ScAEi%ulElaltA/rA%tAPsFul2Kea2LiElalTi2JlPAlalt3Le:bru%lalteEor$ui_lA#ntruVl2Nr^c_ei`tareEe_Ti:m:re<aPi^tAm%atPul4Nt2Iva.zar!harlesUie`otteDeamA$fPia%eRle/ltuit/m:aUtEstia(eVi=le<une2Jiar/cago$na_ezA/peS_ul/ria/tarA]loe#ris.uck1Ni]aDnAPa3Mci`sprezece;zeci3Je:ma4Kva/ste&it#ocolatA>aOteSteViRascAFscPi:Ti_nd4Nt;ul/yOuda5Nt(A<e!lAdire)a<ii.aireEr:A:kEsA%a:icA.ienTi=i;t<ulEpA#ub:ul[oS/mar.adA_a^sta.boarA%rQt.d/ul#lT^egi<i{u`ul/onel|e|ul#mandA{ante?ul=t^is/oarAEpaniaJe*i|i4Nlet=A;icat_orTi<tA|ament+entul:uter$un#nStient{inTA?a$Tine$cediat&rt=ul:urs/damnat:iTie)i>le|onatRuc(AHeWre(iUs^exiune~a^firmat_lict%orm<tabil:uz^secinTe:ider*A*are?t;liul_tant`rui>ascA}esc*t~APt_a&ct=a|ez4NeazA4NinuA>mWa>TiXre*t=e)i_rA;act*ulUol=a)ul:ul/versaTia+ie_ine{g=e|iVsOpac;i<i;ul/ie4Mi5MiGlor4Ml;Arie5Nul)ui.rd3Nect(A:ea$pRul<uiOstA:a`t%um<ul]vorCrAciun=ul.avatAOeSte(re>a/a%dA:scAFt;urA3Id4MeGTi&a<i6MmUm_inTA=a;t/eazA/ier(ul:on^mA/scGut3Kzi4LutOimA%a:e&i%inal>i>ul$zA.ud1Fu]ScA#Tit&ulDiPva]lcRare;tPoare=a/turA<a2Hm/inteEpAr(A=mWturiHa7MtRereViEvaDnoStiWnTAFaSte*Ti>m4Msc6Nut>A.plu]rATA;at`enie3MQnd$aj&os;ulRt&A$ent/ge/iosPs_A%a%ul/te&a/vA#tiaRe_i/remurDvQntVulEinteWle>or0IdAOm1IaDTi2HcA2MiOn$iel$ny$s_eazA`z{i2Hr2Kt3LA3Na$e_le^or;eazA<z=iUiaVtA2Mu.vePid1De.SertEi/teaptA&pt]Tin;eDa/nPsupra2JcQt^embrie3Ki:de4NsRzia(e{i^laraTie=t.dicat.fect{e]geaba_t`e<le&ulPrabA2LjaEun]licioasA=s3Noc]misia^ocraTia^ult.ntistDoarece/camdatA$datAPparte/sebit#pASit:rtare/artamentul6MePinde^ozit^une:s#ranja=tHeazA)zDs^chiSi(d7Ne>TiHsWA|e<zi_operiYt:rie%urc=A=a*t=i^enat_ori:rt3Nigur$pArTit4Jre/tinul:ui5Ll{A<e#talii=le{u$ectiv}ulOveni6Nt$iiRnUAUe3Mreme#zamAgit:stru^gustAtor^vAlui:oltarea}t-iavolul#cTionar?ul/k.ferenTA*a`iTiVt)AWePicilWA=e`ultATi>ate2NmineaTA8Na2GnPTi;i^ainte$colo^teRr5Le.recTia=eGt<or*ul]scuTia)e`rs)ul;t(Am<a)tPearAEpArut:arA<i:onibil;ziTie|tiv%usPtanTA=a_rAm&acTieWtiv<t`ugA)eVs=A]vorT{atCl2Me]uiCnA]aCoamnA5Na5Me{iVlor3IrFe_mAUe]cEtorVeHul^umente~le2LiPlea^sprezece2Nlari.meniul/n%iSoarA?aUlor4Nul6LeVui#n^naDrPeSteViRa&mFsc3NiRTi%m:nTA(aFtPmFiUt<or]s^arele;ul2KuARzeciPa^gOvadA/edi(t%zi{le1NrOA3NguTVA{i2NacuUluiEgAFaFosteKa%ul(eOeaptAVa3Npt5MateGul<rile]ogatRuri2Num4Mul{ui`rileNuOS^man<i{ul]blA_u2LcPA3Me%Ti%m3Ni]lap`ulPce_iuri#minicA)a^neata6MvoastrA5Mzeu8Nle2JpA#r^APa%t`a$eazARreVa;i`os:ze2Ms!vDs0Fe1HSti#uat1Ia[chilibrulFpAGa`e(i]onomia-d#die]ucaTia=e!fect]icient.ort`ul{rile-gal_e.oist1Hi1Hl2Me/ctricA/v:i&i]ibera)t/minat^zabeth!mily.ma]oTie!nergiaVe_veazA2NglezAHa!pisodul1Ira/Ti3Ni3Lm3Mu.i
-c.oare/u:l!speranto#t3Fe!taj%ul1Hu#roRpA!veniment~e]idenTAHt^tA1Mxact/men(ul#celent>A%pTia=e/ursieOemplu/rciTii2KistA;aVt;e<nTaOperienTA?a{ment;tPlicVa)Tie~i)t<i_odat`zie/resie.traordinarRem0MfA#cQndPea;i&m3IutUA&e2KrA[Qn1MaTA3Ma#bricA<a2Jc3KA3Ie4MTi%book4Lm3Ji^tura$ultate?a.imos#ls:A:e2Mmilia6NeWi<i|le.ntastic:omA<e2Mpt:e;leFul<ui2MtA3Na#voare|a_rit|A.zA!bi[eTei]brA:uarie.deral2KlPicitAri_eEul_riDmeiGa5MeGle<orOreastrA*aPiciTi(re>a6Mt7NA|e$mADteRle&or/iTA&a1HiDTi2Je3Kcare/r%binte:ul]gurA2Li$cA4Na:ei/nTA;eFdGcA2Nlm%e;leRulDmOnal;A;ul/e^landa]r^e$mA%a2Lu3MlRe%ui.x.zicA;e-lAcAri#oare<aPri&le.uent1Noame3IrteDcPul_ri.losUeSteXi(ascAVscGi<Ti(m<ndHt)A|e]nduri#rTA%a&t:elePmA:a;t^te2Gst:ulDtbal/o_grafia+e+i!raTi&iPnTa%cez7NAJaRk3Nte5Mle(ui^zA:e.ed2NicAPg:ider#ucte{le/moSi5MasAJe5Ms:useTeYa/nzele-u]g/AEi_mFt.m/a%t;ul/eazA:z.ncTie<ona?tKeazA$dRul.rAEat^ia_oasA&sPtunA(a<ii.seseZgAseSteHi%ascA4Nsc3Mi:TiFm4Lt`A]teSte:sc/i:t1NQnd%eSteJi`aHm{scA5NscRi&m;re5Mt:ul;ri=le#t$ul-alben<A#rA^dA/y2Mta#urA.y]z[eamul$nta]loasA:s.nPeral|e=ul/iuEul:nchiOorge.rmanVA<aVia=ei!heaTA]icesc:i^nion[loanTe/balA/nT^ria#umA%a_eUSti`le;sc-oalA:eOl$f[rAbeSti`sc_im$dinA(aPmadA#abA/ce$de$s:A/tis:uit$v_e_idA]eSeSte5NalA=aUli=le4Nit<APa_cA^g/le3Mu:tATi`ate.i3LjA4Ni.oazA&nic}A3Nzav(AOup:ul!unoi`ulOrAEaOst:ul.vernVul>ui,hA-Qrtia&e!abar2Li3LdeGTi/nA:aReUle.nk]os#rry$tA_a1Lei]lenOnry#y[itler!mm[o.T/ii/ul]bby.lOtArQtEel&ul]ward[ranA-uh0Ii1La#d^ul#nuarie2Kr^ASi/bA:a$nAFaOsAOtA2Mu1MdeeFa$i:le/ntificat<tate~eaOiot;ule1NeSi:Ti%m%re4Nt.ftin{A2Ni2Mri/ta;reOsPe[isus&e-legal-magina=t<e)a|z<i2Mediat^ns`A.pact^lic(at:or/ortanTA8MtLAYeFsibil/resia=onant+at[namicul.cendiu^ident/lusivPredibil.dia:cA`iuRferent.el:ul.fluenTa^ormaTia?eLi?ile=t.ginerOimA4Na:ii]spiraTie/tanTAPulA.teligenTaYt~tA:nTionat~eazA~ez:resJantYtAXtWeazA=ul&ior*ul`naTionalVet;viu&zis}A3NrA&mRa&Ti;re)a5Nt%e%iRu#util#ventat_rs^itaTiaVt[steTPoria(e.us_e-t#alia{nACubeSteVi_a4Msc$i:mRreVa;iiFt`AUaUoUul=e#lie.nie-zbucnitBjack_ie%son]f#keOmes^ieOne.ponez)AGia.son[ean.ff^uit.nant/ny.rry]sseNim$myCoacA%e2NcPiPul:ri<leOe/y2Nhn%ny_son.i.nes2Ls/hNucAm_rii=le%tor|ulPa_TiRt#decAtor?ul;a(tA.lia_e2NmAtate]piterDr^at^nal{ulEul@karen#te^ie-elly.n.vin[ilograme:metri.m!m-yleMlAsAm3NaRTi4Mt[QnA3MgA1FaDSi.borator#c^om/rimi$ul.dyDpte&le.rg/ry2Ns3NA$e#tinA]udA/raOyla1Je.Sinat]cTia;e`i#e2NgAturAWa^alRt`A;ePeRa^i:i:le$ume#mn.neS/t.o]u!i2NberUA`e`i&tate+a#ceu;l]der;ul]ft:ul]ly2NmbA4Ma4Ni`i&le{or/itA`e]ncoln/daEiSte|aVit*A%a%e#psA%aReSte`sc_iUt.re#saPtA%a.tere1Koc/al`A/otenent?te^uiTi`ascAGeSte*iHsc`m&t4Ll`uiRri<le]gicAOndra2Kr^d]s.uis]veSte/iFt&urA=a|i[uA3Nm2MaETi3Lt#crAmRa;Ti`reaGt4NeazA5Nz(eVi4Ku&l5Mri7Mle}or/y2Hi.ke2Mme4La^iRi%nAGa;ileDnA3Na/eaPgFA%i;me=aRul3Mi%i.p/Ti/tFA;mRa&t%e/ul0GmA2LcarDnQnc6NAVeHi/uSi#r^cuS^ii_t`atA/turie|sit/ulOsurA`a;i]tasePuSa1LQineRi5NleDnA3NaPcAmFa;Ti5NreJa5Nt/drA`iUu-a2MSinA5LaUi<i<le]c]dridDgazinWul^gie^ia_c_e2Fi/l^muTA^or]jorUitateaDmA3KaEeiPi.ndat#rTi$cat3JeRa%le/fA^ginea3Ni4Ma:eUi:na$k/o/te%ie;n%or<i3Jy2MsAPa_j^cA.tematicA?a_rial
-/tOx^im`A!da-e2Ia3NrgA#ci%ul#dic;al=A=e(ment+te~tele`inA&ul:e%u;l{ui2Li]lanie3Le/odia<e#mbri<i&u/oria<e.nTionat^iul]rciPe:le4Lu3Lg4LeGTi&a{m5Lm4Mi/iTi:tGA`at3MsFiDsaj;e&ul/e.todA`a`ePri_oul2Iu]xic1IiOScA`ri%a`TiUre$to2Nc3NAPhaelEiEul2Me/rcuriRe$zulDi#jlocVulOke#lA$e/iardeFoane&n_tar=e]nA^TeaRi;leUt/cinos&unA=i3Ie/ge&a/istru$t4NeUa3NunatJA=e;eFt5Me.racol$easaPoase:s&ul#siune)a/s/ter]zerie-m[oS.alePrA%eRtAGe6Na#bil`A`ul2Md/A$alitate$el:rnAPul_ri]lly2Mment<an<eHul#ndial=A^edA/struDrPTiUi^ganPi3Nt]schee2NtivUe{leUul^ocicletA:r&ul-r-uScat2LlTiGme4Jumesc{iWmWt>A3It4NA4Ke:or.nTi3McARa%eSte=i;ascA&sc%it{or$te`le<ui.rdar<A<eEi:m4Mt.t/APat.zeu`lEicAGa0NnAscut-aS^teUre/ul#Tional}A2LibaFii]sol$ul]te^han^urA&a<l|A=e`ii.vAPa^e[chen1Ie]aTaPgrA/pArat2NbunUA&iVe.cazuriEesar=A=e&itA.fericit.gat`iv^re:iRu#norocit?A?ul?ule.obiSnuit]poTi_ata:liticos:tul#rAbdare$egulA^voasAUs.vasta$inovat3Joie;tDwNi2LSteOcAieri3Ji4Mo5KdatA4Nun<a(ul$kDmAnui3Keni3Jic#nge/s.sip#vel&ul[oDStri2Mapte6Ma3LstrA6Me2Ji/embrie^i.pTiUiOrd$i^mAFal<A3Noc;oSi<asA(s&ul%i2Lstru#ta2Ku3MAEaEl-r1DuOmAr5Nul3Mai3NeRSte<i4Lle:re<le`oasA%sc^i_mRt;A#ntA%a0Eo1Kameni6LiHlorOrAPe_care]se[bTii_nGe&ut#iSnuia>mWt>A3Ncei<ul=rile^ect{e.ligat.osiTi5NtVAOservat!cazia;e#ean`ului#helari*iEi4Mi_lor:ul#tombrieOup%A:a;Ti5NtVA_e:i1NdatA]ihnA`eSti!f.erRARi`mUt%tA&a]f#iTer{ul$cial-glindA1Kh1Mk#ay[liver1Lm.enirea#oarAUePrRIFQt2Nul4Me%ui[n]line#oare<a^ratA-oh-pTiune<i]era;Tia=e|une#inia.ortunitateDreSte(i%ascARscEi:Ti%mFtDt^sprezece/zeci-r2NA2Ma3MS:e4NulVui]b.dinGe(le;ul/onat2Me/le/z2Li/bil$cQnd;t%are4LeFine4Num^ginalPunde[travA-u#A/leMpA#Tit.cAlitEatUe/iiOdure{a`ile2Mi.lAria<e2NmQntVul*ui.puSA`a#r^AseascA<sc&iVt$Ti3NeaRreVa$inTi7Ni)lor&teEulRt.sAri(le/trAm&a{Ti(t&eazA<z|e=i[InANQineUa2KnA/a-a.Saportul^i2Nce%a/het<ul/ient=ul]ginA`a`iDhar&ul]latul^mA.nicA$taloni+i%ofi)i.pAOr$APcFA:a;re;t/don3Je/fumulPi:ezRs%u^k_er/ola3Lte5Ma;ner>ul`r_icipA>at;dOs3NA%re<a^tile/ul2Nt/rick4Mu`lea&zeci$ulOulPzA.zA1FeDSte;le;rA:i`i.deapsA|a]nsie3Gtru#reche%te3NfectWAPicol;uloasAKsRoadAPmis<iunea<ul;tHe=Ti3MsoanA)aJe*leUnal>A>e.scuit3Lte#teRr^reacA&cVe7NreLa{iHut-hil!iaTA:a$n/rdAPtrA2Mc/AturAEioareXle&rVul^nic^tat_urA.ele&a/ptPrdGe(m<re>a5LutRzi$sA_e/tre.lot.scinAPicAUa;i<le/tA:ol<ul#zza1NlAcea5Nre=a:intA4Nut(A^nuieSte{t/teSte)i&ascAUscRi;Ti`mGtOQng&A;QndUe{re;i%s2MacRA4Je:iEjAEn%etA(a_tat;e<leFul&ri)le$stic/tA_a2NeacA3Mc4NAm4NaUTi;m;re|a5Lt4Ne4Ni#ictisit?oare+or^mbAUareEnFA_eOoaia&e/iiEuA:aUt]uSEs[oStal2JTiDartA`a;e$tA4Ie.d$ea/ul.ezie;i.ftA_iTi5Nm#liTiSti+i6NaHe)iVst}ul%ticA=a=e=os]na]por;ul/ularOrTi`le$c^eclA/neSte%itPt:ocale;felul%ughezA+a^umbelul2Nsibil|A=itatea|ul$t:ul2It^enTial$riveSte|scHit>A.veSti|leFsteJa<itOzA$a$e:le$iTia<e-rAjiturA}iOQnzUul#actic=A$fOeSedinteLelePTRul&rile3Ja:jmAEcum/dauPfer<A<aWt*A<i/gAteSte=sc(iTi|mJt*A/miu{l^ot/sA:iuneRupun>e^tinde$zenTa|iVt=at%int|A.icep{i{ut3MetenWAJaWe7Ni>a8Ni>lor=os7Nul?ui/m_A;varA*a4La;r<ul:eSte)i;leUscFi;i`m5Mt4Mul3Kn:Si_T;esA=a;ul%cipal?A~a%d;AUe<m4Ns:trHe/vat<AFeSte|i;sc:i&Ti&nTa(dGre)a&t.oSti<i/a
-spAt>AGtA(e/bA4Labil:e4MlemA7Ma7Me*le$ces<ul/duce&s<e{ul/fesionist<oarA+aJr>i~iKul_it:undPgram=are)ul`esePiect)ul^miTiUs<iune?eaGt/poziTiaYeYi?ileFria<etarul?tea(ile<uWl:unerea3Nst;esc`ia(e<i|le`ule^tecTia>e&ja{eazA=z>e^voacA`care|t]udent[t[uScArie/ti;ul=e2KTinUA&e&iOblic{e<ul2Ni^ul]lover2Nn$AEct;eUul3Me%Ti%m^gA2NrPta`Ti&t2Ms^A2MteTi4Ja;iGm;u4KmRreHa`ileGnicXA*e>i3Lut,rAbdare|a]cealA#iDmQiRnUA5Ne<Ti(m3Mas]neascA$i:TiFt`A.pit#spund=AJe6NsJul>ri~ile<zi]tAcit2Ju/l2NzboiVul*ui_unare!Qd$eDndRulDsOu/l.zi[aTional.chel#dio;ulDhat;ul.nADpid;A/ortVul#r/eori.ta%t#y]zA/na[eTeta/inutOaPl%A_eRitate~a&zatDceRnt_pTionat/iproc^omandat`pensA/unoSti(aSteVsc>AtorXut]d/ucere.fer;i/uz;AUatOgeRle;ui/inA&a_unea$ret3LulAUa;iVle|or#laTia(e<i$e/igia.marcabilA.nunT(aWt<e<i.par;a(t;e3Lede:t;A$rezintA^utaTiaOspect=A|at=ul_ins&rA%onsabil~ili?ilitateaPtaurant+tulFul.tras]uSeSti;sc%i5Nt]vAdEedere:ni(t/in:stA{a.zervA$istA^olv<AmVa)t<e:nabil/ultat>e?le*ul!ichard^k.dicUA`aVt|A`e&ol.ma.o.sc_A:ul;ri]tm-oSePieRiEu]agA/ta#bert^in^otOchiaUe/k2Jg^er.l/ul.mQnA;iaPaRn`e;tic;ul]ssPt]y.zCuSineOgAmPat.pePt]s$APia!yan0DsAOi.lbatice#nAtate*a;oasA(s2NptAmQnA8NaKi?i#rac`A`i/bAtori?m/i%t$ut&atDturat2KuNInt!QmbAtA#nEgeUle^ii1La.bia_e]c#lAPa_riu=l:tA3Me^ly3Nut`Ari`are$vA_areUt:ez<e<iDm3Mi]ndviS.rA$ah/cinA$e_a/i#t^ul2Ju!cApaGt/ri$zut.ap%A%e:iPun;ul#enA:aDhimbVA|m=ri~leHa)re?a7Nt(e(i{ul.oTi/atAUe<m/pRul/rulEs$t:t2Nrie%i&tor4Ms&A`eGoareYa<ri`ulFuOump&A;eUo;ulePrtUA`e$zAFaTi4Me1Ge]amAUnA4Ma/n3NrA4Ma]cTia$olulEret<A{arA(e(ulPundAVe%ritate~eaOmn:al<ul;t:e:ul]ninEs:ibil:ul$timent+e+ele.parat$tembrie#rgent/ie%oasA5Ms^viciileJu*l`t#teDx/ual<A:l$y#zonul-fAtuit.Qnt^rSi6NtJul#at%ul;ri.ert]inte]orAie1Kigur5NA5ManTA*a&i]mT:ea<m4Mi;Ti`m5Nt/onPplA`e5Nu3Lt:AFeDncer<APe3Lgur6MAHaVi6Nul/ucisOstemHul.teEuaTiaWe`t[lAbiciune;tOab%A_e_i/vAOujbAUa-mith!oT3MiaRe&i3Nul&uiOareUle(ui_tA;a]cial{A{e_etATii<ate?a.l/daTi=i&t^uTia(eOmn.rA3Na.sEit!pAl%at]aTialA&u<l$lA/nia;ola^rgeRt3Nte5NleDecial)A=e;i%tacol?ul/li3Mr:AUmRanTA)aFiat=A&e;i.irit<ul3Ntal<ul#ort2Mre^ijin|ul2Kui3Kn4NA:Qnd4JeGTiUa<i<m{uUm3Is%e[t2NAPm^pQne{ulPtea.Qnd_gAUaDaETiUa&e^bilA(it3Ki^n^rFe&a3Nt%ele<or:ul<ui3NuDea$le$veOiclA;e/l:ul/nge:s.omac{ul/p#rAin<A)tateHe<i:zi<i{le$QnsPadAUa^eet/icAUat;t:gA{t#udenTi>i(t|A:iaVt(zAGez=e=i`ile;u<l/pid-ua2Lb$iect)ul#cEces(ulOd.ferA;iVtEicient?A?e^lA%etVul.gerat;ez]mADn3NA_mPa_Ti4Nt$e_t&ulPi3Gt4LeTi5Km#pA_ra{TiHt)A/aPer&i;market$ort(a/rafaTA;veghere(ieTui?uit.rori<i{lePprinsVzA/sA_e2Ms/Tin(e/an/pect|atOtAPe,tAcere(a$ut2NiPat2Ju1NQnArUA.rfA3Lziu1JaOTi.bArA`a/lou{lDci.i$e2Lle:nt<at2Mre2MtA4LlGui3NaEoeba]xe$i_ul.ylor1Ge.amFA/tru.d]hnic:ologia.lefoane6Nn7NulFvizor+ulOm/a$eRle/peratura_lu_orar]ndinTa$is.oria;e#ren;ul/ibil$men{ulRinVA)mHa|Ti7Mt<e<i^ry#st_e%ul]xas/tChe#omas-icAlos|ule]m^bre/id3Jp4Kul(ui2Ine:reUi2Mp/ii3Nul`e-o2KTiFi#aletA/mna3KtA4Je2Mcmai]ki/yo2Gm$my#ny]pit#rt2Jt$al`A;itateEdeauna3NuSi4Kl-rAdatEi%ascAReSteWi5Nsc%mRt.aduc<e|Ti)reLa}i^fic<ul$g:AFe;Ti%i/nsformA+at`mite;portEs/tament;t2NeabA5Na%cA%z3Jbui6Ma6He6Mt`ri=lePc4Ne&mRi4
-Lut6NA{e(ul3Ki%a:leaRzeciPnFul`rile/zeSte=i&sc:iGt.ibunal/coul/miTi5Ns&t<AHe|mPst;A`eTe]upA_ele:ul1Iu.rA^cA_a/nul2Nturor!v[ylerBuSA2Ma]i/leOoarA3Mr.urel:inTA-au[ciSi/d:AFe;rea/gaS<ul3Ns_A/ziChCiTi.mitoare(r2Nt3NA%m3NaRTi:m4Mt3LeCl.ei#timA5MaUele&iiGulNm#anRARe.brA:aRela]ple%ut1Fn2LaOchiul=e]dA3IeFva2Mei3Nle3Nori]ghiile]ic_A^formA3Ni^tate=aRe/vers=itate?atea)ulOor]tDu3Mi3Ll!rASte;iEscOQt:A#a#cA^a%t.eche;i<le#genTA;t.i^aS2MmA:reSte>i<sc`i(tRtoareYa?leVrulEa%re%t$eRazA:le_zi.s^ul-scat-til0IvA2Kd.i]rsat^ul2Kzut-QnAtoare$d:ARut$tRul$zare#rful3NstAGa1Ha.caRnTA{a2NdA.liza$oare|a:reazA.n#rAEa.sele!eSti`le2NTiDche;a4Ni;ul/inii;ulOdeFTi4Ma4MmFre<a]gas2Ki2MniFTi%m4KtDrde$ific)A>m|aTi*t_i^suri/ziOst:e&a2Lzi!i2LaTA4Ka^tA#ctimA<e:or<ia=e#deo.e/TiGi;le2Mi3NtoareGrVul2Ln3MAEa^centPde`cA{at3Le%ri3MoRvat|A$ul/zi.olenTA=a{t]rusulOs$at/e%le:z$ul#tezA#u#zitAUaVt`eazA(z|e-oStriDastrAVe#ceRa^i2IiPa:iFmEe^nTA]luntar2Km2KrPbA4Na4MeSte7Mi&a<m6NscA5Lsc4MiGTi5Nm&nd5MtOstru]t/at]uA-rAjitoare2NeTi3Ja4Iu3JiEm4Ne5Na:uri3Mo4MdatAEun`ul.oia&m2Lut,walter#shington!eekend!ill:iam!ow,yanni[eah.niCork#uMzApadAUa.u[QmbeSte;t{ul%it!ahAr!boarA$r:ul.ura&t1Nece/i.ro]u!gomot<ul1Ki#ar:e`le%ulDcEe_m3Ni]d^ul2MleRiFle/nic#ri2Ms2LuaNonA$a]ologicA]ri-vonuri"""
-DATA_EN = """0Da!ah-bandoned#ility2Mle2HoutPveOroad.sence;tEolutely-ccentFpt(ed%ss3NidentPordingRunt$usedDrossDt/ed$ingRon<s_ve`ity/or/ress^ual6Mly!damOd/edPress]mireRt;ted]opted.ult.vance|d&tage^entureEice_se(d-ffair<sPord2Mraid$ica2KterGnoon`wards1Kgain5Mst2Ne^ncyRt/s2MoDreeUd;ment1Nh2Nead]h[id.m2Nr/planeRort-l.an$rm]bum.cohol]ert$x.ice^en3Nve2HlPowUed2Mmost2Mone4Ng2LreadyEight2MsoOthough2Kways1JmOazing.bulanceDericaJn*sOong$unt.y1In#cient2Fd/y#gel%r3NryOimalVs.n/a^ie^ouncer:ying2Lother2Mswer(ed{ing(s.xious2Jy3Nbody3Mmore3Mone3Kthing_ime3NwayFhereNpartUmentOologize{y#parently$ear<ance<ed(s$lauseRe&s_ication`ed:y$ointmentPreciate:oach}ing`priate`ve.ril1GrePa_sEn't.gue_ing%mentOm/edPsPy2Lound.ranged$est(edPiveHd`ingDt/hur$icle%st1Hs#hamed#ide2Lk3LedEing/sDleepDs$hole/istant$ume_re1HtDe.mosphereOtack<ed/empt%nd{edGtion/itude/orney/ractive!udienceOnt#stralia]thor<ity^umn!vailable.erage#oid-w#ake$re3Ky#esome#ful]kward-ye,babe/ies3My2Jck:ground2Ld$lyDg/s.lanceEl%s#nd/gEkOr$ely/king.seRball%d:ment^ic;ally/ketballPtard#th%room^teryRle1GeOachPr:d_s^stEt_en:ing3MutifulUyDcame4Juse3Nome(s&ing2Md$room]ef3In/pingEr2Kfore#gEanPinUning;s^un.have&ior3Nind2Ling;s2Llieve)d)sPl$ong(s_ved%w/tOn/ch^efit]rlin.sideVs3LtDt^rayed3Kter_y3MweenOyond-ibleOcycle2LgPger&st#keDll:ion:s%yOrdRs$thGday2MtEch$e/ter1NlackPme.eeding:p/ss`ed$w#ind.ock3Nod&yPw:ing_sDueNoardEtOb/by.dies3Ny#mb.ne:s2Lok4Ns^m/ts.rder$ed$ingEn$row<ed2Nss3Mton2LthRer{ingPtle{s%om2Nught/nd.w/lDx/es2LyPfriend3NsNrain;s^nch:d$ve/zilOead4NkGfast&ing;s%th(e(ing.ian/deRge^ef$ght$lliant3Mng&ing&s^tain%ish.o3NkeGn3MtherWs3NughtPwn.ush-ucksOddyOildGing}sRt]ll%et%shit#nch#ried$n%ed%ing/st2Ns/h3Miness3Ny2Ht/t:er%on2My$ing1IyDe,cabOke.lifornia3Kl4LedFingRsEm2LmeFra{s$p:aign2Gn3K't/ada`ian/cel&r/dy3Mnot]p$able$italEtain_ured2KrPd%s3Le_d%er4NfulWly_less%s^l^pet$riedFy&ingPs^ter2Mse:sPh/t%le2Nt3Nch$s2NughtEse&d`s]ve-elebratePl#nter:ral`e%ury.remonyEtainJly-hainRr`man$llenge/mpagne3Mnce<s4MgeHd(s;ing_nel$racter~sRge<d<s:ity:lesUie:ming/se/t_ter|ing#eap_ted;ing3Nck&ed;ing^er&ing&s%se/f^rry/ss:t.icagoRkenPef3Mld&hood5MrenPnaRese#ocolateEicePose/se;n#ris&t<ianHmas]uckUles{ingPrch-igarette~s.rcle:umstances.ties_zen|s3My.vil-laim`s_re3Nss;es;roomDean;ed&ing4Nr`edUly;s$ver#ient{s/mate:b;ed`ing#ock3NseGd&r;s;t:ingEthes`ing^ud;sDub^e!oach/stPt#de2Nffee]in_cidence2Mld/lect=ionGge$onelRr`s_ur2Ime4Ms^fort)able3Ling$mand)er:ent:it(ted>eRon_unication)ty/panies6Ny;red:etition:lain>ingUeteKly<x&icatedFuter>s]ncentrate;rnWedVt$dition?s/ference;ss:idence}t%used$gratulations/nected=ion^science_equencesRider*ed>ing_tant}ly;ructionPtact_ent;stRinue>d*s%ractGol^venientUrsation%ince*dOok:ed_ie<s&ng3Nl#p$s$yOrnerPrect.sEt:s.uch3Jld;'ve5Nn't/ncilRt;ing&ries6My`y3Nple$rage4MseRt$sinOverUed.w/ard-rack$p/sh3Nzy#eam%te(d;ure$dit$w#iedPme`s%inal/sisOoss;ed`ingPwd`ed_n.uel/shDyEing!ultureOp.re/ious/rent|ly^se]stody`mer>s2NtPe/ting,da2MdEdy.ily#mage{d3Nn.nEce%ingPgerHous/iel$nyOreEk:nessPling#taEe$ing2Nughter}s.vePid.wn2Ky3Ls!e2Mad^f3Nl:ing^n3Nr3Mth.bt.centPide6Nd
-Fsion>sOep%ly.feat:nd;sePinitely.gree<s#licious:ver|ed|y.mand]nied^tist/yOpartment$ends/ressed.scribe/ert&ve=s/ign{ed%rePk/perate:ite/tiny%roy)ed.tail(sPective:rmined.veloped=ment/ice%l-iamond/ry#ck$tionary2Id3Kn't2Me3Nd/s/tOfference8Mt4Nicult~ies?y.g2Nnner.rect<ion<ly(or^tRy.sappear+ed(ointed:ster$coveredRuss=ed=ion$ease/gusting/h%es$tance{t:rict#vorce=d-na1Go.c3Mtor(s^ument>s2Kes4Ln't2MgPs.in4Kg.ll:arHs2In't3Le2Lor%s#ubleFt2Jwn:stairs_town.zen!r]ag:on^ma`tic$nk$w_er:ingDeam;ed;ingUsEssUed/w2MinkGing&s3NveUr;sFingDopRped$ve#ug%sEnk#y-uckOdeOe#mb^p2Nring.stOtyNying0Meach#rPlier4Ny/n_ed$s3Nth;quake.se$ierRly$t3My2LtPenEing$s-conomic<y-d.die.ge#ucation!ffect{ive<s$ort<s!ggPsNhCight2Nther-lected;ion;ric>ity^phant/vator_en]izabeth2Lse-mail.barrassed?ing#ergency#ily.ma.otional]peror/ire/loyeesPty1Mnd$ed$s#emiesRyPrgy.gaged{ment$ine{er$land4MishDjoy&ed;ing2Lough#ter&edPire<ly/rance]velope/ironment-qual/ipment!r.ic]rorNscape(dOpecially%ranto]sential.tateNurope<an-ve3Kn4Ning%t;s&ually3Kr4Ky5Mbody5Lone5KthingUwhereOidencePl[x.act5MlyPm%inationRpleOcellentFpt/hangePited&ing3Nuse#ercise.hausted#ist;ence`s^tDpectVed(ingRnsiveFrience?ed<ment;tElain=ed&nation:osion/ress=ion#tra;ordinary%emelyCye3Ms0Mface_book:s3Nt%ory%s#ilRed%urePr:ly$th#keDll%en%ing:s/se#miliar<es5LyEous#n/cy^s$tastic2Mr$m_er.shion3Nt%erOt$e3Kher<'sDultOvorGite_urite-biCear.d^eral#ed3Ll4NingWsRsEt2Nll%ow3Nt#male.nce.stival.ver2MwNield`s.fteen_h:y2NghtUingEureVd{s#le:s$l%edEm:sOnal5Nly:ncial3Kd%ing%s3Le$ger(sEish6Ned2NreRd$m3KstDsh%ingOt2MveOx$ed-lag$t]esh/w]iesPghtDoor$werHsOy$ing!ocus#lksElow(edVing{s.nd2ModEl:ishPt%ball2GrPce&d;sPeign%stRver3MgetFiveFot(tenPm:er_s^th%une:yEward#ught3Lnd3Nr:th.xNranceRk`ly.eak/d3Ne%dom_ze3MnchPsh#iday_ge3Lend(ly6Ls)hip/ghtened2Iom3Nnt/zen#uit1Nuck:ed%in6Ng]el2Nll:y2Mn/eral3Nny.rniturePtherDture,gain2NmeRs.ng.rage/bagePden^yOs$ps#te^her{ed2Mve#yCeneral=ly<tion;ous$ius^tle(manWenOorgeDrman{sVy2Ht3Ns3Lting!host;s-iantOft_s2LrlFfriend4Ns2JveFnRsEing1NladEssUes]obal^ry/ves1Ho#al2Ld$damn/s2Nes.in4IgOld:en$f2Mne3Kna2IodFbye:ness:s.rgeous.sh2It3NtaRenDvernment<or!rab:bed$ce/de_uated$ndUfather&ma(other;pa:t;ed/ss/teful/ve^y2Keat;er(st/ekRnPw.oaning&sPundFp`sPw%ing%n#unting&s-uarantee%d;s2Mess%t&s.idePlty$tar2Nn$s_hot2Ly3Ls-ymBha#bit2Id$n't2Nir2NlfPl2Mnd%edFle4Ns&omeEg%ing2Mppen6LedHingHs_ierUness4Ly2LrdRerRly$m$ry2IsPn'tOt3Ne:d%s2Gve4Nn't3Ming1FeO'd$ll3Ls2Mad:ache:ed:ing%sElth(y3Lr4LdRing4Mt;sPt$ven:ilyRy]hOld/en3Ml4Mo3JpFed:fulRing:s#nry2Hr3He:'s$oEself2Ky1Mi.d$denPePing2Mgh%er`st:ly#ll2Hm3Mself.re%d2HsEtory2Nt^ting[mDm-o]bby2MldRing_s$e$iday|s$y2Kme_sRworkDnest(ly{yFyPor:ur.ok2Mpe:d:sPing.rn$ribleEse&s2Nspital2NtEel2Nur4Ms3Kse&s2HwPever-ugPe2Mh2Nman`ity&s^orDndred=s$gFry/t_er:ing2Nrry3Nt_ing%s2Nsband0Ci1M'd2Lll2Im2LveCce[d2LeaRs^ntityOiot1Hf-gnoreNll/egal$ness-mage:inationVeOmediately.portance8MtFssible$ressed=ion>ve:ove1Fn.cident/luding/ome/rease&dible~y#deed:pendent$ia;n:stinct:vidual/ustry.fluence^ormHation{ed#juredOnocent.sane3Nide_st{ed/pectorEtead:ructions$ur
-ance.telligence?nt%nd<ed;tionRrestKedKing}s&national(et`rupt&view3Ko$roduce?d.vented%stigation/itation&eVdPolved-ron1EsOland2Ln't#sue;s1Et#'ll3Js#alian%y2MsPelfBjack%et%sonOil.ke.m$esOne2Npan5Nese.son]zz!ealous.ff]nny.rk/ryDsusNim$my1Lob$sOe2Nhn%ny_sonDin:edOke:s/ing.nes]sh#urney#yNudge#ice]lia_e/yOmp%ed.ne/ior.ry2Hst%ice@karen#te1Keep%ingRs.lly#nDpt.vinDyPs!ick%ed2NdPding3Ns2Mll4MedUrRing.m2Lnd:a:ness%sEg:domDss%ed:ingOtchen[nee:s3LwOife#ock;ed;ing3Gw%ingRledge4Nn4Ms-yotoZla.b^or#ckOdies3Ny#idOkeDnd_ed3NguageXsDrge;r;st/ry2Kst2Mte%ly4Mr:st^inOugh&edGingGsUter^ndry/raDw/sPyerOy.zyNead%er:ing:s3NrnGedUing3Nst3KveUs4Ning]cture#d#e2LftOg/alPs#nd^gth]o2Nss%on<s2It3M's^s3NterVs%ingOvel!iar.bertyPrary#cense2NePdPs$utenant2Kfe$t2Nght;ning&s2HkeFdRly4Ns]ly]mit]nda3Ne%s^k.on.ps.saEt4Len(edVing.terally{ture3Jtle2LveFd4Ns3Ning-oad/nOcal:ted;ionPkRedOndon$ely3Kg4Ner2Jok4Med4Ling4Ls$seDrd2Nse:rPing$s3Mt2KtPs#ud^is2JveFdRly:rFs/ingOw$er!tCuckFy/y]ggage]ke2NnchCyingBmaDchine|sDd$am;e3Ke#gazine$ic]id$lPn#jestyPor2Jke4Ms3Ming#le#ma2Jn^'s$age(dVr/ner<s3Ky#p.rch$ia_ePkRet:sPriage5MedFy^s/tin3Jy4N's]sk/sEterOtch$e:rial/h:ematics/t4Mer(s#x2Ky3Lbe$or1Fe#al:s3KnRing4NsFtPt.dia%calUine2Met4Ning#mber(s/oriesUy2Mn/talRion=ed.rcy^ely/ryOssFage|s2Mt/al/ers/hod.xicoNichaelDddle$night2LghtOke]leRs$itaryEkElion=s2Lnd:s3Ne^imum%ster^or3Nute6Ms.racle$ror.serable3MsFedFing&on3Ntake=nWs:er]x/ed!m#m-obile#del%rn2Mm3Nent<s$myOnday3Key/key^sieur%ter3Nth5Ns#odPn2Jre3Lning2Lst:ly2Lther{'s{fucker^ionOuntain*s/seEth2MveFd:ment:s3NieUsFng1MrOs1JuchOmDrder(ed=r#seum3Mic`ian3Kt_'ve1Gy2Mself^terious<y,nah]il#ked2LmeRdRs.ncy#rrator_ow.sty#tion(al{s%vePural=lyUeCear:byRlyOcessary$k2JedFed4Ns.gative.ighbor*hood>sPther]rveRous2Jver2Kw3Ns%paper?s2Lxt1Lice$k2Kght`mare;sOne1Go]ble3ModyOiseDne$sense.on.peOrPmal<lyPthOse2Gt$e:s3KhingPiceVd#vel2Iw/adays$here-uclear2Mmber(s#rse#tsMo'clock-bey.ject#viousWly-ccasion/urred#ean]tober-dd1Ef2JfEer&ed`ing3MiceVr=s;ial2Mten1Ih.hNil1Lk2Jay1KldPer1Gn2Lce2He$'sEs.line3Jy#toNoh1MpenRed%ing:s$rationDinion|sOportunity:site]tion{s1Jr.ange2Nder&ed&s/inary]ganization#iginal-saka1Kther5Ns&wiseNught2Jr$sRelves2Ht3Nside/ta1Jver!wOe2Ln/er/sZpack:age_ed#ge_sDidEn:ful%t&edUing$r.l/ace/e.nic/ting%s.paEer&s#rdon3MentsPisEk:ed:ing3Mt%icular?rly;es%ner%s4MyDssFed;ngers:ing;on:port3Nt#th_etic/ienceVt=sOul2My$ingCeace#n/cil/ny2Jople#r/centEfect)ly_orm=anceEhaps$iod$mission3MsonVal}ity>ly_uade]t/eRr[hil2Mone$to`graph&s.ysicalNiano2NckRed:ing/nic3NtureWs.eEce&s.g.lls/ot.nk.pe.ss_ed#ty#zza1Llace`dUs/in3MnFeUt%nedUingRs%t;s/stic/te3LyRed&r<s4NingRs.easant5Je(dUurePnty#us!ocket.em/t2Nint`ed&s/son2Mlice(man;y:te&ical|ian)s]nd#ol3Nr#pPular(tionOsition<ve/sibility6Nle)yPt.t/atoes^ential.unds/red]verty2Nwer&ful;sNractice^ise$y.eciousPfer$gnant$pareWd{ing/senceHt|sFidentRs&ure$tend=ed|ing4Mty/vent:ious}lyDice&s/de/est$me$nce(ss`ipalPson<er>sPvate$ze2Mobably4Llem7Ns$cess^duce<t=ion=s$fessionalWor_it$gram&essPject3NmiseWd=s$of/per<ly(ty%osalPtect=ionEudPve`d:ide|dCublicDllRed:ing.nch/ished<me
-nt.rePpose/seOsh:ed_ing2Kt/sPting,quality/rterOeen3Mstion8NsDickGlyEet;lyEt4Me,rabbitOce/helDdio2Nin%ing:sPse&d2Nn/g:e.re:ly.t$e3Nher]w#yNeachUed_tion3MdFing_s4My3Ml%ityUzeWd4Jly3Nson<able(s]call/eiveWd:ntVly$ognize?d:mmendRrd(s2Nd.fuse(d]gion$ret/ular.latedUionshipRx/ease=d/igion=us^y#main<ed<s_rkable3Lember>ed$ind<s/ove<d#nt]pair$eat^lace:yEort<ed|r<s/utation#quest_ire|d|s.scue$earch^ist^ourcesPpect_ond<se)ibilityYle3NtFaurantPult(s]tiredEurnVed.venge/olution]ward!iceEh%ard^kOdEe$iculous:ng2Ight&sOng%ing%s#se^ingPkDver1Noad.b/bed`ry$ert^otOck:s.ger#le$l]man;tic$e#of3Lm:s.pe#se:s#ughEnd^te.w.yal!ude.in%edOleRs.mor2Mn3Nning$s.sh/sia(n-yan@sacrificeDd2Nfe_ly%ty2Jid^ntOke.lad%ry/e:s$tOm3Le.n/d%wich/g/ta#rahDt$isfied$urday]uce2NveRd/ing2Lw2Jy3Ming3Ms-careGd:yOene#hedule3Lool{sOience;tific|st?s]offs/re/tt]ratch/eamVing<s:en:w;edCea^nPrch{ed<ing$sonEt:s2Mcond(s3Nret(ary(s/tion^ureUity2IeEing/k3NmFed4Ms3Ln$s.ldom$f:ishEl%ing2Nnd:ing/ior3Nse:itive3NtFence*s.parate#rgeant/ies4NousWly$ve;dRice=s2Nt^s/ting%le<dDvenFral`eDx/ual/y-hadow$ke3Nll$me$pePre`d%p2He3N's/ep^lf/riff#h]ift^neEp:sPrt3Mt.ock;ed/eFsEot&ingPpRpingErt3Nt:s3JuldV've(er}sHn't_t&ing3LwRed&r%ing:n%s2Nut#y1Nick2Nde:sDghsRtEn:al%ed:s#lence&t$ly/ver#milar/onEpleUy.n3MceEg%erRingFle/k2Lr2Mster(s2Mt/eEtingEuation2Nx#ze[kiing/llsPn^rtOy[lave2MeepGing;y$pt.ightly/p:pedOowRly1Nmall;erPrtOell;sOile;d:ing$thOokeRing-nakeDow1Ho#ccer$ial%ety/ks]fa$t]larPd%ier)s/id$utionPve;d2Jme4Nbody:day%how4Lone4Jthing;ime8NsFwhere2Ln3Ng%s/s2Lon%er2KrryEtOul3Nnd;edGs$p/rcePthCpace/inPnish$re2Leak&erGingUsEcial;es`ficPech%d/llEnd;ingFt#irit{s^te#litOoke&n/rt&sPt#readPing.y!quare[t#aff$ge$irs3Nnd`ardGing&sPr:ed:ingRs4Mt5MedUing&sEte;mentGs4Nion3LyRedRing:s]eady%l;ingEp:ped:s$veOick3Kll.ockPleUn$machPnePod3KpFped`ing:sEreRiesRm4MyDraightFnge)r}s3Neet(s%ngth:ss$ikeEong<er/uck_ggle]ubbornPckEdent7Ns%ied<s;o4NyUing3Nff3Npid#yleNubject#cceed=edUss)ful3Lh/k_s#ddenVly.e#ffer<ed(ingOgarPgest)ed=ion#icidePt:case_sDmmerDnPday#per`ior;market/per:lies;yRortGse7Nd2Kre%ly/face$geryEpriseKd^render:ounded$vive=d.san$pect:iciousNwear:t;erEet&heart;ieDimRming/tch#ordCystem0Ntable.il2Jke4NnFs3Ming.lent{ed3KkFed4Ling%sPl:er]nk#pe#rget#skPte;s#toebaOught.x^es$iCeaEch5Ner=s&ing3Nm/rRs.chnology.dOethOlephoneRvision3Jl4Ning%s.mper<ature:le2Nn/dPnis^se^t.rm%sErible=y`ficDst:s#xt!h2Jan4Kk5Ls3Et4L's2Ce$ater^e3Kir3Jm_eRselves3Jn$ory3Hre5M's;fore3Kse3Hy:'llGre`ve.ick$ef/n4Kg5Ks4Ik5MingGsPrd:styRty3Fs.omas3Kse/u4Ngh6Kt)sRsand*s.reat<ened4KeRw$oat4Lugh=outFw;ing;n.under^rsday/s.yNicket(sOe/d.ger$htDll.m3Ie4Ms#ny.p2Nred:s]tle1Do.ast2Kday;'s2Lgether#iletOkyo2Kld2Fm3M's/my3Lorrow]ne$gue3Might$y2Jo3Lk^lsDp#talUlyDuch;edPgh/r#ward(s^el:r3Nn.y^s[race%k$dePffic3Nin;ed&ing$nslate~d>ion/p:ped/shPvel<ing.easure%t&ed;mentEeRs#ial$ck3Med:sEp.oops3NubleOuck3Me$ly^nk3Nst;ed3Mth2Ly3Ling-uesday]ne^nel.rkey3Mn4Ned%ingRs1Nv-welvePntyOice^ns2JoNype^ical,ugh#ly1Lh1Nm#brella-nable.believableDcle^omfortable2Mder5Lstand?ding~dsWood#fortunately.happy.iform$on/que/tFed$verseWi
-ty]knownOless/ikely2Mtil.usual1HpOonOset$tairs-rgent1Is2Le3Ld$ful$less/sDing#ualGlyMvacation.in.lley/uable%e#n.rious-egetables.hicle]rsion3Iy!ictim<s:oryOdeoOewOllage.olence<t.sionFtUed;ing`orsCoice;s#te0KwaitRed4MingDke2MlkFedFing:sEl%et:s/ter2Nnna3Ht4Led:ing4Ls2NrPm/n:ed:ing^rant2GsPh:ed:ing=ton3Nn'tPte;d:ing2MtchUedGing3Mer.ve:s2JyPs1Fe.'d3Nll3MreEve#ak/lth$pon(sErFing:sEther.bsiteDdding2MekRendFsOightPrd2Nlcome3Il2Knt2Ire%n't#st_ern#t1Fhat4M's4Never.eel3InRever3Jre&'s;verEther2Lich3Lle^stle3Nte2IoP'sEa$ever3MlePm/o^reEse2Iy!ide2Mfe#ld3Hl:iamUng2NnPdFow(sEe/gs/ner:ing/sPter]re.sdom$e3Mh:es.tch3GhRin4Lout$ness|es!oke.lf2Lman3Nen2Ln3M't3Nder(edHful(ing#od%s2Mrd4Ns/e3Jk4Ned`r(s4Ming4Ns3Lld^nEried<s4My;ingEseRtEth2Iuld;'ve5Nn't/nd;edDw1Nrite&r;sFingFten2LongEte,yard1Ieah3Lr4Ks.lling%ow#n#p2Js3Mterday2Lt!oDrk2DuE'd4Nll4Kre4Nve3MngUer3Gr4Ns5Lelf=ves$th,zero[one.o"""
-PAIRS = """!'E$s
-!(CSc
-!)DSc
-!+@,2
-!-ESc
-!4C,2
-!9E%LF5HF7$G<=GT6GSaG4cHLnH2IIFZI$kK,bKI[L-&LLi
-!AC8-
-!KC,2
-!MB,2
-$JJ&aJ%MKMI
-$U>+@
-$X>+@
-$ZA+@
-$e@+@
-$f>+@
-$~A6vCNdDkrDf9DkUEA6Ed<F{PFkeFfTFl<F*`GYBG|=G,fG|UGX>G47GY`Hv8H[lHj[H3'I3OJ$,KSQ
-%#B+@
-%&B,2
-Uw=Q2
-UxB:Z
-%6?Kk
-%LD,ND,wDH+E2HFLm
-%[FI[
-VH?BM
-VT>|z
-&UG,2
-&oA,2
-VkAP~D`A
-'`Ch7Co&
-'dB><
-W6BmX
-(K?QjG#XI5*
-(L@,2
-(RA,2
-(U@UFG9p
-WW?UF
-WlA$~CvcC|CEq0
-Wp@>IA><
-)+I,2
-Wy@P~CVkCh!DjzDo)EnH
-)nD$8
-X4AeF
-X<@Q2
-XWB$~DUwDg[EjbEg,FZ|
-Xe@BM
-Xq>Q2
-Y0@y5
-*gF,2
-Yr?$~
-+4F,2FMK
-+5D2IDGG
-ZRA9:Bg;
-ZV@$~
-ZX@P~
-+@EScJ%M
-,,@!&
-,2AKM
-Zd@Q2
-,OCKk
-ZiAUFCaGCXWDvr
-ZjCX{
-,h?BM
-,j>Kk
-,qD%M
--,FC'FSaG<<HSQ
--6=-,
--xCSc
-]ZAQ2BX<
-.a>,2
-^JAUFBnY
-/r=+@
-/s>+@
-/w=+@
-0&>+@
-0'=+@
-01DQ+F($F=oH*^IAeISb
-0>ESQ
-^x>BM
-1/G@>GQ+HT6I=bJUGJ1#J2HJ@TJ,wJ=nJKTJ$]KSmK9CKLmL5hMDq
-`F?|z
-`N>Q2
-22AL-
-27@Kk
-a!?UFBQ<BnY
-a#BjIB{p
-a(>Y2
-2JB-'G,wG8nH$kH5G
-2Z?Kd
-aG?UFB:ZBy8DnYEW:
-3!E,2
-aM@nYAQ<
-aNAjIB{pBkB
-aVAjIB{pBg8CyPCkB
-3nC!&
-b(>P~
-4:H,2
-b,>oE
-4QFSc
-bd?BM
-4fGM`
-4qH,2J2>J<=JC(JM`MMI
-c,AyZ
-c2?`ABmY
-4|A,2
-5K@)+
-5L?)+
-5MA)+E5GE,2
-5YDKk
-d0@kB
-5tB,2
-d<A`B
-61D,2
-62C2H
-dPAoL
-d[@yw
-6MD,2
-6NBKd
-d{AP~A$~C>IDgpEyc
-7(BKd
-eF@P~
-eG>BM
-73C,2
-eO?BM
-ef@>I
-8(A!&
-etDlL
-f!@>IB{8
-f,@Q2CoLCh!
-f3>Q2
-f9BWyChW
-f?A$~
-fw@$~AQ2CAICXl
-g2A$~AXl
-g8AQ2A$~CXlDW6DAI
-g;AiCA{zCg2DfwEU?Ea#EaNEt'F|DF{s
-gTA>IB{=
-gg?tG
-glBQ2
-gpEoRE|eEd%
-96?!&
-h;@Q2BlCBmoBaGBa!Bke
-9:BaVCg8C{zCyPD'<D{pDZjDjIDa#EZiEfwEy[En6Ei~EU?FkBF}@F^JFt>Ff?Fh,F|wGz(GkvGn@Gg9GuTG}(Gd0G^LG|DGgGGZpG}'GjDHe1H}BH|!HYr
-hQ>kB
-hRAXW
-hSAnYBf3Cx>CveDVHEf&
-hT@XlAf?An@Bc1
-hU?^b
-h[?UFA9:Bg;
-hm@P~B$~DgpDyVDmyD*{FkvFeGFiWFo>
-i2>hm
-i9?P~
-iCB$~DnYD{PE'`Ff3FwOGr;
-iEAg;
-:ZAiCB{zFtnFkjF|!
-iJA$~BnY
-;-A!&
-j8>BM
-jIA|JBh;By8C|PD|c
-;aD$>EC(GR=HSbH-sH,xI8FI$jJKoJ'1K3r
-ja@nHBywB}OB|=
-k+?y5
-k.?>I
-k/Af,
-kB@Q2B$~
-<=A4c
-kP>Q2
-kV?hm
-kX?hm
-<eD!&
-ke@yw
-kg@Wy
-ki?d{Ae/
-kj?kB
-kr>BM
-kvA|z
-=!A,2
-=&E,2
-=,?Q<
-=6C%M
-=IFScG%,H&a
-=^CSc
-=oFKk
-l/@$~
-l7A$~Bx>
->%DKk
-lCBp/Cyx
-><FSc
-l`AXW
->IBQ2
-m)?XW
-?KF,2
-?kBKk
-mX@y5
-@9F,2
-@?BKk
-mw@XW
-myCd%Dm]EZ:Eh9Eu~Ek=EeAEom
-@oESc
-n6?Q2
-n@CXl
-A6BUE
-nEA|=
-AIAo*ChWCl[Dkf
-AV?#s
-nYDf3Ex>
-AhC9:D=IIRWJ;ZKNoL$s
-AzCKMFDpF=nF<<FH+F1!GAdG,wGECGM^G5hGKTGC'H$jHQfI:-IT6I*]I68I7PI=bI4?I=5IGGJ,NJMqJ6KJ>$J3CK&.KR`LGR
-BFC,2
-BM@P~DgpDmy
-BU@P~
-o&Bl<
-o'?y5
-BgC!&
-Bj?P~CgpCmy
-o*ABMB|X
-o.Ao*
-C&AnY
-C;B<<
-oL?BM
-oO@P~
-D6@+@
-or>BM
-DVE>=FQ+GKTH=5I5GJ1#
-DaA+@DQ+
-DxEI[
-pO=BM
-Ef?KME@UFUHF-~
-pjBy)
-F4?KMD0r
-F^A,2
-Fe?KM
-GHBKk
-GU?1!
-Gk?-&
-HM@Kk
-HR?Kd
-I)?KME#X
-IPA+@
-JKD,2
-Jp>H,
-sN@nbBX4
-K5?KM
-K?@!&
-KMC=IFSQHTHJ:MLPC
-KUA%M
-t'Ay8Ag;
-t?Ay8
-LhCScD#WD&EDRUFPqGL;I+q
-tiAUF
-tl>Q2
-tn?Q2
-u=BiCB{zCg2Dfw
-uTAXW
-uX?g8
-MF>+@
-vEBmo
-MuAKk
-vc?Wl
-N0DKk
-N<A*:
-vr@e=Bbo
-NTA,w
-NX?+@
-N[?+@
-Nd>+@
-wCAg[
-OGB7%
-w~>$~
-OnG,2JM`
-x==Q2
-P8A,2
-xX@$~B,h
-x`?Q2@Ux
-xb?Ux
-PJAKd
-PRFSc
-x~@>I@Q<AUF
-y'@}PAm8
-PuBQg
-y6=UF
-y8Bg;Eu=E><
-y9AnY
-P~Ft0F}7Fd[FaXG|,GjaGo.GshGzfGY-GmZGh9GqbGoxGzFGp}G,fHoEHY`HloHxVHYxHnEHZNHwBH|]HbdHnBH.+H|lHO:HOdHaOHxsH{0H%FIsVIh4I|:ID<IsWIjA
-yC@iCA(UB{zC|E
-yD@$~@AIAn]
-yFB`B
-yGB(UB|E
-yPAQ<CiJCUx
-yQ?Ux
-yVAiCEY`EmYFVK
-yX@|X
-ycA}PBh8B`BByx
-yf?P~
-ywBQ2
-Q0?!&
-Q2CXWCaGDf,DetEtiEgTFl7Fx~Ft?Fx`FxXF]ZFb:F}1FZVF*{Gj{GdPGwCGf!GkVGvrGWoGtGGpjGlnGjwHrRHgFHwtHXi
-Q7BT7
-z(?>IAQ<B><
-Q<@$~AiCC{zDg2DaNDa#EKMEScEiEFU?Ft'Fz(FfwFWpF{sG^LGtnGjMG{qGtAGz2GkhG|!H}'Hg3L+h
-z1Amo
-Qj=KM
-Ql=KM
-Qm=KM
-zY>Q2
-zg?Q2
-zh=Q2
-RnI3rIDWII[
-{0=wA
-{8B|z
-{?>Q2
-SaB,2
-ScD#XEF/F;ZG/bG$s
-SnC%M
-{PCf9CmoC|C
-ToD0rERWE;ZFOgGSF
-TwE,2E$s
-TzC7%
-T~B7%
-U!C7%
-U.>KME,2
-U/>KMC,2
-U0>KMD,2
-U;D,2
-{e>d{
-{p>Q2
-{q>Q2
-{s>Q2
-{zB$~E{PFYg
-|(@R;
-|,@Q2
-|.Bg8C(UCZiC|ECuTDn6DfwDaVDmwEZj
-|1Af3
-|2?f?
-|D?Q2
-|JCg;CaGCiCCg'D(UDa!
-|K@}c
-|N@9:Ag;
-|PAa!
-|cAaVB(UBa!BaGCa#
-U?@XW
-|zB$~CQ<C>ICgpCglDgZD{=D><
-}'@XW
-}(?h[
-};?Ux
-}@@UFAXWBkB
-}PAVSAo&
-UFCg8D{pDjID(UDaVDyPEZiEuTEkBE|EFZjFmwFn6Fc1HuX
-}[?Y0
-}^AnY
-}`@f?
-}cDd)
-UmEKk"""
-ENDS = "$*M$lL$~G%KT%LV%OT'0U'<Q(KF(UQ+@M,!L,-S,2K-,S-;T01M0}M0~L1/R1LN1~M4:M4;L4QQ4qL5EU5MQ62W6vM9?K<=W=^R>+U>JS@9L@:UA;WAzWC(SC;UDaMEfKF4FF9IFeHGUWGcSI)FKMWL-KLhSM`TNTSOORPuMQ7EQ<RRaUSVGScET#GToDTzMT~LU!KU5U"
-RULES = "Aciu Adui Ajit Alui Arbat Areas Areat Areti Arim Arui Arut Asari Asit$ Asura Atate Ateas Atest Atile Atise Atos Atrat Auta Azb Azus Azut Impru Inalt Inca Incep Incet Inch Incui Indoi Inflo Ingri Inm Inno Inot Inr Insel Intep Intre Intun Invat Qmpla Qndu$ Qnge Sai Sede Sedin Serp Snu Somaj Sti$ Stiin Stri$ Tia$ Tie$ Tiil Tinut Tioa Tion Tisa Tiuni ^Imb ^Impi ^Indr ^Inl ^Insa ^Inso ^Inta ^Intin ^Soar ^aSez ^amQna ^bunA ^cAla ^cQnta ^calA ^forT ^gAi ^gAti ^greSe ^mAre ^oTe ^pAca ^rAce ^rAst ^radA ^reTe ^tAie ^vQn aSi$ aTi$ aTie aTii aTil aTiu alAtur anAto anatA apAsat arAsi areaT asAri ascA$ atiSe bAtr bTin bdA bilA$ brAcat brAr braT cAldu cAlz cAm$ cAmin cArcat cArei cAril cAsato cAtori cQnd$ cQndu cQntar cQstig cTie cTii cTio cTiu caStig calT casAto cenuS citAri clAd crAri creSt cuTi$ cultAt dAuna dQnc depaS dusA dviS eInc eSec eSi$ eSin eSte$ eStep eTi$ eTii eTui eagA$ eanA ecAto enTie enTio eneS epAs eralA eranT erinT fAcut fAtui farA$ frQng gAtit gQnd$ gQndi gicA$ hiTi hrA iSat iSoar iStii iTi$ iTia iTie iTii iaSi iazA icatA icuT iinT imT impAra insA$ ioSi$ itAm$ itQnd ivitAti ivorT lAnui lAtit lAtori lQng lTi$ latA$ leagA liniS litAti mAgit mArf mAsu mQnca mQnes mTi mbiT menTi miSc moSte mparTi muTi mulTim mulTu nSel nStie nTei$ nTeleg nTep nTi$ nTia nTii naSte natA$ ncApat ndepA ndrA nducA neSte nesA nfrQn nitA$ nitAti nouA nrA ntAm$ ntQmp ntalA nuSa numAr nvAt nzAto oTi$ oTii oTio oaSte oasA oatA$ obiS ogaTi onaTi onalA onatA onunT oraS orbAr oritAti otAra ouAs pAia pAsit pAtan pQndit pTi$ pTii paSit paTan patA$ patQn peSt plAcu prAj pregA puSc pulaT pusA rAbd rAcie rAdin rArii rAril rAsar rAsf rAsp rAut rQnd$ rQndu rQnet rTi$ rTia raTio radiT ranTei raneSt raneT raspQ ratA$ rbAto rciTi reSte reTio reuS rieTi rinTa$ rnA$ ruSi sAnat sAra sArit sanAt sarbAt satA scAto scuTi seSt semAn serA$ sfaS sivA slAbi soT spQnd spreT stAp stapQ steSt stiTi sticA$ stinT strAdu strAnu straTi susTi tApan tAres tArile tAtes tAtil tAtit tQln tQrn taTes taTi tapQn tatA tiSa tialA tilA$ titA$ toreSt trAlu treTi tuitA uAsp uSi$ uTia uTii$ uTio uTite uaTi ucAtor$ ufA ugAc uieSt uinT ulaTi umAra umQna umiTi umpA unAta unAto unTi unatAti unoSt upTi urAto ureS urmAr uvQn vAtat vAzu vQnat vQntu veTi veliS vieTu vorbA zAp zQnd zaTi zamA zatA zeSte zgQ zvA"
+DATA_RO = """@AACStia!ia1MlaOea1Lsta0LISi1JTi1Ji1Jl1TmbAtat^olnAvit^rATiSat5TcAminte(at}A_ac6Ti^unAtATi2Ii]pArTim=t`at|ul3TiedicA}a?t_nge;s^lini^otrivA8Na3LreunA|a_umuTi)t>a?t}e^uSc{aWt1En]AlTime>aEuntru]Sel&at;i^iSi_ne4TvA.TeleagA|ptA6Mg7Ne>Ti>m*re?ea7Ni{pciune=t6Ms2Kainte)a^lTiRt;A3Lpoi2JcA_lcat4TpATQnatA_rcatPQntat>A4Nt/a$eapA5NrcAFp`Qnd5Me{TiHm&i5LutWul4NrcVAm(QndHa=Ti=m)re~a7Mt<eHi4Nt`a{Ti(tUeazA{zi/heiat{e_iSi;d{AHe|Ti;riatGs(A<eHoare~ea;zi$oace:lo4Tnjurat_tro3Mredere+a^uiat|A#datA/eajuns:pArtat}eazA`lini~tPoialA`eli(sc^rAgostesc+it~itA;zneSti8Tala:eaptA`ptat.ecat2Tflorit/ricoSAtor.ger`ul^heTat*A}a`aTA_iTit/rijora~TiYt?tA}eazA_opat`zitoare?r.mormQntare.nebunit.oTi^atA;e$t_Am:a]registrAri~are~area?atDsA_Si%rcinatA/cris3LeamnA:mna|t{e3ToTi{t^pre$uSi%Ti:mi_rat2NtQi_lneSte?i|ascAWscViWmJre+a>i~le7Nt4MmplA7Na>re8LtWe:rziaKt|e>re=i/eleg|i<s/inde;s$oarcA7Me}TiXm}re4NrcVi5Ns4Ltdeauna3Lr4Me&abA<gAJa5Nb{AmJri?le(a|Ti)m7NreYa7NtVi&g(i7Ti=me(ul`rup}t_u^unecat?AVricDvAT;AmUa<Ti{rea6NtPaTA$eTeUi^iat_nge`s[s]iNtiZSah.mpanie2NnsA%a:e;leDpte.rpe2Nse1McoalAGa^li;i5Tle1Tederea/inTA{a#f3Ta$uFl;e`ui]rif`ul^pi1Ei.r[o]arece{i]c^at#fer;ul]setele-terge:sDi3NTiEa:TiFi4Nm:u3Ke3Ji%nTA<a{ifice`d3Nm^re%i`le3Iu4NtMTAri:i_le1NarAEa1KiDe]gAri/arADiDn$A3Le:Ti_a:m^tA:aEut.pA^a_t/i0Ea1JS2Ha$dar#ezat2MteaptARpTi5NtHAmHaWTi|iWm=reJt(e1KTi1Tah-bTine.andonat]by2Nia^litATile{atea]ordare]senTa`tEolut`vire=t^urd{A]undente[cTioneazA%une|a{i=le2KasA]cent{ul:pTi;t<A(a|TiWt{e%sEident}e*ul~luiDeSti(a3Ma4JstA6La3Mea5NSiPi:a;Si3Ml4Na5NSiFe;a(Si`i:ui3Jst`A5La5Le6NaHi&or|aGui2Jolo^perA{i)S}ul7TTi=re)t}A3Mrd;at.t^e:le^iv`itATi~ile|ate^or^riTA3Tual<A2Ium_a^zaTii&t-dApost/ugatOQnc`A#am3TptareXaOeseaPvAr6LatXA>a>e>ul6Mul2MicA$o]mir]n]optat$r_A%mit.resAUa#u3Nc%AFe;Ti;mRi^lTi:t^nA:at3NsCer$oport}ul$ulNfacere)aHi=le3LrA%a2TecTiune_tat;eazA2NlA%m$a_TiFt$e$iPu#rica[gATat]enTi{a{e{iRt&ul]itat]lomeratCh]a1Gi2La2NbA2Hci.ureaCjuTiEngUA5MeVmUi4Ms3NtFA&m4Ma;TiGt4Ne4Mor6Nul1JlDAturi#TiFi.an/rmADbPA^aStri%strAWu/e_rt/i_nele.cool2Me/a:rgA^e/gRe&re=a{i=le:i/rg;a<t5Te`i{c3Ns$x2Tfabetul#geria]i^bi/ce^menteDo2Nt3MAPa3Nceva4Nineva_uiva3Ne%le:rnativAEfel/or;a/uiaFl_ndeva1Fm2NQndoi(uA.abil/ndaObele^iTios_i^ulanTA.eTit^ndA:inTare>tPricaWn>A>i~i<ii/stec#iazA;aEce4Tul^nFte(SteKi6Nsc&i<Ti{m{re=i}le<t]prentA|e}leDuzant|A.y1Nn]a^lizA.chetA.d^rew/y]gajaTi8TiVt`eazA^ela`es$lia2Ji$i^lorPmalVe)le8Tor^versarea]n/a^e/ie]terioare|r^ic^renament{or>ul2Nul:at%uiPme:it{A(e$nT`a{t1MpA^rArii_a;re|a`t:eaFut^saTi2Na$r:A_TinWe_at<ul%e;nt_i`TiaRtamentYtul^sA.ei$l:e_ul^re]licA`aTie2Loi.recia(ez$ilie_nde;s3Loape_bat:pia=Ti)t}AVe=re~a{i&oRximativ]ucA:at1HrDATiEt_AmFa;TiUt2Tanja<t3MtA%e#de2IePstat.gint^umentul]ipi2NmA$aRtA;a`eiPe%le]ogant#s#tA/a/hur/icol|e=ul:ficialA~le:st.uncUA{m`a<TiVt`e`i[scuTitRlTi&t6NA|mVa)Ti)t{e:nd<AVeUs{A{e&ziDearA^mAnAtoare4Menea]ia$gur<A|m<a=re|t^stent>A}a2TtA4Lzi3Ga3Lea`ptA3Nfel]um3Npra-tQTia3JtFaReaOac:A%at_ul.enTi(aHeFt;A^rizat.ingUe;iRs^tudine~a2TmosferA>a]rage:s2Kunci1Hu2Nd$A/e.gustDr/ulDstralia.toRbuzJul_mat_r5Titatea;ul_st
+radA2Nzi:Ti:m4Lt!vQnd]ans`at_taj2MeTi3Ka%i4NmRu3Km/nturA/re_tisment<zat=ez]ioaneRnUul]ocaTiUt(ul2Kut1Lzi^lBbA.T.ga%t]iEatGul^eTel5NiViRte`i2Tnci$uiescOrbaTiWi5NtHul]tAlia{e$aiePrQn{A{e{i(ulPutDut%urA{a<i!a.Ti]by]ftA.g^A^aje<le`ul/i.iaEe]l^con$tA.nPcA:a^dA:a3Li4Mi_lor#r/A^ba$cA:a^ry^ul.schet/eball.tAPe_m_ria.zAEa^eazA-eTi2Na$tEu.beluS=ulOi#m#n^zi;nAOre_a/lin]th^ty[iblia`e&otecA~a#cicletAXa]etul]g]juterii9Tle#let;e<le;ul$l%y2HneFInTeles_cuvQnteze%le_venitDrouGl{ui]scuiTiPericA|a|ii[lestemat#ocat{A3TndA!oalA:aOb$by.gaTiRt&A]li_iEnav(A{i#mbA_oane.rd2Mston{ul!rQnzA;a]aT:e;le:ul^d3TndonPvoPzilia}n.ian]oasca^oklyn^wn]ucePsc1TuStean.cATi:tAriaXe;ar$atA3Nur&A{m`at`eSti`i{a(e&os2Kn3JA3Me3NiRca;ii5ToUul|e|ui^ul_ri]rsA3TtA.ton`ul]ze:le/unar|ul[y0EcA]Tea]cat$i.dea_rea.i]lAtoreSti}ascA>sc=i*aXe}i>t^cat^durA<a.maSA;a3Tin]pSuni$itanWeWul~ui2NrTi`iGle/ei`a$or`a$ui;a2TsAtoreSte?ti>ascA*sc)i>Ti>a*e}mKt2Ntre#utAm_Qnd%a&Ti;m`re)aUtDzut!Ind]t-QStig(A|mHaJt(e<iDTiFvaDine5Nle:i&i.mp_ul.nTi3Hd:vaPtRA`m;reT_QndRa`t%eUc{e(ul2Jt^A3MeRodatA4Lva1Ha]binA^lul`rile]d/A^a_vre<u)l/eEou`l;ri/rul2NfeaUua_nea.iiOl^ci_ulatoare~arele?r+rulEd:A3NeFa/ifornia%tate}aPm_a_i/ul2Mm3NerA5Ma&e{i<le/ion<ul^panie_ionatul]nada`ian_l`ul:pea|ua$cer2NpPAt`ulPabil|A_citatea^canA<a^ete/italA)a3Nul`ui]r3Tacterul/dul3Ge/ierA<a/l_osPne&a^ol^rie3Mte5Ma;r%ier|ul:ofi|i2LsA3La$eRi:le_tA_y/tel<ul]tegoric^herineOuTi^ciucEtFA%e$zA4Ma`t{e2Nz3Ti3Nul:ri1Fe2La/ScA3TTaEi%ulElaltA/rA%tAPsFul]cul2Kea2LiElalTi2JlPAlalt3Le:bru_i%lalteEor`lalTi$ui_lA`a`e2TnTi^tral|A&uVl4TurA^uSa2Nr^c_ei`tAri{areEe_Ti_ale:m`onia:re<aPi^t_Am%atPul5Tui4Nt2Iva.zar!harlesUie`otteDeamA$fPia:eRle/ltuit/m4TAm:a`TiUt_iEstia(e(i=le<une2Jiar/cago$na_ezA{esc3Tp:eS_ul/ria/tarA]loe#ris`tine.uck1Ni]a]mitirDnAPa3Mci`sprezece;zeci3Je:ma4Kva/ste&it7TA]oc%olatA>a]rcumstanTeOteSteViRascAFscPi:Ti_nd4Nt;ul/yOuda5Nt(A<e]vil2Tzme!lAdire)a{i=i|le.aireEr:A_e:kEsA%a_ei:icA.ienTi=i;t<ul^nicAEpA#ub:ul{ui[oS/mar^ul.adA_a3TstA`a.boarA%rQt2TcainA.d/ul]incidenTA#lT^e_g`A`i<i{u`ul/onel|e|ul_rate#mandA{ant~e?ul=t^bustibil^entariile^is_tetul^oarAEpaniaJe*i|i`raTie_etiTie4Nlet=A{x;icat~A{ment_orTi<tA|ament+entul}t_usA;ter}ul$un`e5TicA|are{tATii|ate~ea#nStient{inTA?a$Tine$cediat`ntra}ez;rt=ul:urs/damnat:iTie)i>le|onat_uUc<A|torHe)re~a(iUs^ectat_xiune~a^ferinTA_irmA|at_lict%orm<tabil_runtA}at:uz^secinTe:ider*A*are?t`liu>l4TtA`ant`rui>ascA}esc}m*t~APt_a&ct=a|ez4NeazA4NinuA>mWa>TiXre*t=e)i_rA;act*ul`ibuie~tUol=a)ul:ul/versaTia+ie_ine{g|A=e|iVs2Tol^perOpac;i{i;ul/ie4Mi5MiGlor4Ml`A{ria>e5Nul)ui]rd3Nect(A:ea{nA^oanA$pRul<ui^tulOstA:a`t_ul&m<ul]vor`ulCrAciun=ul.avatAOeSte(re>a/a%dA:scAFt;urA|i3Id4MeGTi&a<i6Nm6TuUm_inTA=a;t/eazA/ier(ul:on{ul^mA/scGut3Kzi4MutOimA%a:e&i%inal>i>ul^tic{A$zA]ucea/d1Fu]ScA#Tit&ulDiPva]lc_ARare;tPoare=a_ri{le/turA<a2Im/inteEpAr(A=mWturiHa|Ti7MtRereViEva2TnoSteaHi)nTA~eFaSte*Ti>m`scA4Msc6Nut>A.plu^tor]rATA;at`enie3MQnd$aj&os;ulRt&A$ent/ge/iosPs_A%a4Te%ul`ri/te&a/vA#tiaRe_i5Tle/remurDvQntVulEinteWle>or0IdA2TdeaOm1TQnsa_ul1IaDTi2HcA2MiOn^a$iel$ny$s_at_eazA`z{i
+2Hr2Kt3LA3Na$e_le^or;eazA<z=iUia6TeVtA2Mu.vePid_s1De.SertEi/teaptA`pTi(t]Tin;e5TutDa^l_ul{ui/nPsupra2TcIt3JQt^edat_mbrie3Ki_d;e4NsRzia(e{i^laraTia~e=t^orat.dicat.fect{e]geaba_t`e<le&ulPrabA2LjaEun]licioasA~e=s3Noc]misia^ocraTia4Tn^ult.ntistDoarece/camdatA$datAPparte^sebire=t#pASit:rtare/artamentul6Me^endentPinde^lin{A^ozit|ul^rimat^un`e:s#ranja|Ti=tHeazA)z^ekDs^chiSi(d|A7Ne>Ti}mHsWA|e<zi_operi~reYt:rie{s%urc|A}m=a*t=i^earA_n`at_ori:rt^fASurare3Nigur$pArTit4Jre/tinul_ui5Ll{A<e#talii=le{u$ectiv}ul_rminAOveni6Nt$iiRnUAUe3Mreme]zamAgire*t~A9Tor:stru^gustAtor^vAlui_oltarea}t[iamante^na/volul#cTionar?ul^k]etA.ferenTA*a`iTiVt)AWePicilWA=e`ultATi>ate]mensiune3NineaTA8Na2GnPTi;i^afarA_inte$colo^spre^te_otdeaunaRr5Le.recTia|eGt{A<or*ul]scuTia)e|i`rs=ul;t(Am<a)tPearA^pAreaHut:arA{e<i|Tia_erare:onibil~lA`ziTia?e|tiv%usPtanTA=a_rAm&acTieWtiv<t`ezi5Tug|A)e7TiVs|A2Tverse^orT{atCl2Me]uiCnA]a[oDamnA5Na5Me{iVlor3IrFe_mAUe]cEtorVe6Ti7TiHul^umente~le}ul2LiPlea^sprezece]lar5Ni]meniu=l/n%iSoarA?aUlor4Nul6LeVui#n^naDrPeSteViRa&mFsc3NiRTi%m:nTA(aFtPm_eaFiUt<or}ul]s^ar`ele;ul2KuA_sprezeceRzeciPa^gOvadA^edeSte;i(t%zi{le1NrOA3NguTVA{e{i2Nacu`laVui^gFAFa_iFosteKa%ul(eOeaptAVa3Npt5MateGul{ri>le]ogatRuri|le2Num4Mul{ui`ri|leNuOS^man<i{ul]blA_u2LcPA3Me%Ti_a%m3Ni]lap`ulPce_i`uri#minicA)a^neata6MvoastrA5Mzeu}l9Ne2JpA#r^APa%t`a$eazARreVa;i`os:ze2Ms!vDs[ylan0Fe[Sec_ul2Hti#uat1Ia[chilibrulFpAGa{jul{mentul`e(i]onomia2Tran-d#die]iTie]ucaTia=e]ward!fect`ele`ul]icient}e.ort`ul{rile-gal_e_itate]ipt.oist[h1Hi1Hl2Me^ctricA6Tonice^fanTii{t^na/v:i&i]ibera|Ti)t{eazA/minat^zabeth]len]veTia[mail#ily^siunea.ma]oTie`i6Tle!nergiaVe_vant`eazA]glez6NAHa]orm]tuziasmat1Tpisoadele&dul]uizat1Ira/Ti3Ni3Lm3Mu.ic.oare/u:l[senTial}A#peranto#t3Fe-taj%ul]han1Hu#roRpA5Tei[va#eniment~e~ele]idenTAVt^tA_a1Mxact/men(ul#celent>A%pTia=e/ursieOemplu/rciTii~le}u2KistA;aVt{u;e<nTaOperienTA?a{ment~tul;tPlic{AVa)Tie~i)t<i_odat`zia|e/resie]terior/raordinar~narA`tereStriRem0MfA#cQndPea;i&m`u3IutUA&e2KrA[Qn1MaTA3Ma#bricA<a2Jc3KA3Ie4MTi%book4Lm3Ji^tura$ultate?a.imos]liment$s_A:e2Mmilia6NeWi<i|le.ntastic~A:omA<e2Mpt:e;leFul<ui]rfuriile]scinant2MtA3Na#voare|a_rit|A.zA!bi[eTei]brA_uarie.deral2Kl^icitWAri_eEul_riDmeiGa5MeUle<or]ratAPeastrA*a_stre}lePiciTi(re>a6MtJA|e$mADteRle&or/iTA&a1HiDTi2Je3Kcare/r_be&inte_t:ul]gurA2Li$cA4Na_e;i/nTA`a;e6TleFdGcA2Nlm%e;leRul{uiDmOnal;A`ul/e^landa]r^e$mA%a2Lu3MlRe%ui.x]zic;A`a;e-lAcAri#oare<aPri`da&le.uent^ture1Noame3IrteDcPul5Tui_ri.losUeSteXi(ascAVscGi<Ti(m<ndHt)A|e]nduri.rTA%a&t:elePmA:a;t_e`azA4Tularul^te2Gst_A:ulDtbal{ul/o_grafia+e+i~ile!raTi&i^ierPnTa`ei%cez7NAJa`is7TcoRk`ieEte5Mle(ui^zA:e]ecvent/d2NicA_aPg:ider^pturA|a#ucte{le/moSi5MasAJe5Ms:useTeYa^nze<le-u]g/AEi_Ti_mFt.m/a4TTi%t;ul/eazA_z`i^ul]ncTia<e<ona?tKeazA~ze$dRul.rAEat`A^e^ia4Te_oasA&s$tunA(a<ii.sese{rA^tA0TgAleata#seSteHi%ascA4Nsc3Mi:TiFm4Lt`A5Te]teSte:sc^i:t5Tul1NQnd%eSteJi`aHm{scA5NscRi5TTi&m`re5Mt:ul;ri=le#t$ul[abriel.lben<A#rA^a_j^d_A/y2Mta#urA.y]z3Te[eacA^mul^ntA&a]loasA:s.n^eraTieVl|A|e=ul`os^ial:uEul:nchiOorge.rmanVA<aVi
+a=ei!heaTA`a]icesc:i`t^d^nion1Tibbs[loanTe/balA/nT^ria#umA%a_eUSti`am`le;sc-oalA:eOl$f]rdon[rAbeSti`sc_i`m5Tt$dinA(aPmadA#abA/ce$de^nt$s:A/tis:uit|A$v_A_e_idA]eSeSte|i5NalA=aUli=le4Nit<A{ePa_cA^cia^en^g/le3Mu:tATi`ate}a^vA.i3LjA4Ni]oapA_sA:zA&nic}A3Nzav(AOup:ul{ui!unoi`ulOrAEa]sPt:ul.vern{atorulVul>ui,hA[Qns.rtia&e!abar2Li3LdeGTi/nA:aReUle]n/k^nah]os#rry$tA_a^vey]waii[eather2Li]len5TaOnry#y[itler[m#m[o.T^i:i/ul]bby.l]mosexual]ng]tArQreaVtEel&ul]ward[rAnit]anA]istos-uh0Ii1La#d^ul]n$uarie2Kr^ASi/bA:a$nAFa^tAOsAOtA2Mu1MdeeFa$i:le/ntificat<tate~ea]ioTiRt;ule[e2NSi:Ti%m%re{a4Nt.ftin{A{e2Ni]rTi3Mi^nii3Tt:a;re`tOsPe1Tgnorat[i]sus&e-legal]uzie-magina|Tia~e=t<e)a|z<i2Mediat^ns`A.pact^eriul^lic{A(at_or/ortanTA8MtLAYeFsibil/resia|e=onant~antA+at[namicul.cendiu^ident3Tlude;sivPredibil.dia`n:cA`a`iu_eniiRferent.el:ul]finit^luenTa^ormaTia?eLi?ile=t.giner]iTialPmA4Na:ii`le]secte3Tist6Tat^pector_iraTia~e|t/tanTA_rucTiuni{ment$ulA`a]teligenTA?TaYt~tA~te4TnTia=onat~eazA~ez`s:res|aTiKntYtA~teXt~A7TeXazA=ul&ior*ul`naTional~onalAVet;viu&zis}A3NrA&mRa&Ti;re)a5Nt%e%i%u.util{e#ventat_rs^it`aTi}a}iVt[spASitor]teTPoria(e.us_e-t#alia{nA|aCubeSteVi_a4Msc$i_Ti:mRreVa;iiFt`AUaUoUul=e#lie.nie[van-zbucnit0TjachetAEk_ie%son^ob]f#keOmes^ieOne.ponez)AGia.son]y[ean.ff_rey^uit.nant/ny2Tremy/ry]ss_e_icaNim$my[oDacA%e]b^ul2NcPiPul:ri<leOe/y2Nhn%ny_son.i]nes]rdan2Ls/hNucAm_rie{i=le%tor|ulPa_TiRt#decAtor?ul;a(tA]les/ia_e2NmAtate}a]piterDr^at3Tiul^nal{ulEul]stin@karen^l#te^ie-elly.n^ny.vin[g[ilograme:metri.m]ng!m[ong-yle]otoMlAsAm3NaRTi4Mt[QnA3MgA1Fa]SEi.borator~ul#c^om/rimi|le/ul]dy2TmpA]nsatDpte&le_opul.rg_A_i/ry2Ns3NA$e#tinA`a]udA/raOyla1Je.Sinat]agA]cTia;e`i#e2NgAturAWa^alRt`A;ePeRa_ndA^i:i:le$ume#mn_e.neS/t.o]u]wis!i2NberUA`e`i`tATii(ate+a#ceu;l]der;ul]ft:ul]ly2NmbA4Ma5TjFi`i&le{or/itA`a{t`e^pede]ncoln/da^gurAEiSte|aVit*A%a%e#psA%aReSte`sc_iUt.re#saPtA%a]teratura;e]z1Koc^aTia:l`A/otenent?te~tul^ui`Ti`a{scAGeSte>iHsc`m;t4Ml`uiRri<le]gic`A^oditOndra2Kr^d]s]u/is]veSte{i^iFt&urA=a|i[t[uA3Nm]Qnd2MaETi3Lt4TA4Te]cas$rAm_QndRa;Ti`reaGt4NeazA5Nz(eVi4Ku&l5Mri7Mle}or/y2Hi.ke2Mme4La^iRi%nAGa;ileDnA3Na^eaPgFA%i;me=aRul3Mi%i.p/Ti^tFA;mRa&t%e/ul]x0GmA2LcarDnQnc6NAVeHi/uSi#r^cuS^ii_me{a_t`atA/turie|sit/ulOsurA`a;i]tase^uSAUa1LQineRi5Nle]nEA3NaPcAmRa;Ti5NreJa5Nt/drA`i{eUu-a2MSinA5LaUi<i<le]c]drid]estreDgazinWul^gie^ia_c_e2Fi^estate/l^muTA^or]jorUitateaDmA3Ka^eFiPi]nagerul/dat^ual.rTi^ca&t3JeRa%le/fA^garet_inea3Ni4Ma:eUi_le:na$k/o/te%ie;n%or<i_y3Jy2MsAPa_j^cA.tematicA?a_rial{e/t_hewOx^im`A!da-e2Ia3NrgA#ci%ul2Tdia%c;al=A=e(ment+te~tele~tul`ii{nA&ul_e%u;l{ui]g2Li]lanie3Le/odia<e#mbri<i&u/oria<e]nTine;onat^iu`l^nad]rciPe:le4Lu3Lg_Qnd4LeGTi&a{m5Lm4Mi/iTi:tGA`at3MsFi_ulDsaj;e&ul/e_ria]tal/odA`a`ePri_ou{l2Iu]xic1IiOScA`m`ri%a`TiUre|a`t^ti%o]ami2Nc3NAPhael_elleEi3Tkey^rofonul^uTaFl2Me/rcuriRe$zulDi#jlocVulOke#lA$e/iardeFoane&n_tar|A|e^ler]nA^TeaRi`i;leUt/cinos&unA=i3Ie^ge&a/istru}l$t4NeUa3NunatJA=e;e_sFt5Me.racol/easa^oSiRase:s;ul#siune)a/s/ter]tA]zeria{e-m]m[oS^tenit.alePrA%eRtAGe6Na#bil`A`ul2Md/A$alitate$
+el:rnAPul_ri]lly2Mment<an<eHul#ndial=A^edA/struDrPTiUi^ganPi^mQnt3Nt]schee_ova2NtivUe{leUul^oarele_cicletA~ta:r&ul-r-uScat]Ti2LlTiGme|a_umeSti7Jsc{i|TiWmWt>A3It4NA4Ke:or.nTi`i3McARa%eSte=i;ascA&sc%it{or$te`le<ui.rdar<A<eEi:m4Mt.t/A_m^aRt^e]zeu`lEicAGa[y0NnAscut-aS^pa^teUre|a/ul#Tional}A}itate_une{i2LibaFii2Tncy]sol/ul]te^han^iv^urA&a<l|A=e`ii.vAPa^e_i[chen1Ie]InTelegere]aTaPgrA/pAratDbunUA`esc&iVe.cazuriEesar=A=e&itA^onceput]fericire>t~A.gat`iv^re:iRu]maipomenit^ernic#norocit?A?ul?ule.obiSnuit]poTi_ata:liticos_trivit;ul#rAbdare$egulA^vi_oasAUs]vastA<a^inovaTi*t9TA^oia5Je`le;tDwNi2LSteOcAieri3Ji4Mo5KdatA4Nun<a(ul$kDmAnui3Keni3Jic]na^gA%e/s.sip#vel&ul[oDStri2Mapte6Ma3LstrA6Me2Ji/embrie^i^le.pTiUi]rAPd$i^mAFal<A3Noc;oSi<asA(s&ul:i2Lstru]tA$a^ele2Ku3MA_zeciEaEl-r1Du]cleareOmAr`A5Nul3Mai3NeRSte<i4Lle_rar;e<le`oasA%sc^i_Ti_mRt;A#ntA%a0Eo[Tel[aie2Kmeni6LiHlorOrAPe_care`um]se^peTi|i[bTii_nGe{rea&ut#iSnuia>mWt>A3Ncei<ul=rile^ect{e{ivele.ligat7Toriu.osiTi5NtVA]sedat_rvAVat!cazia;e#ean`ul|ui#helari*iEi4Mi_lor:ul#tombrieOup%A`m:a;Ti5NtVA_e:i1NdatA]ihnA`eSte}i{ascA{sc!f.erRA_eRi`mUt:tA&a]f#iTer{ul$cial-glindA{a1Kh[i1Mk#ay[liver_ia1Lm.enirea#oarAUePrRIFQt_i2Nul4Ne%ui[n]line#oare<a^ratA-oh-pTiune<i]erA_a;Tia=e|une~ea#inia5Te.ortunitateOreSte(i%ascA%scEi:Ti%m_reFtDt^sprezece/zeci-r2NA2Ma3MS:e`leFulVui]b.dinGe{a<le;ul/onat2Me^i/le/z_ul]ganizaTie}t2Li/bil$cQnd;t%are4LeFine4Num^entul^ginalPunde[travA-u#A/le[wen[xigenMpA]Sit.Tit]cAli<tEatUe{le/iiOdure{a`ile2Mi^anjen.lAria<e2NmQntVul*ui.puSA`a#r^AseSti{ascA<sc&iVt$Ti`le3NeaRreVa$inTi7Ni)lor&te|leEulRt.sAri(le^a_t/trAm&a{Ti(t&eazA<z|e=i[InANQineUa2KnA/a-a.Saportul^i2Nce:a/het<ul^ienTi{t=ul]ginA`a`iDhar`e&ul]i]latul^mA.nicA/taloni+i%ofi)i.pAOr$A3TadisPcFA:a;re`t_ul/don3Je/fumulPi:ezRs`ul%u^k_er^lamentul/ola3Lte5Ma;ner}i>ul`r_icipA>at{ular;d{AOs3NA%re<a3Tageri^ionat_une|a^tile7Tle/ul2Nt^ra_ia;ck4Mu`lea&zeci$ulOulPzA.zA1FeDSte;le`rA:i`i.deapsA|a_psit]nny^sie3Gtru]reTi{i%che%te{le3NfectWAPicol;uloasA~seXsRoadA|aPmis<iunea<ul;tHe=Ti^nA3MsoanA)aJe*leUnal>A>e}itatea}ul.scuit3Lte#teRr^reacA&cVe7NreLa}i{iHut_u-hil!iaTA:a$n/rdAPtrA`a2Mc^A:turA^atEioareXle&rVul^nic^tat_urA.ele&a/pt`ulPrdGe(m<re>a5Lut|ARzi$sA_e/tre.lot]per3Ti.scinA{aPicAUa;i<le^tA:ol<ul#zza1NlAcea5Nre=a:intA4Nut(A{e^nuieSte{t/teSte)i&ascAUscRi;Ti`mGt{AOQng;A;QndUe{a{re;i%s2MacRA4Je:iEjAEn%etA<a{ei_ificat_ta{t;e<leFul{ui&ri)le^sA%tic/tA_a2NeacA3McFAm_Qnd4NaUTi;m`re|a5Lt4Ne4Ni2Tic%tisit?oare+or^mbAUare{tEnFA_eOoaia&e/iiEuA:aUt]uSEs[oSeta^tal2JTiDartA`a;e$tA4Ie.d$ea/ul]et^zia;e;i.ftA_iTi5Nm]ker#liTiSti+i6NaHe)iVst}ul%ticA=a=e=os^onia]mpierii]na]por;ul|ui^ulaTia<r|eOrTi`le$c_ii^eclA/neSte%itPt:ocale`fel>ul_ugalia(hezA?a^umb{elul2Nsibil|A|e|itATi~ate?atea|ul$t:ul2It^enTial$riveSte|scHit>A]varA/eSti|leFsteJa<itOzA$a$e:le$iTia<e_tiv[rAbuSit^jitA<urA}iOQnzUul#actic=A^dA4Ta$fOeSedinteLele~eluiPT_iosRul&rile3Ja:jmA^cisFum^dA_at;u_ea^fAcut4TaceRer<A<aWt*A}e<i^gAteSte=sc(iTi|mJt*A^ia3TjudecATi^luat/miu{l^ocupat_t/sA:iune}aRupun>e|s`s^tinde^veni$zenTa|iVt|a>t%int|A.icep{i{ut3
+MetenWAJaWe}le7Ni>a}e8Ni}lor=os7Nul?ui/m_A;varA>a4Ma;r<ul:eSte=i`ascA;leUscFi;i`m5Mt4Mul3Kn:Si_T;esA=a;ul%cipal?A~a%d;AUe<m4Ns:trVe_zi/vat<AFeSte|i5Ta`liStea;sc_i&Ti&nTa(dUre)a&t^zA_onier~i.oSti<i/aspAt>A{eteGtA(e/bA4Labil:e4MlemA7Ma7Me}i*le^cedurA&s<ul_urorul^duc{Tia<e&s<e|le{ul/fesionist<oarA+aJr}e>i~iKul~lui_it{at:und|A3TgnozaRram=are)ul`esePiect)ul^miTiUs<iune?ea9TileGt{e/poziTiaYeYi?ileFria{ei=tarul~te?tea6Ti)le<uWl_un<erea3Nst;esc`ia(e<i|le`ule^tecTia>e&ja{eazA=z>e^vine`zii_oacA`ca|re|t]udent[t[uScA`rie_a/ti;ul=e2KTinUA&e&iOblic{A{e<ul}ui2Ni^i^ul]lover2Nn$AEct;e{le&ul3Me%Ti%m^gA2Nr^APta`Ti&t2Ms^A]te4MTi4Ja;iGm;u4KmRreHa`i{leGnicXA*e>i3Lut]zzle,rAbdare|a]cealA#iDmQiRnUA5Ne<Ti(m3Mas]neascA_sc$i:TiFt`A.pit]sArit^pQndit%und=AJe}Ti}reHsJul>ri~ile<zi]tAcit2Ju/l_ui]zboaie5NiVul*ui_unare6Te^gQndit!Qd^A$eDnd%ulDsOu/l_ui.zi[aTional.chel`te#dio;ul]ftDhat;ul.nA^dyDpid;A/ort{atVul#r^e:ori]sA.ta%t#y3Tmond]zA/na[e]Tea_tA`a^ine;utOa^cTiePl%A_eRitate~a`zare)t]beccaDceRnt_pTionat/iproc^omand}at`pensA/unoSti(aSte|scAVsc>AtorXut_perat]d^uce{re.fer;i^lectA/uz;AUatOgeRle;ui/inA&a4Tune|a$ret{A3LulAUa;iVle|or#laTia(e<i|le4Txez$e/igia{os]marcabil?lA.nunT{A(aWt<e<i.par;a(t`e3Lede:t;A`a{t^orter$rezintA^utaTiaOspect=A|aTi}t=ul_ins&rA{aTia%onsabil~ilA~ili?ilitateaPtaurant+tulFul^urse|le.tras]uSeSti;sc%i5Nt]vAdEedere:ni(t/in`A:stA{a.zervA{are7Tt$istA^olv<AmVa)t<e:nabil/ultat>e?le*ul[icardo$hard^k.dicUA`a{TiVt|A`e`i&ol2Tley]ma.o.sc_A:ul;ri]tm_ul-oSePieRiEu]agA^ta#bert^in^otOchiaUe/k2Jg^er.l/ul.mQnA;iaPaRn`e;tic;ul]ssPt]y.zCuSine]de_le]gAciuneRm^aRt]ndA]p/ePt]s$A^aPia^sell!yan0DsAOi]lbatic>e]nAtATii&ate*a;oasA}e(s2NptAmQnA8NaKi?i2TrAcie$ac`A`i`ul^bAtoare=ri?m/i%t$ut&at`e]tulFrat2KuNInt!QmbAtA#nEgeUle^i_i1La.bia_e]c#lAPa_riu=l_tA5Ta3Me^ly3Nut`Ari`are$vA`m_a5TTi`re|aUt:ez<e<iDm3Mi^my]ndviS7Tul.rA$ah/cinA{a$e_a/i#t^elit^ul2Ju[cApAm%aGt/ri`le$zut2Tandal/p:A%e:i^rA_aPun`e;ul#enA_aDhimbVA|m=ri~leHa)re?a7Nt(e(i{ul.oTi5Ta/atAUe{Ti<m/pRul/rulEs$t:t2Nrie`Ti`m%i&tor4Ms&A`eGoareYa<ri}le`ulFuOump&A;eUo;ulePrtUA`e$zAFaTi4Me`le1Ge]amAUnA4Ma/n3NrA4Ma]cTia`e^ole&ul|uiEret<A{arA(e7Tle(ulPundAVe%ritate~eaOmn_Atura:al<ul;t:e5Tze:ul]nator^inEs:ibil:ul$timent+e+ele~ul.parat|e$tembrie#rgent^ial:e%oasA|e5Ms^vesc_i`ciileWu*l`t]t$eDx/ual<A:l$y]zon&ul[f.Atuit.Qnt^rSi6NtJul.at%ul;ri.ert]inte]oarA^rAie1KigurGA5ManTA*a7TtA`e;i]mT:ea<m4Mi;Ti`m5Nt_ul^bol/on^paticRlA`e5Nu3Mt:AFeDncer<A6TitateaPe3Lgur6MAHaVi|i6Nul^ucidA|ere<sOstem{eleHul}ui.teEuaTiaWe|i`t[lAbiciune~ea;tOab%A_e_i/vAOujbAUa-mith!oT3MiaRe&i_i3Nul&uiOareUle(ui_tA;a]cial{A{e_etATii<ate?a]ftware.l/daTi=i&t^uTia(eOmn4Toros_ul]phie]rA3Na.s^eSte_sc^i_reaFt^ul!pAl_a&t]aTialA&u{l$lA/nia`olA=a^rgeRt`AEte5NleDecial)A=e;i%tacol?ul^li^ncer3Mr:AUmRanTA=a_iaHt=A&e;i]ion/rit<ulEtal<ul#ort2Mre^ijin|ul2Kui3Kn4NA:Qnd4JeGTiUa<i<m{uUm3Is%e[t2NAPm^pQne{ulPtea{m.Qnd_gAUaDaETiUa&e^bilA(it3Ki^n^rFe&a3Nt_e&le<or:ul<ui3NuDea$le`le^phen$ve5TnOiclA`e/l4Tou{l:ul/nge:s]omac{ul/p]rAduiesc%in<A)tateHe<i_luceSte|itor:zi<i{le^Qnge&sPadAUa^eet/icAUat;t{A:gA{t#udenTi>i(t|A7Tul
+:iaVt(zAUez=e=i`ile;u<l/pid{A-ua2Lb$iect)ul^sol#cEces(ulOd2Te^dia.ferA;i{nTa(t^icienTiKt?A?e^lA%etVul}ui^ragerie.gerat;ez4Tstie]mA^aDn3NA_mPa_Ti4Nt$e_t&ulPi3Gt4LeTi5Km#pA_ra{Ti6TreHt)A/aPer&i;market$ort(a/rafaTA}a;veghere(ieTui?uit_emA]rd/ori<i{le^prinde~reWs}AVzA/sA_a_e2Ms/Tin(e/an^pecTi<t|at|ulOtAPe[ydney,tAcere(a$ut2Ni^aRt2Ju[Qmpit2NnArUA`ul.rfA3Lziu1JaOTi.bArA`a/lou{lDci.i$e2Lle:nt<at2Mre]staturA2MtA4LlGui3NaEoeba]xa^e$i_ul.ylor1Ge.amFA/tru.d^dy]hnic{A:ologia]lecomandA:foane~le6Nn|at7NulFvizor+ulOm/a$eRle^i/peratura9Trile_lu_orar2TndinTA|a$is^siunea.oria`e]rapie$en;ul/ibil7TA_toriul$men{ulRinVA)mHa|Ti7Mt}A<e<i^ry#st_e%ul]xas/t_e4Tul[hatDe#omas-icAlos|ul~e]m^bre/id3Jp4Kul(ui2Ine:reUi2Mp/ii3Nul`e_ri2Ttlul]u-o2KTiFi#aletA^mnA;a3KtA4Je]by2Mcmai]dd]ki/yo2Tlera2Gm$my]ne$y2Tp^it#rt2Jt$al`A;itateEdeauna3NuSi4Kl-rAdatEi%ascAReSteWi5Nsc%mRt2TadiTiile:uc<e|Ti=reLa}i{i`s^fic<ul$g:AFe;Ti`die:i^ndafiri:sformA+at~e`mit}e`port~ulEs/tament;t_eazA2Te3NabA5Na%cA%z`A3Jbui6Ma6He6Mt`ri=lePc_Atoare4Ne`Ti&m5TreRi4Lut6NA{e(ul3Ki%a:lea_sprezeceRzeciPnFul`rile^ptat/zeSte=i&sc:iGt]ibul;nal^cou<l^er/miTi5Ns&t<AHe|mPst;A`eTe]uc^pA_ele:ul1Iu]r/A^cA_a^mA^nat_eu:ul3Tul2Nturor!v[ylerBuSA2Na]i/leOoarA3Mr]urat:el:inTA-au[ciSi/d:AFe;rea/gaS<ul3Ns_A^ziChCiTi]mit`oare(r2Nt3NA%m3NaRTi:m4Mt3LeCl.ei_ul#timA5NaUele&iiGul!m]Ar#anRARe]brA_a_elAVa]eri]orului]ple%ut1Fn2LaOchiul=e|ui]dA3IeFva2Mei3Nle3Nori]ghiile]ic_A^formA3Ni^tate=aRe/vers=itate?atea)ul~uiOor]sprezece]tDu3Mi3Ll!rASte;iEscOQt:A#a]c$A^a_Ti%t^i]eche{a;i<le^z#genTA6Te;t.i^aS`A^le2MmA:reSte>i{ascA<sc`i{Ti{m{re(tRtoareYa?le{r|iiWulEa%re%t$eRazA:le4Tz`e`i.s^ul-scat-til_e0IvA2Kd.i]l]rsat^ul]zuse4Kt-QnAtoare$d:ARut$tRul$zare]rf%ul3NstAGa1Ha.caRnTA{a2NdA]labil^e/iza$oare|a:reazA`ii^uri]mpir.n]porul#rAEa]s^e:le]za[eSnicie$ti`le2NTiDche;a4Ni;ul^in;ii;ul|uiOdeFTi4Ma4MmFre<a4TtA]gas2Ki]nea3MiFTi%m_nd4Kt^usDrde$ific)A}m|aTi*t|i_i^suri/zi]sel`APt:e&a2Lzi!i2LaTA4Ka^tA#ctimA<e|i|le_or<ia=e8Ti#deo.e/TiGi;le^na2Mi3NtoareUrVul2Mn3MAEa^ce`ntPde`cA{at`m3Le%ri3MoRvat|A$ul/zi]oarA/lenTA=a{t5Tt]rusulOs$at/e%le:z$ul#tezA5Ta#u2Tzavi$itAUaVt`eazA(z|e_une[lad-oStriDastrAVe]cabularul$eRa^i2IiPa:iFm_uEe^nTA`ei2Tlumul_ntar2Km]psea2KrPbA4Na_e5MSte7Mi&a<m6NscA{u5Lsc4MiGTi5Nm&nd5Mt{orOstru]t^a:t^eze^ul]uA-rAjitoare2TajA2NeTi3Ja4Iu3JiEm4NeGa:uri|le3Mo4MdatAEun`ul.oia`i&m2Lut@walker/ter#shington]yne[eb#ekend]st[hisky]oa!ill:iam^son!ow,yanni[eah.ni1ToDrk#uMzApadAUa^ezii.u[QmbeSte|i;t{ul%it!ahAr!boarA$r_i:ul.ura&t1Nece^i]elandA]i.ro]u[gQrie#omot{os<ul1Ki#ar_e`le:ulDcEe_Ti_a_m3Ni]d^ul2Mle%iFle/nic#ri2Ms2LuaNonA$a]ologicA]ri-vonuri"""
+DATA_EN = """0Da!ah-bandoned#ility2Mle2HoutPveOroad.sence;tEolutely-ccentFpt(ed%ss3NidentPordingRunt$usedDrossDt/ed$ingRon<s/or/ress3Mually!damOd/edPress.mireRt;ted.ult.vance&tageEice%sed-ffair<sPord2Mraid$ica2KterGnoon1Kgain5Mst2NePnt/s2MoDreeUd;ment1Nh2Nead-im2Nr/planeRort-l.an$rm.cohol#ex.ice/en3Nve2HlPowUed2Mmost2Mone4Ng2LreadyEight2MsoOthough2Kways1JmOazing.bulanceDericaJn*sOong$unt.y1In#cient2Fd/y#gel%r3NryOimalVs.n/a/oying2Lother2Mswer(ed(s.xious2Jy3Nbody3Mmore3Mone3Kthing3NwayFhereNpartUmentOologize#parently$ear<ance<ed(s$lauseRe&s_ication:y$ointmentPreciate:oach.ril1GrePaEn't.gue%mentOm/edPsPy2Kound.ranged$estVedPiveHd;ingDt/hur$icle%st1Hs#hamed#ide2Lk3LedEing/sDleepDs$hole$istant$ume1HtDe.mosphereOtack<ed/empt%ndGtion/itude/orney/ractive!udienceOnt#stralia.thority!vailable.erage#oid-w#ake$re3Ky#esome#ful-ye,babe/ies3My2Jck:ground2Ld$lyDg/s.lanceEl%s#nd/gEkOr$ely/king#seRball%d:ment/ically/ketballPtard#th%roomPtle1GeOachPr:dEt:ing3MutifulUyDcame4Juse3Nome(s&ing2Md$room2Ien/pingEr2Kfore#gEanPinUning;s.have&ior3Nind2Ling;s2LlieveWd)sPl$ong(s%w/tOn/ch.sideVs3LtDt3Kter3MweenOyond-ibleOcycle2LgPger&st#keDll:ion:s%yOrdRs$thGday2MtEch$e/ter1NlackPme.eeding:p/ss$w#ind.ock3Nod&yPw:ingDueNoardEtOb/by.dies3Ny#mb.ne:s2Lok4Ns/ts.rder$ed$ingEn$row<ed2Nss3Mton2LthRerPtle%om2Nught/nd.w/lDx/es2LyPfriend3NsNrain;s/nd$ve/zilOead4NkGfast&ing;s%th(e(ing.ian/deRge$ght$lliant3Mng&ing&s$tish.o3NkeGn3MtherWs3NughtPwn.ush-ucksOddyOildGingRt#llet%shit#nch#ried$n%ed%ing/st2Ns/h3Miness3Ny2Ht/t:er%on2My$ing1IyDe,cabOke.lifornia3Kl4LedFingRsEm2LmeFra$p:aign2Gn3K't/ada/cel&r/dy3Mnot#pable$italEtain2KrPd%s3Le%er4NfulWly%s^l$riedFy&ingPs2Mse:sPh/t%le2Nt3Nch$s2NughtEse&d-elebratePl#nter:ral%ury.remonyEtainJly-hainRr;man$llenge/mpagne3Mnce<s4MgeHd(s&ing$racterRge<d<s:ity:lesUie:ming/se/t#eap:ting3Nck&ed;ing$ering&s%se/f/ss:t.icagoRkenPef3Mld&hood5MrenPnaRese#ocolateEicePose$se;n#ris&t<ianHmasDucklesErch-igarette.rcle:umstances.ties:zens3My.vil-laim3Nss;es;roomDean;ed&ing4Nr;edUly;s$ver#ient/mate:b;ed#ock3NseGd&r;s;t:ingEthes/udsDub!oach/stPt#de2Nffee2Mld/lect=ionGge$onelRr2Ime4Ms$fortable3Ling$mand)er:ent:it(ted>eRon%unity/panies6Ny;red:etition:lain>ingUeteKly<x&icatedFuter>s.ncernWedVt$dition?s/ference;ss:idence%used$gratulations/nected=ionPsider*ed>ing:tructionPtact:estRinue>d*s%ractGolPversation%ince*dOok:ed:ies&ng3Nl#pPs$yOrnerPrect.sEt:s.uch3Jld;'ve5Mn't/ncilRt;ing&ries6My3Nple$rage4MseRt$sinOverUed.w/ard-rack$p/sh3Nzy#eam%te(d;ure$dit$w#iedPme%inal/sisOoss;edPwd.uel/shDyEing!ultureOp.re/ious/rent.stomer>s2NtPe/ting,da2MdEdy.ily#mage3Nn.nEce%ingPgerHous/iel$nyOreEk:nessPling#taEe$ing2Nughter.vePid.wn2Ky3Ls!e2Mad3Nl:ing3Nr3Mth.bt.centPide6NdFsion>sDep%ly.feat:nd;sePinitely.gree<s#licious:ver.mand]nied/yOpartment$ends/ressed.scribe/ert&ve=s/ign%rePk/perate:ite/tiny%roy)ed.tail(sPective:rmined.veloped=ment/ice%l-iamond/ry#ck$tionary2Id3Kn't2Me3Nd/s/tOfference8Mt4Nicult?y.g2Nnner.rect<ion<ly(orPty.sappear+ed(ointed:ster$coveredRuss=ed=ion$ease/gusting/h%es$tance:rict#vorce=d-na1Go.c3M
+tor(s/uments2Kes4Ln't2MgPs.in4Kg.ll:arHs2In't3Le2Lor%s#ubleFt2Jwn:stairs.zen!r.agon$nk$w:ingDeam;ed;ingUsEssUed/w2MinkGing&s3NveUr;sFingDopRped$ve#ug%sEnk#y-uckOdeOe#mb2Nring.stOtyNying0Meach#rPlier4Ny/n$s3Nth;quake.se$ierRly$t3My2LtPenEing$s-conomic<y-d.die.ge#ucation!ffect<s$ort<s!ggPsNhCight2Nther-lected;ion;ric>ity/vator2Lse-mail.barrassed?ing#ergency#ily.ma.otional.pire/loyeesPty1Mnd$ed$s#emiesRyPrgy.gaged$ine$land4MishDjoy&ed;ing2Lough#ter&edPire<ly/rance.vironment!qual/ipment!r.icNscape(dOpecially%ranto.tateNurope<an-ve3Kn4Ning%t;s&ually3Kr4Ky5Mbody5Lone5KthingUwhereOidencePl-xact5MlyPm%inationRpleOcellentFpt/hangePited&ing3Nuse#ercise.hausted#ist;enceDpectVed(ingRnsiveFrience?ed<ment;tElain=ed&nation:osion/ress=ion#tra;ordinary%emelyCye3Ms0Mface:s3Nt%ory%s#ilRed%urePr:ly$th#keDll%en%ing:s/se#miliar<es5LyEous#n/cy$tastic2Mr$m.shion3NtRerOt$e3Kher<'sDultOvorGite-biCear.d#ed3Ll4NingWsRsEt2Nll%ow3Nt#male.nce.stival.ver2MwNield.fteen:y2NghtUingEureVd#le:s$l%edEm:sOnal5Nly:ncial3Kd%ing%s3Le$ger(sEish6Ned2NreRd$m3KstDsh%ingOt2MveOx$ed-lag$t.ewOightDoor$werHsOy$ing!ocus#lksElowVedVing.nd2ModEl:ishPt%ball2GrPce&d&sPeign%stRver3MgetFiveFot(tenPm:er$tune:yEward#ught3Lnd3Nr:th.xNranceRk.eak/d3Ne%dom3MnchPsh#iday3Lend(ly6Ls)hip/ghtened2Iom3Nnt/zen#uit1Muck:ed%in6Ng2Nll:y2Mn/eral3Nny.rniturePtherDture,gain2MmeRs.ng.rage/bagePdenOs$ps#te2Mve#yCeneral=ly<tion;ous$ius$tlemanWenOorgeDrmanVy2Ht3Ns3Lting!host;s-iantOft2LrlFfriend4Ns2JveFnRsEing1NladEssUes.oves1Ho#al2Ld$damn/s2Nes.in4IgOld:en$f2Mne3Kna2IodFbye:ness:s.rgeous.sh2It3NtaRenDvernment<or!rab:bed$ce/de$ndUfather&ma(other;pa:t;ed/ss/teful/ve/y2Keat;er(st/ekFnPw.oaning&sPundFpPw%ing%n#unting&s-uarantee%d;s2Mess%t&s.idePlty$tar2Nn$s:hot2Ly3Ls-ymBha#bit2Id$n't2Nir2NlfPl2Mnd%edFle4Ms&omeEg%ing2Mppen6LedHingHsRiness4Ly2LrdRerRly$m$ry2IsPn'tOt3Ne:d%s2Gve4Nn't3Ming1FeO'd$ll3Ls2Mad:ache:ed:ing%sElth(y3Lr4LdRing4Mt;sPt$ven:ilyRy.hOld/en3Ml4Mo3JpFed:fulRing:s#nry2Hr3He:'s$oEself2Ky1Mi.d$denPePing2Mgh%er:ly#ll2Hm3Mself.re%d2HsEtory2Nt^tingCmm-o2MldRingPe$iday$y2KmeRworkDnest(lyFyPor:ur.ok2Mpe:d:sPing.rn$ribleEse&s2Nspital2NtEel2Nur4Ms3Kse&s2HwPever-ugPe2Mh2Nman&sDndred=s$gFry/t:ing2Nrry3Nt%s2Nsband0Ci1M'd2Lll2Im2LveCce1LdeaRsOiot1Hf-gnoreNll/egal$ness-mage:inationVeOmediately.portance8MtFssible$ressed=ion>ve:ove1Fn.cident/luding/ome/rease&dible#deed:pendent$ia;n:stinct:vidual/ustry.fluenceEormation#juredOnocent.sane3Nide/pectorEtead:ructions$urance.telligence?nt%nd<ed;tionRrestKedKing&national(et&view3Ko$roduce?d.vented%stigation/itation&eVdPolved-ron1EsOland2Ln't#sue;s1Et#'ll3Js#alian%y2MsPelfBjack%et%sonOil.ke.m$esOne2Npan5Nese.son!ealous.ff]nny.rk/ryDsusNim$my1Lob$sOe2Nhn%nyDin:edOke:s/ing.nes#urney#yNudge#ice.lyOmp%ed.ne/ior.ry2Hst%iceZkate1Keep%ingRs.lly#nDpt.vinDyPs!ick%ed2NdPding3Ns2Mll4MedUrRing.m2Lnd:a:ness%sEg:domDss%ed:ingOtchen-nees3LwOife#ock;ed;ing3Gw%ingRledge4Nn4Ms-yotoZla.b#ckOdies3Ny#idOkeDnd3NguageXsDrge;r;st/ry2Kst2Lte%ly4Mr:st^inOugh&edGingGsUter/raDw/sPyerOy.zyNead%er:ing:s3NrnGedUing3Nst3
+KveUs4Ning.cture#d#e2LftOg$alPs#nd2Nss%on<s2It3M's3NterVs%ingOvel!iar.bertyPrary#cense2NePdPs$utenant2Kfe$t2Nght;ning&s2HkeFdRly4Ns2Nne%s^k.on.ps.saEt4Len(edVing.terally3Jtle2LveFd4Ns3Ning-oad/nOcal:ted;ionPkRedOndon$ely3Kg4Ner2Jok4Med4Ling4Ls$seDrd2Nse:rPing$s3Mt2KtPs#ud2JveFdRly:rFs/ingOw$er!tCuckFy/y2NnchCyingBmaDchineDd$am;e3Ke#gazinePic#ilPn#jestyPor2Jke4Ms3Ming#le#ma2Jn$age(dVr/ner<s3Ky#p.rch$iaPkRet:sPriage5MedFy/tin3Jy4N's.ssEterOtch$e:rial/h:ematics/t4Mer(s#x2Ky3Lbe$or1Fe#al:s3KnRing4NsFtPt.dia%calUine2Met4Ning#mber(s/oriesUy2Mn/talRion=ed.rcy/ryOssFage2Mt/al/ers/hod.xicoNichaelDddle$night2LghtOkeOles$itaryEkElion=s2Lnd:s3Ne$ister3Nute6Ms.racle$ror.serable3MsFedFing&on3Ntake=nWs:er.xed!m#m-obile#del%rn2Mm3Nent<s$myOnday3Key/key$ster3Nth5Ns#odPn2Jre3Lning2Lst:ly2LtherOuntain*s/seEth2MveFd:ment:s3NieUsFng1MrOs1JuchOmDrder(ed=r#seum3Mic3Kt1Gy2Mself/tery,nah#ked2LmeRdRs.ncy#rrator.sty#tion(al%vePural=lyUeCear:byRlyOcessary$k2JedFed4Ns.gative.ighbor*hood>sPtherOrvous2Jver2Kw3NsRpaper?s2Lxt1Lice$k2Kght;sOne1Go2MbodyOiseDne$sense.on.peOrPmal<lyPthOse2Gt$e:s3KhingPiceVd#vel2Iw/adays$here-uclear2Mmber(s#rse#tsMo'clock-bey.ject#viousWly-ccasion/urred#ean-dd1Ef2JfEer&ed3MiceVr=s;ial2Mten1Ih.hNil1Lk2Jay1KldEer1Gn2Lce2He$'sEs.line3Jy#toNoh1MpenRed%ing:s$rationDinionOportunity:site1Jr.ange2Nder&ed&s/inary#iginal-saka1Kther5Ns&wiseNught2Jr$sRelves2Ht3Nside/ta1Jver!wOe2Ln$er/sZpack:age_ed#geDidEn:ful%t&edUing$r.l/ace/e.nic/ting%s.paEer&s#rdon3MentsPisEk:ed:ing3Mt%icular?rly;es%ner%s4MyDssFed;ngers:ing;on:port3Nt#th/ienceVt=sOul2My$ingCeace#n/cil/ny2Jople#r/centEfect)ly:ormanceEhaps$iod$mission3MsonVal>ity>ly.teRr1Mhone$to&s.ysicalNiano2NckRed:ing/nic3NtureWs.eEce&s.g.lls/ot.nk.pe.ss#ty#zza1LlaceUs/in3MnFeUt%nedUingRs%t;s/stic/te3LyRed&r<s4MingRs.easant5Je(dUurePnty#us!ocket.em/t2Nint&s/son2Mlice(man;y:te&ical)s#ol3Nr#pPular(tionOsition<ve/sibility6Nle)yPt.t/atoes.unds/red2Nwer&ful;sNractice$y.eciousPfer$gnant$pareWd/senceHtFidentRs&ure$tend=ed4Mty/vent:iousDice&s/de/est$me$nce(ssPson<er>sPvate$ze2Mobably4Llem7Ns$cess/duct=ion=s$fessionalWor$gram&essPject3NmiseWd=s$of/per<ly(ty%osalPtect=ionEudPve:ideCublicDllRed:ing.nch/ished<ment.rePpose/seOsh:ed2Kt/sPting,quality/rterOeen3Mstion8NsDickGlyEet;lyEt4Me,rabbitOce/helDdio2Nin%ing:sPse&d2Nn/g:e.re:ly.t$e3Nher#yNeachUed3MdFing4My3Ml%ityUzeWd4Jly3Nson<able(s.ceiveWd:ntVly$ognize?d:mmendRrd(s2Nd.fuse(d#gret/ular.latedUionshipRx$ease=d/igion=us#main<ed<s3Lember>ed$ind<s/ove<d#nt.pair$eat/lyEort<ed<s/utation#quest_ires.scue$earchPpect:onse)ibilityYle3NtFaurantPult(sDturnVed.venge/olution]ward!iceEh%ardOdEe$iculous:ng2Ight&sDng%ing%s#sePkDver1Noad.b/bed$ertOck:s.ger#le$l.mantic$e#of3Lm:s.pe#se:s#ughEnd.w.yal!ude.in%edOleRs.mor2Mn3Nning$s.sh/sia(n-yanBsad2Nfe%ty2JidOke.lad%ry/e:s$tOm3Le.n/d%wich/g/ta#rahDt$isfied$urday2NveRd/ing2Lw2Jy3Ming3Ms-careGd:yOene#hedule3LoolOience;tific=sts.ore/tt.reamVing<s:en:w;edCeaPrch<ing$sonEt:s2Mcond(s3Nret(ary(s/tion^ureUity2IeEing/k3NmFed4Ms3Ln$s.ldom$f:ishEl%ing2Nnd:ing/ior3Nse:
+itive3NtFence*s.parate#rgeant/ies4NousWly$ve;dRice=s2Nt/ting%le<dDvenFralDx/ual/y-hadow$ke3Nll$me$pePre%p2He3N's/ep/riff#h.iftEp:sPrt3Mt.ock;ed/eFsEot&ingEpRpingErt3Nt:s3JuldV've(erHn't%ting3LwRed&r%ing:n%s2Nut#y1Nick2Nde:sDghsRtEn:al%ed:s#lence&t$ly/ver#milar/onEpleUy.n3LceEg%erRingFle/k2Lr2Mster(s2Mt/eEtingEuation2NxOze-killsPnOy1MleepGing;yPpt.ightly/p:pedOowRly1Nmall;erPrtOell;sOile;d:ing$thOokeRing-nakeDow1Ho#ccer$ial%ety/ks#ftOld%ierWs/id$utionPve;d2Jme4Nbody:day%how4Lone4Jthing;ime8NsFwhere2Ln3Ng%s/s2Lon%er2KrryEtOul3Nnd;edGs$p/rcePthCpace/inPnish$re2Leak&er5NingUsEcial;esPech%d/llEnd;ingFt#irit#litOoke&n/rt&sPt#readPing.y!quare!taff$ge$irs3NndGing&sPr:ed:ingRs4Mt5MedUing&sEte&mentGs4Nion3LyRedRing:s#eal;ingEp:ped:s$veOick3Kll.ockPleUn$machPnePod3KpFped:sEreRiesRm4MyDraightFnge)r3Neet(s%ngth:ss$ikeEong<er/uckOuckEdent7Ns%ied<s;o4NyUing3Nff3Npid#yleNubject#cceed=edUss)ful3Lh/k#ddenVly.e#ffer<ed(ingOgarPgest)ed=ion#icidePt:caseDmmerDnPday#per;market/per:lies;yRortGse7Nd2Kre%ly/face$geryEpriseKd/rounded$vive=d.san$pect:iciousNwear:t;erEet&heart;ieDimRming/tch#ordCystem0Ntable.il2Jke4NnFs3Ming.lent3KkFed4Ling%sPl:er#pe#rget#skPte;s#toebaOught.x$iCeaEch5Ner=s&ing3Nm/rRs.chnology.dOethOlephoneRvision3Il4Ning%s.mper<ature:le2Nn/dPnis.rm%sErible=yDst:s#xt!h2Jan4Kk5Ls3Et4L's2Ce$ater3Kir3JmRselves3Jn$ory3Hre5M's;fore3Kse3Hy:'llGre.ick$ef/n4Kg5Ks4Ik5MingGsPrd:styRty3Fs.omas3Kse/u4Ngh6Kt)sRsand*s.reat<ened4KeRw$oat4Lugh=outFw;ing;n.under/s.yNicket(sOe/d.ger$htDll.m3Ie4Ms#ny.p2Nred:s1Do.ast2Kday;'s2Lgether#iletOkyo2Kld2Fm3M's/my3Lorrow#ngue3Might$y2Jo3LkDp#talUlyDuch;edPgh/r#ward(s/er3Mn.y!rack$dePffic3Nin;ed&ing$nslate>ion/p:ped/shPvel<ing.easure%t&ed;mentEeRs#ial$ck3Med:sEp.oops3MubleOuck3Me$ly3Nst;ed3Mth2Ly3Ling-uesday.rkey3Mn4Ned%ingRs1Nv-welvePntyOice2JoNype,ugh#ly1Lh1Nm#brella-nable.believableDcle^omfortable2Mder5Lstand?dingWood#fortunately.happy.iform$on/que/tFed$verseWityOless/ikely2Mtil.usual1HpOonOset$tairs-rgent1Is2Le3Ld$ful$less/sDing#ualGlyMvacation.in.lley/uable%e#n.rious-egetables.hicle.rsion3Iy!ictim<s:oryOdeoOewOllage.olence<t.sionFtUed;ingCoice;s#te0KwaitRed4MingDke2MlkFedFing:sEl%et:s/ter2Nnna3Ht4Led:ing4Ls2NrPm/n:ed:ing2GsPh:ed:ing=ton3Nn'tPte;d:ing2MtchUedGing3Mer.ve:s2JyPs1Fe.'d3Nll3MreEve#ak/lth$pon(sErFing:sEther.bsiteDdding2MekRendFsOightPrd2Nlcome3Il2Knt2Ire%n't#st#t1Fhat4M's4Never.eel3InRever3Jre&'s;verEther2Lich3Lle3Nte2IoP'sEa$ever3MlePm/oEse2Iy!ide2Mfe#ld3Hl:iamUng2NnPdFow(sEe/gs/ner:ing/sPter.sdom$e3Mh:es.tch3GhRin4Lout$ness!oke.lf2Lman3Nen2Ln3M't3Nder(edHful(ing#od%s2Mrd4Ns/e3Jk4Ned&rs4Ming4Ns3LldEried<s4My;ingEseRtEth2Iuld;'ve5Nn't/nd;edDw1Nrite&r;sFingFten2LongEte,yard1Ieah3Lr4Ks.lling%ow#n#p2Js3Mterday2Lt!oDrk2DuE'd4Nll4Kre4Nve3MngUer3Gr4Ns5Lelf=ves$th,zero-oo"""
+PAIRS = """!(E%b !)Cc) !*Dc) !0@.j !5@O?Ec) !BC.j !LE&HF:nF<eGCfGcnGc'G9rHXDH6uIPII%XK/KKT=L/tLX? !dC.j !gB.j $L>J] %5A%mBF,J'tJ&IKY2 %C>-j %F>-j %HA-j %R@-j %S>-j %mA<SCZjG9*I87J$kKbs %oB-j %rB.j &)?W, &HD/2D/dDR@E6tFXC &WFT= 'jG.j (%A.j *(?`a?;[G$5I:F *)@.j *1A.j *4G@N *tI.j *{=54 +aD${ ,oF.j -SF.jFY6 -TD6uDQR -jB`&Ec)J&I .d@!' .jAVd /3CW, /T>W, /]D&I /|FL#Fc'GCeHbs /}=Ec 0+=/| 0.>Ec 1%Cc) 2*>.j 3`=-j 3a>-j 3e=-j 3s>-j 3t=-j 4$D^kEY1F)QFETH,dIJCIc( 44Ebs 54B/|GHXG^kHcnIEFJeDJ5&J6tJHsJ/dJESJVnKc9K?pKXCL;3LA%MN; 6UAWT 6^@W, 6vB/uG/dG?+H%XH:m 7.?W$ 7]E.j 8[C!' 9.H.j 9R@%mFc) 9yGYM :)BazH.jJ6iJCfJL$JYMMY2 :9A.j :q@*t :r?*t :sA*tE:mE.j ;#DW, ;?B.j ;^D.j ;`C6t <$D.j <%BW$ <lBW$ <{C.j >.A!' ?`?!' B:A!' BzD%$EL$GaBHc(H0}H/eI>TI%WJW0J(KK8b CfA9r D:D!' D`A.j DdE.j Dj?`& DtC&I E+Fc)G%yH't EBCc) ETFW, EcBHR EkDW, F,Fc) G&@%m GUF.j G|BW, HRF.j HYBW, I8Ec) Ii>54 Ip?E, J3?$O JFB:)C?fDG&DE+Ia`JBuKZvL%b J]CVdFN:FESFCeFR@F5%GJAG/dGNxGYLG;3GVnGL#H%WH`ZI@rIcnI,cI;hI=EIEFI95IDsIQRJ/2JYgJ<!JEjJ8'K'6KahKatLQa K6C.j K^C!' L=BCe MI@-j MwA/RA`&EF-F^kGVnHDsI:mJ5& N%@%mA-jD^k NDET= O??VdEHtFeEF1- Ou?VdD4s PMA.j PV?Vd QSBW, Qd?5% Qy?/t Rq@W, Ry?W$ SZ?VdE$5 T-A-j UHD.j Ux>RA VB?Vd VL@!' VdCE+D;^D:rFbsHd'JAHL]p VoA&I X>Cc)D$4D'QDa]F^MGWjI.G Y/>-j YkAW, Z+DW, Z>A,7 ZZA/d Z`?-j Zc?-j Zj>-j [ZB<f ].G.jJYM ]dA.j ]xAW$ ^$AVBFc) ^QB`[ ^p?!' ^{Bco `&@%mAJFEVdEc)L.= `a=Vd `c=Vd `d=Vd azI8bIMxIT= bs@VB c'B.j c)@;[D$5EOoFBuG3KG%b dUD4sEa`EBuF]'Gbe dcE.jE%b dgC<f dkB<f dmC<f d~>VdE.j e!>VdC.j e#>VdD.j e0D.j esEW,"""
+PAIRS_EN = """!!D3lD.[D3OE5~E,tFAvF3^F.wF41F$vG%%GBaG&IGBxG$-G%?G)?G-nH9$H=)H'1H6&H2^H*>H$JH1oHB-H57H&pH5#HCKH5,H3/H(ZH*CH?OH'iI7zI({I5>I&[ !&=@R !'B1SC?pC@.CBmC@Z !2=@R !5>?r !M?6O !R??r !W>C; !jA?rC6OD)?D6(E7' !mA+r !o?C; !uB67 !~C0OC6^E!1 ##B4BF?w #2B5BC3`C6z #5B+? #6B!'C+? #J@CwD67EAv #L?Cw #S@?rA/| #`A!!C/ZC=PCBgD0oD5TE8WE3^E,V #cA@Z #d@4RA4BB0- #l@?rC!jC0<D2{D6bE6(E;H $$A-s $+@@RC0< $DB!!D!&D/|E2dE$+E/KF&NF*K $M@6OA/Z $N?!! $SEB+ $X>@R $c@?p $oB-n $q@?m %?A1N %E?1! %N?!! &+A0fB/Z &/@!! &1@?rD0. &6A4R &;@@R &?ACwC*<C$DD=aE;dE/u &@C$cC$DE!L &L?6O 'oA@RB$+C/|D0< (RACwB67B$D (Z>6O ({>6O )C?C; )J>@R )w?CwB@ZB67 )xB2MBB6C/W )}>$r *!?@R *<?CwB1SB?pD67D@.EC;E#6E=H *A@67A@Z *BA2MBB6B3@B/WC;g *JA2MBB6B/WC@(C3@E5tEALECVF-UF&LF,h *PA?r *q=@R *s>?r *w>6z +&?@R +J?6O +W@@RA5; +lA@2B0o +qB;j +r?)?B5C +z?Bm ,&>4R ,V@#`@-s ,h@3@ ,mA#g ,tA)@B5$ ,z>7$ -(A7$ -3@@L -7ACmB5$ -NA?rA!!C4RD01DC~E/{E@9FAcG*% -R@2[ -^>@R -aA7$ -s@?rD01D/| -t>6O -{?6O .0@4RB4B .<B!!C7$DA]D4?D$+E!oE:T .F@4RBA] .N@@RC7$C?yC0<DC;D$+ .S?@R .U>@RC6a .[B#lC0l .cA!!A@RD4? .|>A] /:@!!A@RC6+C$SE$q /G@@R /L@@R /QA!!A$SD6+E5}E.Y /WA@RA!!C$SD#2D6+E!~F+WF*K /XA;j /Y@!! /ZA1NAB?C/QD/:EC)E)xE*BE)wE;*FC[FBhF(RF&;F4%FB9G@dG2QGB7G.0G3CH3R /^A!! /uACwA4RBAc /{E5FF0e 0)?;H 0-B@R 01E7*EC'E,^E&IF5FF0QF5cF7BF=LF4|F/`F,=F,> 0QA1N 0S@@RB47B5TB*<B)wB3^ 0Z@*I 0fB*JC/WCB?C@(D!uDB6D&@D2MD)xE&?E/:E@3E5tE2'EC)F3@FC[F(RF;?F.cF0DFC8G@YG3oG5}G/XG<JGCEG,hG(TGBhG/hG9sG&EGCDG2HGB7H-aHC^H5[H#dH4mHBDH%NH/TH/,HAeI,oI-WI<KI8f 0g>3@C9h 0hA$DC.NC?9C5}D.F 0iA67B.UC>}C=RD!ME.JE3c 0j@$SA.cA5}B+qD!tD!pD;j 0k?(i 0o?CwA0fB/ZECz 1!@?rB!!D01D@.D5]D%IF3oF-tF1dF6tG+SG-kG$QHA- 16>6O 1?>1! 1D??r 1NB!!D67DAvE!~F.UF>8G@cG!tG9U 1PA/Z 1SA1NBB?EC)EC[F;iF*BF3dFBDG@dH9] 1T?$D 1UA!!B67D@LD$SD@cDAv 2'CB6EB7 2=>6O 2MABmB0SB?pCBsDC%DBzFBv 2QA0S 2U=6O 2c@6(B@LBClBBaC5> 2dA-N 3*??m 3-?4RB@Z 3.A.N 3;A1N 3@@@RB!!C?pC@. 3K>@R 3M>@R 3P?1! 3Q?1! 3R?1! 3S@1! 3^@@LB#` 3a@#lB3@ 3b@#l 3c?-NA#lA-^ 3d?3@ 3kA01 3l>6O 3m=6O 3oAC; 4%@!!CA] 4,A!!B1SB>} 41CBz 47B7bC@M 4BC1NCB?D#J 4O@0fA$D 4RB@R 4s>6O 4u?$D 5B@?mC@L 5DA6OB$J 5RA=1 5TC#`C5; 5[@$DB/W 5]C,^D5FE%rE0QE<rE3;E-nE7BF&IF7*F-pFC'F=LF:nF4|FAIG,cG0=G.m 5k?=b 5t?@RB!! 5v?@R 5}C$SC;j 5~BCvC&I 6%ABaBClB5> 6+A6cC0lC4LD3`E'7 6.>6O 67D.UE>} 6:@@RB&+ 6B?6O 6O@?rD01D5]F/{FAcF?uF6~F5;G7bG'h 6P@?r 6^B41 6`??m 6a??rC01C5]DC~E@LG5: 6cA6OBBz 6gA6c 6k>?r 6rA67 6t?@R 6zC)? 6}=@R 7$?6O 7'@?rB?y 77=6O 7G>6O 7bB#JCBz 7qA6B 7w>A] 7}=6O 81>@R 87B?d 8>B*JC?Z 8A=6O 8Y>6S 8qA.[A>} 8x>5! 99>6O 9HB6a 9n@-N 9sCB6 :%>@R :G>-N :T=6O :X@6>B$$ ;*A?pA/Z ;2A@& ;9@*P ;@A?pB#6 ;B@/Z ;dACw ;g>@R ;i?@R <5B1NBB?C/QD/:E*BE)xFBhF.0 <JA$DB/WC.N <M?/W <O@4R <t@*P =6B5TD47D,V =CC7bC5;C@L =GB+? =HA@RD+? =P?#` =S=6O =a@-kB+S >!>#l >-A/| >X@-k >c>!! >rAAl >|=@R >}A@Z ?9@!!B&L ?>?@R@!' ?@?!'@@R ?C>?m ?Z@4R@@ZACwCAcC0- ?b@CmA5$ ?n=Cw ?o>-N ?pB/ZE<5E4B ?qA!!A67BBmCC% ?rF;2FCSF-3F*LGBNG2cG6gG:nGA3G$oG5DG0QG9$G7MG@tG8IG&IH6zH%?H4`H5~H41H?7H%TH5;H6%H&'H>,HB~H+JH6!H'FHC.H>IH>sH1oH*CH6^H?OHAUH'3H!1H.CI:aI5CI0LI*>IB]I'|I(YI7DI:bI4LI9NI.'IBKI7qI2FI9ZI-0I3/I8-I.%I<|I>SI6SIB1I$6I.,I
+*}I->I7uI&[I<wI;TI35J$EJ4sJ!aJ.fJ5AJ8.J+{J(,J2YJ6#J+| ?tC7* ?y@1NA#JBB?CBi ?z@!!@6+A6:B=H ?|B)@ ?}B#JBBiD/W @(A@ZB?pC6OC1UC!'CBPD0iDCz @)?!' @-@5$ @.A1NE%?E5CF!PFClF1PF9$F;wF:nG+m @0@Bz @3ACwA@ZDCx @9ACmB0PB)@B@MC5?CBc @<??r @LB@RC-ND0j @RC$DC*<D.ND.<E;dE/uF4,F?ZF;@F?>F?9F'oF+'FCNF&/F%IG2|G-(G>-G.FG3PG=aG#cG;HG87G4BG4^G2xH2*H9lH/gH>WH$QH>?H7ZH<}H*aHCcI/FIAdIB#I-.I&rI?2I$NI&]I3gI=jI*dJ=A @Y?4RACwA@ZB4BC0- @ZA1NCB?D/QD*BD)xE1PFC)F;*F@YF/:F#dFB9G.cGC[G(TG;iG2QGB7G5}G&@G;BG@dG3bGBDG3dG9HGBhHCDHA)H.0H4uH3CH/RH5vI;9IC^I@*ICF @^B5C @cA5TC2d @d@!!B6P @e>6O @s?!1 A)>@R A4?@R A5=@R A8A6P A@BCmC0P AK??r ALABm AU=>+ A]B@RBC;D#lE*z Ae>@R AvC.[C5TCBgE/KE&* B)@-NBAZ B+>-N B6>@RC4R B7>@R B9>@R B?B!!EAvE.UF%EG?% BHBA< BJ@A< BN@@R BPB/WC#JC&?CBiC<JD5tD/:D*JD5[E&@EC)E(RFBh BRA$D BSA.UA67 BT?.c@$S BZ?!! BgB#` Bh?@RB7$ BmC/ZC*<C1NC/GD#JD@ZD)wE@LE4BE*AE2=FCz Bn@?r@C~B.U Bq@0fA/ZC<5D)w BsA)wB1NC#J BzB1N C%A*JB#JB)wB*<C)xDC[ C)@$DD67D'oD5} C+=@R C8?0f C;B!!C@ZC4RC01C0-D5]D/{DAcD4BDC~ C?>A] CD@$D CE?0o CT>!' CV?!' C[@CwA$DB3@C/W ChAC; CmA!VA6^ CwC/WDB6D2MD#JD*JD@(E&?E<JE3@EBiF&@F5[F5tF+qFC)G?ZG9sG.UG)xG4OG;@G;*H4uH/6H<MHCD Cx?$q Cy@$D CzA67C.U C{@.cA$SB*K C|A7bB41 C}??m C~D,cE/uE7*E5cF,^F7B"""
+ENDS = "$iM%YL%mG&GT&HW&KU(JV(XP)GH*(G*tP-jL.VM.eT.jL/RQ/]K/|S00U4sM5#M5$M54Q5DJ6CK6uH91L9RQ:)M:hI:kV:qI:rH:sK:vH:wE;`X?lLBwHCfXDTLEBSEuVF<SG&MHRLHSUIqWJ]WL$RL=UN%MO?KOuFOzIPVHQdWQqQS;USZGS`HVdXVoHWTKX)PX>TXDGYMUZZT[ZM[eQ^QM^{F`&QaiVbzIc)FcSHdUDdgMdkMdmLdoLe)U"
+RULES = "Abda Aciu Acut$ Adui Ajit Aluc Alui Arbat Areat Areti Arile Arui Arut Asari Aspa Atate Ateas Atest Atile Atise Atit$ Atite Atore Atos Atran Atrat Aunat Auta Azb Azut Imbun Inca Incep Incet Inch Indre Inflo Ingri Ingus Inlo Inm Inno Inot Inr Insel Insot Intep Intre Intun Invat Qmpla Qnd$ Qndu$ Qnge Sedin Seza Snu Somaj Step Sti$ Stien Stiin Tia$ Tial Tie$ Tiil Tinut Tioa Tion Tios Tisa Tiuni ^Imb ^Ingh ^Ingu ^Inl ^Insa ^Inta ^Intin ^Stii ^aSez ^alAt ^amQna ^bunA ^cAla ^cQnta ^forT ^gAi ^intQm ^mAre ^rAce ^rAst ^sAru ^strAl ^tAie ^vAz ^vQn aSi$ aStere aTi$ aTia aTie aTii aTile aTilo aTise aTiu abilA adQn alAtur amAg anAto arAsi areTi areaT asAri aspQ ataTi ateSt atiSe atrQn aunAt avieT azA$ bAtr bTin batrQ bdA beSte biTi bilA$ brAr braT cAlat cAldu cAlz cAm$ cArcat cAtori cQndu cQntar cQstig cTia cTie cTii cTio cTiu caStig calAt calT citAri crAri creSt cuTi cultAt dAuna dQnc daTi daunA deTi depaS dusA eInc eSi$ eSin eSte$ eTi$ eTii eTui eascA eazA ecAto ecaTi enTei enTie enTio eneS epAs epaSi eranT eratA erinT ernA$ etaTi fAcut fAtui frQng funcT gQndi gicA$ grAdi hrA iSar iSn iSoar iStii iTi$ iTia iTiei iTii iTio iaSi iaTi iascA iazA ibilA icatA ieSte ieSti igenT iinT imT inTei inaTi indrA insA$ ioSi$ iraTi itAm$ itQnd itaTi ituTi ivorT lAnu lAtit lTum latA$ lecTi liniS litAti ltaTi lumQ mArf mAsu mQnca mQnes mTi mbiT mbunA menTi mparTi mulTu nAtat nSel nStie nTei$ nTep nTi$ nTia nTii naTio natA$ ndepA ndrAg neSte nesA nfrQn nitA$ noaSt nrA ntQmp ntalA ntenT ntreT nvAt nzAto oTii oTio oaSte oasA obiS ogaTi onaTi onalA onatA onunT orbAr oritAti pTi$ pTii patA$ peSt pregA rAbd rAdin rAril rAsf rAsp rAut rQndu rQnet rTi$ rTia raTio radiT raneSt raneT ratA$ rbAto reSte reuS rinTe rtaTi ruSi sAnat sArac sArit sanAt sarbAt satA scA$ scAto seSt semAn serA$ sivA slAbi soT spQnd spreT stAp stapQ steSt stiTi sticA$ strAnu straTi susTi tApan tAres tAtes tAtil tAtit tQrn taTes taTil taTit tapQn tatA tenTi tiSa tilA$ trAlu treTi uSi$ uTia uTii uTio uTite ufA uieSt uinT ulaTi umQna umpA unAta unAto unatAti unoSt upTi urAto usA$ utaTi vAtat vAzu vQnat vQntu vieTu vorbA zQnd zaTi zamA zatA zeSte zgQ zvA"
 TOP = ['de sA nu In Si cA', 'the you to it is of']
 
 P = {"lm": 1.25, "dele": 5.95, "ins": 9.258, "trans": 5.75, "maxtap": 13.973, "acc": 1.0,
@@ -413,6 +63,12 @@ G = {}
 
 def _num(s):
  return (ord(s) - 61) / 2.0
+
+def _first(s):
+ return s[0]
+
+def _second(s):
+ return s[1]
 
 COMBO = "BCDEFGHJKLMNOPRUVWXYZ!#$%&()*+,-./:;<=>?@[]^_`{|}~"
 IX = "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^`abcdefghijklmnopqrstuvwxyz{|}~"
@@ -446,18 +102,24 @@ def _setup():
  G["ro"] = _unpack(DATA_RO, G["cro"], pre)
  G["en"] = _unpack(DATA_EN, G["cen"], pre)
  G["pre"] = pre
- allw = G["ro"] + G["en"]
  ix = {}
  for i in range(len(IX)):
   ix[IX[i]] = i
  pairs = {}
- for line in PAIRS.split("\n"):
-  if len(line) > 4:
-   pairs[allw[ix[line[0]] * 91 + ix[line[1]]]] = [[_num(line[j]), allw[ix[line[j + 1]] * 91 + ix[line[j + 2]]]]
-              for j in range(2, len(line), 3)]
+ for block in [[PAIRS, G["ro"]], [PAIRS_EN, G["en"]]]:
+  ws = block[1]
+  for line in block[0].replace("\n", "").split(" "):
+   if len(line) > 4:
+    a = ws[ix[line[0]] * 91 + ix[line[1]]]
+    fol = [[_num(line[j]), ws[ix[line[j + 1]] * 91 + ix[line[j + 2]]]] for j in range(2, len(line), 3)]
+    if a in pairs:
+     fol = pairs[a] + fol
+     fol.sort(key=_first)
+    pairs[a] = fol
  G["pairs"] = pairs
  G["pc"] = {a + " " + x[1]: x[0] for a in pairs for x in pairs[a]}
- G["ends"] = {allw[ix[ENDS[j]] * 91 + ix[ENDS[j + 1]]]: (ord(ENDS[j + 2]) - 79) / 2.0 for j in range(0, len(ENDS) - 2, 3)}
+ ro = G["ro"]
+ G["ends"] = {ro[ix[ENDS[j]] * 91 + ix[ENDS[j + 1]]]: (ord(ENDS[j + 2]) - 79) / 2.0 for j in range(0, len(ENDS) - 2, 3)}
  G["user"] = {}
  dr = {}
  for r in RULES.split(" "):
@@ -661,12 +323,6 @@ def _choices(e, taps, state):
   rows.append(row)
   full.append(costs)
  return [rows, full]
-
-def _first(s):
- return s[0]
-
-def _second(s):
- return s[1]
 
 def _search(rows, n, edits, prefix):
  pre = G["pre"]
