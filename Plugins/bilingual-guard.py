@@ -473,7 +473,7 @@ def _decide(e, fix, state):
     margin = P["accent_ctx"]
    dm = state.get("dm", 0.5)
    noun = len(prev) > 2 and prev[-1] in "aA" and prev[:-1] + "a" in G["cro"] and prev[:-1] + "A" in G["cro"]
-   if isinstance(dm, (int, float)) and dm < 0.5 and pr >= 0.5 and not noun and not _evidence(prev, e, state):
+   if isinstance(dm, (int, float)) and dm < 0.5 and pr >= 0.5 and not noun and e not in G["cen"] and not _evidence(prev, e, state):
     margin = min(margin, P["amb"] - P["acc"] * (_marks(best) - _marks(e)))
  elif " " in best:
   margin = P["split_nv"] if fe is None else P["auto"]
