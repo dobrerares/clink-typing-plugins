@@ -384,13 +384,14 @@ you've|@got
 your|Dfavorite
 ziua|Esa"""
 ENDS = "InvATM TiL aG aceaT aceastAV aceeaSiT altAU amQ arF areQ cAM cQndL cQtS caK ceS celeT cuM darM datL deR dejaN despreM eM eStiL elQ esteL fArAU faceQ fiecareW fostM iarK limbaW mQineR mareU meaS multAU multL nicioW oW oraS oriceU pentruM placeK poTiF poateI potH primaW prinS puteaG sAW sauK seS singuraT spreS subR terminatM toatAE tomR ultimaU vAzutG vaE veiG voiD vorbeSteM vorbeascAL vorbescK vreoU"
+RULES = "Aciu Adui Ajit Alui Arbat Areas Areat Areti Arim Arui Arut Asari Asit$ Asura Atate Ateas Atest Atile Atise Atos Atrat Auta Azb Azus Azut Impru Inalt Inca Incep Incet Inch Incui Indoi Inflo Ingri Inm Inno Inot Inr Insel Intep Intre Intun Invat Qmpla Qndu$ Qnge Sai Sede Sedin Serp Snu Somaj Sti$ Stiin Stri$ Tia$ Tie$ Tiil Tinut Tioa Tion Tisa Tiuni ^Imb ^Impi ^Indr ^Inl ^Insa ^Inso ^Inta ^Intin ^Soar ^aSez ^amQna ^bunA ^cAla ^cQnta ^calA ^forT ^gAi ^gAti ^greSe ^mAre ^oTe ^pAca ^rAce ^rAst ^radA ^reTe ^tAie ^vQn aSi$ aTi$ aTie aTii aTil aTiu alAtur anAto anatA apAsat arAsi areaT asAri ascA$ atiSe azA$ bAtr bTin bdA bilA$ brAcat brAr braT cAldu cAlz cAm$ cAmin cArcat cArei cAril cAsato cAtori cQnd$ cQndu cQntar cQstig cTie cTii cTio cTiu caStig calT casAto cenuS citAri clAd crAri creSt cuTi$ cultAt dAuna dQnc depaS dusA dviS eInc eSec eSi$ eSin eSte$ eStep eTi$ eTii eTui eagA$ eanA ecAto enTie enTio eneS epAs eralA eranT erinT fAcut fAtui farA$ frQng gAtit gQnd$ gQndi gicA$ hiTi hrA iSat iSoar iStii iTi$ iTia iTie iTii iaSi icatA icuT iinT imT impAra insA$ ioSi$ itAm$ itQnd ivitAti ivorT lAnui lAtit lAtori lQng lTi$ latA$ leagA liniS litAti mAgit mArf mAsu mQnca mQnes mTi mbiT menTi miSc moSte mparTi muTi mulTim mulTu nSel nStie nTei$ nTeleg nTep nTi$ nTia nTii naSte natA$ ncApat ndepA ndrA nducA neSte nesA nfrQn nitA$ nitAti nouA nrA ntAm$ ntQmp ntalA nuSa numAr nvAt nzAto oTi$ oTii oTio oaSte oasA oatA$ obiS ogaTi onaTi onalA onatA onunT oraS orbAr oritAti otAra ouAs pAia pAsit pAtan pQndit pTi$ pTii paSit paTan patA$ patQn peSt plAcu prAj pregA puSc pulaT pusA rAbd rAcie rAdin rArii rAril rAsar rAsf rAsp rAut rQnd$ rQndu rQnet rTi$ rTia raTio radiT ranTei raneSt raneT raspQ ratA$ rbAto rciTi reSte reTio reuS rieTi rinTa$ rnA$ ruSi sAnat sAra sArit sanAt sarbAt satA scAto scuTi seSt semAn serA$ sfaS sivA slAbi soT spQnd spreT stAp stapQ steSt stiTi sticA$ stinT strAdu strAnu straTi susTi tApan tAres tArile tAtes tAtil tAtit tQln tQrn taTes taTi tapQn tatA tiSa tialA tilA$ titA$ toreSt trAlu treTi tuitA uAsp uSi$ uTia uTii$ uTio uTite uaTi ucAtor$ ufA ugAc uieSt uinT ulaTi umAra umQna umiTi umpA unAta unAto unTi unatAti unoSt upTi urAto ureS urmAr uvQn vAtat vAzu vQnat vQntu veTi veliS vieTu vorbA zAp zQnd zaTi zamA zatA zeSte zgQ zvA"
 TOP = ['de sA nu In Si cA', 'the you to it is of']
 
 P = {"lm": 1.25, "dele": 5.95, "ins": 9.258, "trans": 5.75, "maxtap": 13.973, "acc": 1.0,
  "strip": 8.0, "auto": 2.0, "valid": 4.9, "native": 2.678, "accent": 1.5,
  "accent_valid": 2.1, "unk_valid": 15.0, "unk": 18.7, "user": 10.0, "space": 1.25,
  "spacetap": 2.5, "beam": 32, "backoff": 0.92, "ends": 1.048, "prior": 0.94,
- "accent_ctx": 4.5, "split_nv": 1.275, "gapnotap": 2.5, "three": 2.0}
+ "accent_ctx": 4.5, "split_nv": 1.275, "gapnotap": 2.5, "three": 2.0, "oov_pr": 0.6, "oov_fin": 0.0}
 ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
 RY = 1.35
 KW = 0.86
@@ -402,6 +403,7 @@ FROM = {"A": "ă", "Q": "â", "I": "î", "S": "ș", "T": "ț"}
 BASE = {"A": "a", "Q": "a", "I": "i", "S": "s", "T": "t"}
 SIB = {"a": "AQ", "i": "I", "s": "S", "t": "T"}
 ONE = {"a": 1, "o": 1, "e": 1, "i": 1, "I": 1, "S": 1}
+SHAPES = [[t - r, r] for t in range(8, -1, -1) for r in range(4, -1, -1) if 0 <= t - r <= 4]
 LETTERS = "abcdefghijklmnopqrstuvwxyzAQIST"
 CEN = {}
 for _r in range(3):
@@ -452,6 +454,15 @@ def _setup():
  G["pc"] = {a + " " + x[1]: x[0] for a in pairs for x in pairs[a]}
  G["ends"] = {x[:-1]: (ord(x[-1]) - 79) / 2.0 for x in ENDS.split(" ") if len(x) > 1}
  G["user"] = {}
+ dr = {}
+ for r in RULES.split(" "):
+  for k in range(len(r)):
+   lab = r[k]
+   if lab in "AQIST0123":
+    base = BASE.get(lab) or "aist"[ord(lab) - 48]
+    dr[r[:k] + base.upper() + r[k + 1:]] = lab if lab in BASE else base
+    break
+ G["dr"] = dr
 
 _setup()
 
@@ -773,7 +784,8 @@ def _decide(e, fix, state):
    if item[0] < bestc:
     bestc = item[0]
     best = item[1]
- keep = [None, lit, bestc, lit_valid, native_valid]
+ plain = not lit_valid and best is not None and _marks(best) > 0 and _fold(best) == _fold(e)
+ keep = [None, lit, bestc, lit_valid, native_valid, plain]
  if best is None or (_marks(best) < _marks(e) and _fold(best) == _fold(e)):
   return keep
  if _fold(best) == _fold(e):
@@ -867,6 +879,33 @@ def _splits(e, rows, full, taps, prev, state, pr, fe):
    out.append([c, fe])
  return out
 
+def _restore(e):
+ p = "^" + e + "$"
+ dr = G["dr"]
+ out = ""
+ for i in range(len(e)):
+  lab = e[i]
+  if lab in "aist" and (i < len(e) - 1 or lab != "a" or P["oov_fin"] > 0.5):
+   for s in SHAPES:
+    if i + 1 - s[0] >= 0 and i + 2 + s[1] <= len(p):
+     v = dr.get(p[i + 1 - s[0]:i + 1] + lab.upper() + p[i + 2:i + 2 + s[1]])
+     if v is not None:
+      lab = v
+      break
+  out += lab
+ return out
+
+def _oov(word, e, r, state):
+ if r[3] or _marks(e) > 0 or len(e) < 3 or _pr(state) < P["oov_pr"] or not G["dr"]:
+  return None
+ dm = state.get("dm", 0.5)
+ if not isinstance(dm, (int, float)) or dm >= 0.5 or state.get("restore", True) is not True:
+  return None
+ if (word[:1].isupper() and _prev(state)) or re.search("[wykq]|th|tion", e):
+  return None
+ w = _restore(e)
+ return w if w != e else None
+
 def correct(word, fix, state):
  if not isinstance(state, dict) or state.get("on", True) is not True:
   return None
@@ -887,13 +926,25 @@ def correct(word, fix, state):
  r = _decide(e.replace("'", ""), fix, state)
  if r is None:
   return None
- if r[0] is None:
-  if isinstance(fix, str) and fix != word:
+ dm = state.get("dm", 0.5)
+ dm = dm if isinstance(dm, (int, float)) else 0.5
+ if _marks(e) > 0:
+  state["dm"] = 0.4 * dm + 0.6
+ elif r[5]:
+  state["dm"] = 0.6 * dm
+ best = r[0]
+ if best is None:
+  clink = isinstance(fix, str) and fix != word
+  if clink:
    if not r[3] and (" " in fix or (not r[4] and r[2] < r[1])):
     return None
-   return False
-  return None
- out = _case(word, _out(r[0]))
+   fe = _enc(fix.lower())
+   if not r[3] and _marks(fe) > 0 and _fold(fe) == _fold(e):
+    return None
+  best = _oov(word, e, r, state) if "'" not in e else None
+  if best is None:
+   return False if clink else None
+ out = _case(word, _out(best))
  if out == word:
   return False
  state["pend"] = [word, out]
