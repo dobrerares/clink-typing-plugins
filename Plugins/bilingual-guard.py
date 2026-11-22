@@ -2,7 +2,7 @@
 # name: Bilingual Guard
 # icon: text.badge.checkmark
 # summary: Touch-aware Romanian + English autocorrect, diacritics, completions and next words
-# version: 1.0
+# version: 1.1
 # author: Rares
 # enabled: false
 # ---
@@ -10,8 +10,9 @@
 # Taps are scored against nearby keys (2D Gaussian, learned offsets); a beam search allows
 # slips plus one missed/extra/swapped letter; word pairs and the recent language weigh it;
 # a word is replaced only when the best reading beats it by a margin (large for real words).
-# Clink's fix decides words this list lacks. Design adapted from Hex's TypingDecoder
-# (github.com/anomalyco/hex, MIT, (c) 2026 Christopher Langton). DATA_*/PAIRS/ENDS adapt
+# Clink's fix decides words this list lacks; learned letter rules add Romanian diacritics to
+# them. Design adapted from Hex's TypingDecoder (github.com/anomalyco/hex, MIT,
+# (c) 2026 Christopher Langton). DATA_*/PAIRS/ENDS/RULES adapt
 # FrequencyWords (OpenSubtitles 2018, Hermit Dave, CC BY-SA 4.0) and Tatoeba (CC BY 2.0
 # FR) counts; shared under CC BY-SA 4.0. No Google/Gboard data. Internally A=ă Q=â I=î S=ș T=ț.
 
