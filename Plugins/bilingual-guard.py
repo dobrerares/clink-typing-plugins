@@ -391,7 +391,8 @@ P = {"lm": 1.25, "dele": 5.95, "ins": 9.258, "trans": 5.75, "maxtap": 13.973, "a
  "strip": 8.0, "auto": 2.0, "valid": 4.9, "native": 2.678, "accent": 1.5,
  "accent_valid": 2.1, "unk_valid": 15.0, "unk": 18.7, "user": 10.0, "space": 1.25,
  "spacetap": 2.5, "beam": 32, "backoff": 0.92, "ends": 1.048, "prior": 0.94,
- "accent_ctx": 4.5, "split_nv": 1.275, "gapnotap": 2.5, "three": 2.0, "oov_pr": 0.6, "oov_fin": 0.0}
+ "accent_ctx": 4.5, "split_nv": 1.275, "gapnotap": 2.5, "three": 2.0, "oov_pr": 0.6, "oov_fin": 0.0,
+ "amb": 3.0, "amb_acc": 1.0}
 ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
 RY = 1.35
 KW = 0.86
@@ -797,6 +798,10 @@ def _decide(e, fix, state):
    same = e in G["user"] or (e in G["cro"] and pr >= 0.35) or (e in G["cen"] and pr <= 0.65)
    if same and not _evidence(prev, best, state):
     margin = P["accent_ctx"]
+   dm = state.get("dm", 0.5)
+   noun = len(prev) > 2 and prev[-1] in "aA" and prev[:-1] + "a" in G["cro"] and prev[:-1] + "A" in G["cro"]
+   if isinstance(dm, (int, float)) and dm < 0.5 and pr >= 0.5 and not noun and not _evidence(prev, e, state):
+    margin = min(margin, P["amb"] - P["amb_acc"] * P["acc"] * (_marks(best) - _marks(e)))
  elif " " in best:
   margin = P["split_nv"] if fe is None else P["auto"]
  elif lit_valid:
