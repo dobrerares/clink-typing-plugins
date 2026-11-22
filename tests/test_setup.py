@@ -169,6 +169,18 @@ class BilingualEngineTests(unittest.TestCase):
         self.p['settings'](self.s)
         self.assertEqual(before, json.dumps(self.s, sort_keys=True))
         self.assertEqual(self.calls, [])
+    def test_missed_spaces_are_split(self):
+        self.assertEqual(self.c('atthe', None, last='looked', pr=0.1), 'at the')
+        self.s = self.p['initial']()
+        for i, ch in enumerate('ofbthe'):
+            self.s = self.p['on_touch'](ch, 0.0, 0.45 if i == 2 else 0.0, self.s)
+        self.assertEqual(self.c('ofbthe', None, pr=0.1), 'of the')
+    def test_clinks_own_split_is_not_blocked(self):
+        self.assertIn(self.c('howbare', 'how are', pr=0.1), ('how are', None))
+    def test_real_words_are_never_split(self):
+        for word in ['cineva', 'into', 'anyway', 'cannot', 'deoarece', 'something', 'înapoi']:
+            with self.subTest(word=word):
+                self.assertIn(self.c(word, None, last=''), (False, None))
     def test_clear_forgets_learning(self):
         for word in ('good', 'morning', 'Zdravin', 'Zdravin'):
             self.s = self.p['on_word'](word, self.s)
