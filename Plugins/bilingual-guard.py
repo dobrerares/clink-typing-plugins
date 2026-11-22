@@ -29,360 +29,360 @@ Fsion>sOep%ly.feat:nd;sePinitely.gree<s#licious:ver|ed|y.mand]nied^tist/yOpartme
 ance.telligence?nt%nd<ed;tionRrestKedKing}s&national(et`rupt&view3Ko$roduce?d.vented%stigation/itation&eVdPolved-ron1EsOland2Ln't#sue;s1Et#'ll3Js#alian%y2MsPelfBjack%et%sonOil.ke.m$esOne2Npan5Nese.son]zz!ealous.ff]nny.rk/ryDsusNim$my1Lob$sOe2Nhn%ny_sonDin:edOke:s/ing.nes]sh#urney#yNudge#ice]lia_e/yOmp%ed.ne/ior.ry2Hst%ice@karen#te1Keep%ingRs.lly#nDpt.vinDyPs!ick%ed2NdPding3Ns2Mll4MedUrRing.m2Lnd:a:ness%sEg:domDss%ed:ingOtchen[nee:s3LwOife#ock;ed;ing3Gw%ingRledge4Nn4Ms-yotoZla.b^or#ckOdies3Ny#idOkeDnd_ed3NguageXsDrge;r;st/ry2Kst2Mte%ly4Mr:st^inOugh&edGingGsUter^ndry/raDw/sPyerOy.zyNead%er:ing:s3NrnGedUing3Nst3KveUs4Ning]cture#d#e2LftOg/alPs#nd^gth]o2Nss%on<s2It3M's^s3NterVs%ingOvel!iar.bertyPrary#cense2NePdPs$utenant2Kfe$t2Nght;ning&s2HkeFdRly4Ns]ly]mit]nda3Ne%s^k.on.ps.saEt4Len(edVing.terally{ture3Jtle2LveFd4Ns3Ning-oad/nOcal:ted;ionPkRedOndon$ely3Kg4Ner2Jok4Med4Ling4Ls$seDrd2Nse:rPing$s3Mt2KtPs#ud^is2JveFdRly:rFs/ingOw$er!tCuckFy/y]ggage]ke2NnchCyingBmaDchine|sDd$am;e3Ke#gazine$ic]id$lPn#jestyPor2Jke4Ms3Ming#le#ma2Jn^'s$age(dVr/ner<s3Ky#p.rch$ia_ePkRet:sPriage5MedFy^s/tin3Jy4N's]sk/sEterOtch$e:rial/h:ematics/t4Mer(s#x2Ky3Lbe$or1Fe#al:s3KnRing4NsFtPt.dia%calUine2Met4Ning#mber(s/oriesUy2Mn/talRion=ed.rcy^ely/ryOssFage|s2Mt/al/ers/hod.xicoNichaelDddle$night2LghtOke]leRs$itaryEkElion=s2Lnd:s3Ne^imum%ster^or3Nute6Ms.racle$ror.serable3MsFedFing&on3Ntake=nWs:er]x/ed!m#m-obile#del%rn2Mm3Nent<s$myOnday3Key/key^sieur%ter3Nth5Ns#odPn2Jre3Lning2Lst:ly2Lther{'s{fucker^ionOuntain*s/seEth2MveFd:ment:s3NieUsFng1MrOs1JuchOmDrder(ed=r#seum3Mic`ian3Kt_'ve1Gy2Mself^terious<y,nah]il#ked2LmeRdRs.ncy#rrator_ow.sty#tion(al{s%vePural=lyUeCear:byRlyOcessary$k2JedFed4Ns.gative.ighbor*hood>sPther]rveRous2Jver2Kw3Ns%paper?s2Lxt1Lice$k2Kght`mare;sOne1Go]ble3ModyOiseDne$sense.on.peOrPmal<lyPthOse2Gt$e:s3KhingPiceVd#vel2Iw/adays$here-uclear2Mmber(s#rse#tsMo'clock-bey.ject#viousWly-ccasion/urred#ean]tober-dd1Ef2JfEer&ed`ing3MiceVr=s;ial2Mten1Ih.hNil1Lk2Jay1KldPer1Gn2Lce2He$'sEs.line3Jy#toNoh1MpenRed%ing:s$rationDinion|sOportunity:site]tion{s1Jr.ange2Nder&ed&s/inary]ganization#iginal-saka1Kther5Ns&wiseNught2Jr$sRelves2Ht3Nside/ta1Jver!wOe2Ln/er/sZpack:age_ed#ge_sDidEn:ful%t&edUing$r.l/ace/e.nic/ting%s.paEer&s#rdon3MentsPisEk:ed:ing3Mt%icular?rly;es%ner%s4MyDssFed;ngers:ing;on:port3Nt#th_etic/ienceVt=sOul2My$ingCeace#n/cil/ny2Jople#r/centEfect)ly_orm=anceEhaps$iod$mission3MsonVal}ity>ly_uade]t/eRr[hil2Mone$to`graph&s.ysicalNiano2NckRed:ing/nic3NtureWs.eEce&s.g.lls/ot.nk.pe.ss_ed#ty#zza1Llace`dUs/in3MnFeUt%nedUingRs%t;s/stic/te3LyRed&r<s4NingRs.easant5Je(dUurePnty#us!ocket.em/t2Nint`ed&s/son2Mlice(man;y:te&ical|ian)s]nd#ol3Nr#pPular(tionOsition<ve/sibility6Nle)yPt.t/atoes^ential.unds/red]verty2Nwer&ful;sNractice^ise$y.eciousPfer$gnant$pareWd{ing/senceHt|sFidentRs&ure$tend=ed|ing4Mty/vent:ious}lyDice&s/de/est$me$nce(ss`ipalPson<er>sPvate$ze2Mobably4Llem7Ns$cess^duce<t=ion=s$fessionalWor_it$gram&essPject3NmiseWd=s$of/per<ly(ty%osalPtect=ionEudPve`d:ide|dCublicDllRed:ing.nch/ished<me
 nt.rePpose/seOsh:ed_ing2Kt/sPting,quality/rterOeen3Mstion8NsDickGlyEet;lyEt4Me,rabbitOce/helDdio2Nin%ing:sPse&d2Nn/g:e.re:ly.t$e3Nher]w#yNeachUed_tion3MdFing_s4My3Ml%ityUzeWd4Jly3Nson<able(s]call/eiveWd:ntVly$ognize?d:mmendRrd(s2Nd.fuse(d]gion$ret/ular.latedUionshipRx/ease=d/igion=us^y#main<ed<s_rkable3Lember>ed$ind<s/ove<d#nt]pair$eat^lace:yEort<ed|r<s/utation#quest_ire|d|s.scue$earch^ist^ourcesPpect_ond<se)ibilityYle3NtFaurantPult(s]tiredEurnVed.venge/olution]ward!iceEh%ard^kOdEe$iculous:ng2Ight&sOng%ing%s#se^ingPkDver1Noad.b/bed`ry$ert^otOck:s.ger#le$l]man;tic$e#of3Lm:s.pe#se:s#ughEnd^te.w.yal!ude.in%edOleRs.mor2Mn3Nning$s.sh/sia(n-yan@sacrificeDd2Nfe_ly%ty2Jid^ntOke.lad%ry/e:s$tOm3Le.n/d%wich/g/ta#rahDt$isfied$urday]uce2NveRd/ing2Lw2Jy3Ming3Ms-careGd:yOene#hedule3Lool{sOience;tific|st?s]offs/re/tt]ratch/eamVing<s:en:w;edCea^nPrch{ed<ing$sonEt:s2Mcond(s3Nret(ary(s/tion^ureUity2IeEing/k3NmFed4Ms3Ln$s.ldom$f:ishEl%ing2Nnd:ing/ior3Nse:itive3NtFence*s.parate#rgeant/ies4NousWly$ve;dRice=s2Nt^s/ting%le<dDvenFral`eDx/ual/y-hadow$ke3Nll$me$pePre`d%p2He3N's/ep^lf/riff#h]ift^neEp:sPrt3Mt.ock;ed/eFsEot&ingPpRpingErt3Nt:s3JuldV've(er}sHn't_t&ing3LwRed&r%ing:n%s2Nut#y1Nick2Nde:sDghsRtEn:al%ed:s#lence&t$ly/ver#milar/onEpleUy.n3MceEg%erRingFle/k2Lr2Mster(s2Mt/eEtingEuation2Nx#ze[kiing/llsPn^rtOy[lave2MeepGing;y$pt.ightly/p:pedOowRly1Nmall;erPrtOell;sOile;d:ing$thOokeRing-nakeDow1Ho#ccer$ial%ety/ks]fa$t]larPd%ier)s/id$utionPve;d2Jme4Nbody:day%how4Lone4Jthing;ime8NsFwhere2Ln3Ng%s/s2Lon%er2KrryEtOul3Nnd;edGs$p/rcePthCpace/inPnish$re2Leak&erGingUsEcial;es`ficPech%d/llEnd;ingFt#irit{s^te#litOoke&n/rt&sPt#readPing.y!quare[t#aff$ge$irs3Nnd`ardGing&sPr:ed:ingRs4Mt5MedUing&sEte;mentGs4Nion3LyRedRing:s]eady%l;ingEp:ped:s$veOick3Kll.ockPleUn$machPnePod3KpFped`ing:sEreRiesRm4MyDraightFnge)r}s3Neet(s%ngth:ss$ikeEong<er/uck_ggle]ubbornPckEdent7Ns%ied<s;o4NyUing3Nff3Npid#yleNubject#cceed=edUss)ful3Lh/k_s#ddenVly.e#ffer<ed(ingOgarPgest)ed=ion#icidePt:case_sDmmerDnPday#per`ior;market/per:lies;yRortGse7Nd2Kre%ly/face$geryEpriseKd^render:ounded$vive=d.san$pect:iciousNwear:t;erEet&heart;ieDimRming/tch#ordCystem0Ntable.il2Jke4NnFs3Ming.lent{ed3KkFed4Ling%sPl:er]nk#pe#rget#skPte;s#toebaOught.x^es$iCeaEch5Ner=s&ing3Nm/rRs.chnology.dOethOlephoneRvision3Jl4Ning%s.mper<ature:le2Nn/dPnis^se^t.rm%sErible=y`ficDst:s#xt!h2Jan4Kk5Ls3Et4L's2Ce$ater^e3Kir3Jm_eRselves3Jn$ory3Hre5M's;fore3Kse3Hy:'llGre`ve.ick$ef/n4Kg5Ks4Ik5MingGsPrd:styRty3Fs.omas3Kse/u4Ngh6Kt)sRsand*s.reat<ened4KeRw$oat4Lugh=outFw;ing;n.under^rsday/s.yNicket(sOe/d.ger$htDll.m3Ie4Ms#ny.p2Nred:s]tle1Do.ast2Kday;'s2Lgether#iletOkyo2Kld2Fm3M's/my3Lorrow]ne$gue3Might$y2Jo3Lk^lsDp#talUlyDuch;edPgh/r#ward(s^el:r3Nn.y^s[race%k$dePffic3Nin;ed&ing$nslate~d>ion/p:ped/shPvel<ing.easure%t&ed;mentEeRs#ial$ck3Med:sEp.oops3NubleOuck3Me$ly^nk3Nst;ed3Mth2Ly3Ling-uesday]ne^nel.rkey3Mn4Ned%ingRs1Nv-welvePntyOice^ns2JoNype^ical,ugh#ly1Lh1Nm#brella-nable.believableDcle^omfortable2Mder5Lstand?ding~dsWood#fortunately.happy.iform$on/que/tFed$verseWi
 ty]knownOless/ikely2Mtil.usual1HpOonOset$tairs-rgent1Is2Le3Ld$ful$less/sDing#ualGlyMvacation.in.lley/uable%e#n.rious-egetables.hicle]rsion3Iy!ictim<s:oryOdeoOewOllage.olence<t.sionFtUed;ing`orsCoice;s#te0KwaitRed4MingDke2MlkFedFing:sEl%et:s/ter2Nnna3Ht4Led:ing4Ls2NrPm/n:ed:ing^rant2GsPh:ed:ing=ton3Nn'tPte;d:ing2MtchUedGing3Mer.ve:s2JyPs1Fe.'d3Nll3MreEve#ak/lth$pon(sErFing:sEther.bsiteDdding2MekRendFsOightPrd2Nlcome3Il2Knt2Ire%n't#st_ern#t1Fhat4M's4Never.eel3InRever3Jre&'s;verEther2Lich3Lle^stle3Nte2IoP'sEa$ever3MlePm/o^reEse2Iy!ide2Mfe#ld3Hl:iamUng2NnPdFow(sEe/gs/ner:ing/sPter]re.sdom$e3Mh:es.tch3GhRin4Lout$ness|es!oke.lf2Lman3Nen2Ln3M't3Nder(edHful(ing#od%s2Mrd4Ns/e3Jk4Ned`r(s4Ming4Ns3Lld^nEried<s4My;ingEseRtEth2Iuld;'ve5Nn't/nd;edDw1Nrite&r;sFingFten2LongEte,yard1Ieah3Lr4Ks.lling%ow#n#p2Js3Mterday2Lt!oDrk2DuE'd4Nll4Kre4Nve3MngUer3Gr4Ns5Lelf=ves$th,zero[one.o"""
-PAIRS = """ISi|ETine
-ITi|Cva
-Ii|Dva
-ImbrAcat|@ca
-Imi|Eva
-ImpreunA|Cca
-In|EaceastA FfaTa FfrancezA Glimba GviaTA GvQrstA GenglezA Hseara HdimineaTa IportughezA ITara KcapitalA KrQu LcauzA LseamA
-InTeleg|Cgermana
-Inainte|Cca
-Inalt|Bca
-Si|JajutA Jaceasta KsiguranTa
-Stia|>cA
-Stiam|>cA
-Stie|AcA
-Stiu|@cA
-Stiut|>cA
-a|Afost Cspus Dlot Dgood Dlittle Enew Efew Fvery Flong Fgreat Fman Fbig Gbit Gweek Gcar Gwhile Gbad Gdus Gbook Hsmall Hchild Hlarge Hdoctor Idoua JInvATa KvA
-aSa|BcA
-aSteaptA|Bca
-able|=to
-about|Bit
-absenTa|?sa
-aceastA|DcamerA DcasA DproblemA EdimineaTA FsearA
-acest|FrQu
-afraid|?of
-agree|>with
-aici|Gca
-alb|Aca
-all|Athe Dday
-an|Chour Cold
-and|Bmary
-any|Bmore
-ar|?trebui GIntQmpla Iexista
-arATi|@ca
-aratA|Aca
-are|@you GimportanTA
-aren't|?you
-as|Aa Csoon Cwell Epossible
-asked|@me Amary
-asta|Ica
-at|@the Call Chome Dleast Donce Enight
-avut|DSansa
-away|Afrom
-back|@to
-be|Ba Dable Dhere Elate Ehappy Fcareful
-because|@of
-began|>to
-better|@than
-bine|Fca
-bought|?a
-bun|Fca FsimT
-bunA|DdimineaTa DprietenA
-but|Ai Bhe
-buy|@a
-by|@the
-cA|Eva Jaceasta
-cQntecul|@Asta
-ca|AsA
-came|@to
-camera|Csa
-can|Ayou Cdo Cbe Dspeak
-can't|Cbelieve
-care|?of
-cariera|>sa
-cartea|Daceasta
-ce|ForA FvQrstA GlimbA HvA
-ceea|=ce
-cine|Cva
-come|Ato Bback
-comporTi|>ca
-could|Ayou Bnot
-cred|=cA
-crede|>cA
-credeam|=cA
-crezi|>cA
-crezut|=cA
-cu|Dtine FapA FmaSina Hbicicleta Inoua IvQrsta
-cum|EvA
-cup|>of
-de|GmuncA Gtine HviaTA ImQnA JzApadA Jdata JdimineaTA JmuzicA JcasA JmaSinA JsAptAmQnA JStiinTA KvarA KiarnA KsearA LfatA Mpersoana
-deal|?with
-decided|>to
-devreme|Asau
-dezvoltarea|@sa
-did|?you Btom Bnot
-didn't|Bknow Bwant
-difference|>between
-din|Bcauza GcasA GgurA HTara HfaTA
-discursul|?sAu
-do|?you Bit Bthat Dnot Eanything
-doar|Eca
-does|@not Atom
-doesn't|Aknow Bwant Blike
-don't|Aknow Bwant Bhave Cthink Clike
-drumul|CAsta
-during|>the
-e|Hca
-each|>other
-el|Fva
-end|?of
-era|Gsingura
-este|Hca JdiferenTa Jlimba Jora Jsingura MsiguranTa
-even|Athough
-every|?day Bmorning
-exact|Aca
-fac|@asta
-facA|?asta
-face|Aasta EfaTA Eca
-familia|Dsa
-feel|@like
-fel|Bca
-few|Adays
-fie|Dca
-fiecare|CdimineaTA
-find|Aout
-first|@time
-fiu|Dca
-fiul|BsAu
-for|Athe Aa Cme Dhis Ethree
-fratele|BsAu
-from|@the
-front|>of
-frumoasA|Cca
-full|?of
-gave|@me
-genul|AAsta
-get|Dmarried
-give|@me Bup
-go|@to Cout Chome
-going|>to
-good|Bat Cidea
-got|Aa
-had|@a Ato Cno Cbeen
-has|Aa Abeen
-have|Ato Aa Cbeen Dany Dno
-he|Ais Awas Chas Dhad Ewill Edidn't Edoesn't Esaid Fwent Fwants
-help|Ame Bus
-high|?school
-him|Bto
-his|Eown Ewife Efather
-hotelul|?Asta
-how|@to Bmany Bmuch Bdo Bdid Blong
-i|Bdon't Chave Cwas Cthink Dam Dwant Dcan't Dknow Ddidn't Ecan Ehad Ethought Eneed Ejust Ewill Flike Fwould Fcould Fsaw Fgot Fhope Fwish Gtold Glove Gnever Ghaven't Gshould Gwonder Gfeel Gcouldn't Gwent Gheard Gcannot Gwon't Gknew Hfound Hwouldn't Hwasn't Hbought
-i'd|>like
-i'll|Abe
-i'm|Anot Bgoing Csure Csorry Dafraid Eglad
-i've|@been Agot Anever Bever
-ice|?cream
-if|?you Ai Bhe
-in|@the Ba Dhis Dthis Dmy Dboston Flove Ffront Fjapan Forder
-interested|>in
-into|?the
-is|Ba Dnot Dvery Ean Fgoing Fstill Gquite
-isn't|Ahe
-it|Ais Bwas Fseems Flooks Fwasn't
-it's|Aa Bnot
-jocul|AAsta
-kind|>of
-know|Awhat Bhow Bthat Cwhere Dwhy
-la|DScoalA Eora GuSA HvQrsta HcinA Hcasa IgrAdina ITarA JsalA Jalta KduS
-last|@night Btime Byear Bweek
-less|?than
-let|?me
-let's|Ago
-like|@to Ba
-limba|AenglezA
-listen|>to
-live|?in
-lives|?in
-locul|DAsta
-long|@time
-look|@at
-looking|?for Aforward
-looks|?like
-lot|>of
-love|Awith
-lucreazA|Aca
-lucru|Eca
-lui|?tom
-luna|Caceasta
-mA|Fva GaSteptam HajutA
-mQine|Cva
-maSina|Fsa
-made|@a
-make|Aa Bsure
-mama|Dsa
-many|Bpeople Ctimes
-mary|Fva
-may|Abe
-me|Bto
-might|?be
-mine|Fca
-moartea|Bsa
-more|@than
-mult|Fca
-munca|Bsa
-must|@be
-my|Cfather Dmother Ebrother Ehouse Esister Elife Efriend Eparents
-ne|Eva
-need|?to
-never|Cbeen
-new|Byork
-next|Aweek
-no|Aone Cidea Cmatter Dlonger
-normA|?IntreagA
-not|Dgoing Esure
-nu|Ci DmA Iuita JlAsa Ksta LTine
-o|CsA FpersoanA FmaSinA FlimbA FproblemA FdatA GnouA GcasA GpisicA GsingurA GfatA GsAptAmQnA GorA HTarA HtreabA IinimA IviaTA IbicicletA IfiicA IfurtunA ImQnA IechipA IlunA IprietenA JcamerA JslujbA JfirmA JmamA JdorinTA KadresA KultimA LprimA
-ocupat|Cca
-of|@the Dhis Dmy
-off|@the
-old|Bman
-older|?than
-omul|CAsta
-on|?the Chis Cmy
-one|Aof Bwho
-only|Aone
-or|Anot
-orice|BlimbA
-out|?of
-over|@the
-pare|@cA
-part|>of
-pe|EmasA Ftine GsAptAmQnA HlunA IfaTA Jdata
-pentru|AcA Dtine
-peste|ErQu
-piece|=of
-place|?sA Emuzica FzApada Fciocolata
-play|Btennis
-poTi|?sA Dda
-posibil|Aca
-pot|?sA
-prietena|Bsa
-prima|?datA
-principala|?cauzA
-propria|@sa
-propriul|?sAu
-putea|?sA EIntQmpla
-rAu|AcA
-repede|Dca
-rezolve|>problema
-right|@now Baway
-rog|?sA
-romanul|@Asta
-sA|CmA FvA HvinA Jintre Ltai
-sAptAmQna|Aaceasta
-said|Athat Ahe
-say|Athat
-se|Cva DIntQmplA DaflA DuitA FterminA GschimbA IcQStigA
-see|Ayou
-seem|>to
-seems|?to
-she|Bis Bwas Chas Dhad
-should|Abe
-shouldn't|?have
-sigur|>cA
-so|Bmuch
-soTia|Asa
-soon|?as
-sora|Dsa
-spart|Abanca
-speak|@french Benglish
-spre|AcasA
-spun|?cA
-spune|?cA
-spus|>cA
-stay|Ahere
-studiez|Bfranceza
-such|>a
-sunt|Gca Jsingura
-supposed|=to
-tQnAr|Aca
-take|@a Bcare
-talk|?to @about
-talking|?about
-tatAl|AsAu
-te|Fva
-tell|@me @tom Ayou
-ten|@years Aminutes
-terminat|Btreaba
-thank|=you
-that|Bhe Eshe Emary
-that's|Anot
-the|Fsame Fworld Ffirst Fdoor Gway Glast Gonly Groom Gtruth Gbest Gmost Ghouse Gproblem Gparty Gtrain Gpolice Gcar Hother Hbook Hmeeting Htable Hboy Hnext Hbus Hstation Hwhole Hend Hnews Hcity Hwindow Hstreet Hsun Hdog Hteacher Hunited Haccident Iriver Ihospital Iweather Ipark Iroad Ikitchen
-there|@is Aare Bwas Cwere
-there's|@a @no Anothing
-these|Bdays
-they|Bare Bwere
-think|Atom Cit's Cabout
-thinking|?about
-this|Ais Ebook Emorning Fafternoon
-those|@who
-three|Ayears Bhours Bdays Btimes
-through|?the
-time|Bto
-tipul|?Asta
-to|Cbe Cdo Dgo Dget Esee Ehelp Fmake Ftell Fsay Ftalk Ftake Fcome Feat Fwork Fbuy Fboston Gleave Gfind Gstay Ggive Glive Gspeak Gask Gschool Gplay Gmeet Glearn Hread Hhear Hstudy Hbed
-toatA|BviaTa
-told|?me Atom Bmary
-tom|@a Ais Cwas Dhas Ddoesn't Ddidn't EsA Eva Eisn't Fwill Fsaid Ftold Fhad Fasked Fwants Gcouldn't Gseems Gknows Gwanted Gsays Gtook Glooked Gwasn't Hwon't Hhasn't LcAuta
-too|Amuch
-trebui|=sA
-trebuie|=sA
-trebuit|=sA
-tried|>to
-try|?to
-trying|=to
-un|IduS IpeSte IrQu
-united|=states
-up|Bwith
-used|>to
-vQrstA|Bca
-va|DIntQmpla Eploua FlAsa Gcosta GTine
-vara|Caceasta
-very|Cgood Cmuch Cwell
-voi|Dda Euita ElAsa Fsuna Gurma
-vor|Eca ETine
-vorbeSte|Cfranceza
-vorbeascA|Bfranceza
-vorbesc|Cfranceza
-vrea|>sA Eca
-vreau|>sA Cca
-vrei|>sA Dca
-vrut|Dca
-waiting|>for
-want|>to
-wanted|>to
-wants|>to
-was|Ba Every Fborn
-watching|@tv
-way|@to
-we|Bhave Care Ccan Cwere Cshould Dneed Dhad Ddon't Dmust Ecan't
-we're|Agoing
-we've|?got
-went|?to
-what|Che Cdo Cis Chappened Dare Ddid
-what's|@your
-when|@i Ahe
-where|Adid
-why|Adon't Bare Bdid Bdo Cdidn't
-will|@be
-with|Ba Ctom Cme Chis Chim Dher Dus Dmary
-won't|@be
-wonder|?if
-worry|?about
-would|@you Abe Blike
-years|Aago Aold
-you|Chave Dwant Dknow Dare Ddon't Dthink Ecan Eshould Elike Ewere Fcan't Fmust Fneed Fever Hshouldn't
-you'd|?better
-you're|Anot
-you've|@got
-your|Dfavorite
-ziua|Esa"""
-ENDS = "InvATM TiL aG aceaT aceastAV aceeaSiT altAU amQ arF areQ cAM cQndL cQtS caK ceS celeT cuM darM datL deR dejaN despreM eM eStiL elQ esteL fArAU faceQ fiecareW fostM iarK limbaW mQineR mareU meaS multAU multL nicioW oW oraS oriceU pentruM placeK poTiF poateI potH primaW prinS puteaF sAW sauK seS singuraT spreS subR terminatM toatAE tomR ultimaU vAzutG vaE veiG voiD vorbeSteM vorbeascAL vorbescK vreoU"
+PAIRS = """!'E$s
+!(CSc
+!)DSc
+!+@,2
+!-ESc
+!4C,2
+!9E%LF5HF7$G<=GT6GSaG4cHLnH2IIFZI$kK,bKI[L-&LLi
+!AC8-
+!KC,2
+!MB,2
+$JJ&aJ%MKMI
+$U>+@
+$X>+@
+$ZA+@
+$e@+@
+$f>+@
+$~A6vCNdDkrDf9DkUEA6Ed<F{PFkeFfTFl<F*`GYBG|=G,fG|UGX>G47GY`Hv8H[lHj[H3'I3OJ$,KSQ
+%#B+@
+%&B,2
+Uw=Q2
+UxB:Z
+%6?Kk
+%LD,ND,wDH+E2HFLm
+%[FI[
+VH?BM
+VT>|z
+&UG,2
+&oA,2
+VkAP~D`A
+'`Ch7Co&
+'dB><
+W6BmX
+(K?QjG#XI5*
+(L@,2
+(RA,2
+(U@UFG9p
+WW?UF
+WlA$~CvcC|CEq0
+Wp@>IA><
+)+I,2
+Wy@P~CVkCh!DjzDo)EnH
+)nD$8
+X4AeF
+X<@Q2
+XWB$~DUwDg[EjbEg,FZ|
+Xe@BM
+Xq>Q2
+Y0@y5
+*gF,2
+Yr?$~
++4F,2FMK
++5D2IDGG
+ZRA9:Bg;
+ZV@$~
+ZX@P~
++@EScJ%M
+,,@!&
+,2AKM
+Zd@Q2
+,OCKk
+ZiAUFCaGCXWDvr
+ZjCX{
+,h?BM
+,j>Kk
+,qD%M
+-,FC'FSaG<<HSQ
+-6=-,
+-xCSc
+]ZAQ2BX<
+.a>,2
+^JAUFBnY
+/r=+@
+/s>+@
+/w=+@
+0&>+@
+0'=+@
+01DQ+F($F=oH*^IAeISb
+0>ESQ
+^x>BM
+1/G@>GQ+HT6I=bJUGJ1#J2HJ@TJ,wJ=nJKTJ$]KSmK9CKLmL5hMDq
+`F?|z
+`N>Q2
+22AL-
+27@Kk
+a!?UFBQ<BnY
+a#BjIB{p
+a(>Y2
+2JB-'G,wG8nH$kH5G
+2Z?Kd
+aG?UFB:ZBy8DnYEW:
+3!E,2
+aM@nYAQ<
+aNAjIB{pBkB
+aVAjIB{pBg8CyPCkB
+3nC!&
+b(>P~
+4:H,2
+b,>oE
+4QFSc
+bd?BM
+4fGM`
+4qH,2J2>J<=JC(JM`MMI
+c,AyZ
+c2?`ABmY
+4|A,2
+5K@)+
+5L?)+
+5MA)+E5GE,2
+5YDKk
+d0@kB
+5tB,2
+d<A`B
+61D,2
+62C2H
+dPAoL
+d[@yw
+6MD,2
+6NBKd
+d{AP~A$~C>IDgpEyc
+7(BKd
+eF@P~
+eG>BM
+73C,2
+eO?BM
+ef@>I
+8(A!&
+etDlL
+f!@>IB{8
+f,@Q2CoLCh!
+f3>Q2
+f9BWyChW
+f?A$~
+fw@$~AQ2CAICXl
+g2A$~AXl
+g8AQ2A$~CXlDW6DAI
+g;AiCA{zCg2DfwEU?Ea#EaNEt'F|DF{s
+gTA>IB{=
+gg?tG
+glBQ2
+gpEoRE|eEd%
+96?!&
+h;@Q2BlCBmoBaGBa!Bke
+9:BaVCg8C{zCyPD'<D{pDZjDjIDa#EZiEfwEy[En6Ei~EU?FkBF}@F^JFt>Ff?Fh,F|wGz(GkvGn@Gg9GuTG}(Gd0G^LG|DGgGGZpG}'GjDHe1H}BH|!HYr
+hQ>kB
+hRAXW
+hSAnYBf3Cx>CveDVHEf&
+hT@XlAf?An@Bc1
+hU?^b
+h[?UFA9:Bg;
+hm@P~B$~DgpDyVDmyD*{FkvFeGFiWFo>
+i2>hm
+i9?P~
+iCB$~DnYD{PE'`Ff3FwOGr;
+iEAg;
+:ZAiCB{zFtnFkjF|!
+iJA$~BnY
+;-A!&
+j8>BM
+jIA|JBh;By8C|PD|c
+;aD$>EC(GR=HSbH-sH,xI8FI$jJKoJ'1K3r
+ja@nHBywB}OB|=
+k+?y5
+k.?>I
+k/Af,
+kB@Q2B$~
+<=A4c
+kP>Q2
+kV?hm
+kX?hm
+<eD!&
+ke@yw
+kg@Wy
+ki?d{Ae/
+kj?kB
+kr>BM
+kvA|z
+=!A,2
+=&E,2
+=,?Q<
+=6C%M
+=IFScG%,H&a
+=^CSc
+=oFKk
+l/@$~
+l7A$~Bx>
+>%DKk
+lCBp/Cyx
+><FSc
+l`AXW
+>IBQ2
+m)?XW
+?KF,2
+?kBKk
+mX@y5
+@9F,2
+@?BKk
+mw@XW
+myCd%Dm]EZ:Eh9Eu~Ek=EeAEom
+@oESc
+n6?Q2
+n@CXl
+A6BUE
+nEA|=
+AIAo*ChWCl[Dkf
+AV?#s
+nYDf3Ex>
+AhC9:D=IIRWJ;ZKNoL$s
+AzCKMFDpF=nF<<FH+F1!GAdG,wGECGM^G5hGKTGC'H$jHQfI:-IT6I*]I68I7PI=bI4?I=5IGGJ,NJMqJ6KJ>$J3CK&.KR`LGR
+BFC,2
+BM@P~DgpDmy
+BU@P~
+o&Bl<
+o'?y5
+BgC!&
+Bj?P~CgpCmy
+o*ABMB|X
+o.Ao*
+C&AnY
+C;B<<
+oL?BM
+oO@P~
+D6@+@
+or>BM
+DVE>=FQ+GKTH=5I5GJ1#
+DaA+@DQ+
+DxEI[
+pO=BM
+Ef?KME@UFUHF-~
+pjBy)
+F4?KMD0r
+F^A,2
+Fe?KM
+GHBKk
+GU?1!
+Gk?-&
+HM@Kk
+HR?Kd
+I)?KME#X
+IPA+@
+JKD,2
+Jp>H,
+sN@nbBX4
+K5?KM
+K?@!&
+KMC=IFSQHTHJ:MLPC
+KUA%M
+t'Ay8Ag;
+t?Ay8
+LhCScD#WD&EDRUFPqGL;I+q
+tiAUF
+tl>Q2
+tn?Q2
+u=BiCB{zCg2Dfw
+uTAXW
+uX?g8
+MF>+@
+vEBmo
+MuAKk
+vc?Wl
+N0DKk
+N<A*:
+vr@e=Bbo
+NTA,w
+NX?+@
+N[?+@
+Nd>+@
+wCAg[
+OGB7%
+w~>$~
+OnG,2JM`
+x==Q2
+P8A,2
+xX@$~B,h
+x`?Q2@Ux
+xb?Ux
+PJAKd
+PRFSc
+x~@>I@Q<AUF
+y'@}PAm8
+PuBQg
+y6=UF
+y8Bg;Eu=E><
+y9AnY
+P~Ft0F}7Fd[FaXG|,GjaGo.GshGzfGY-GmZGh9GqbGoxGzFGp}G,fHoEHY`HloHxVHYxHnEHZNHwBH|]HbdHnBH.+H|lHO:HOdHaOHxsH{0H%FIsVIh4I|:ID<IsWIjA
+yC@iCA(UB{zC|E
+yD@$~@AIAn]
+yFB`B
+yGB(UB|E
+yPAQ<CiJCUx
+yQ?Ux
+yVAiCEY`EmYFVK
+yX@|X
+ycA}PBh8B`BByx
+yf?P~
+ywBQ2
+Q0?!&
+Q2CXWCaGDf,DetEtiEgTFl7Fx~Ft?Fx`FxXF]ZFb:F}1FZVF*{Gj{GdPGwCGf!GkVGvrGWoGtGGpjGlnGjwHrRHgFHwtHXi
+Q7BT7
+z(?>IAQ<B><
+Q<@$~AiCC{zDg2DaNDa#EKMEScEiEFU?Ft'Fz(FfwFWpF{sG^LGtnGjMG{qGtAGz2GkhG|!H}'Hg3L+h
+z1Amo
+Qj=KM
+Ql=KM
+Qm=KM
+zY>Q2
+zg?Q2
+zh=Q2
+RnI3rIDWII[
+{0=wA
+{8B|z
+{?>Q2
+SaB,2
+ScD#XEF/F;ZG/bG$s
+SnC%M
+{PCf9CmoC|C
+ToD0rERWE;ZFOgGSF
+TwE,2E$s
+TzC7%
+T~B7%
+U!C7%
+U.>KME,2
+U/>KMC,2
+U0>KMD,2
+U;D,2
+{e>d{
+{p>Q2
+{q>Q2
+{s>Q2
+{zB$~E{PFYg
+|(@R;
+|,@Q2
+|.Bg8C(UCZiC|ECuTDn6DfwDaVDmwEZj
+|1Af3
+|2?f?
+|D?Q2
+|JCg;CaGCiCCg'D(UDa!
+|K@}c
+|N@9:Ag;
+|PAa!
+|cAaVB(UBa!BaGCa#
+U?@XW
+|zB$~CQ<C>ICgpCglDgZD{=D><
+}'@XW
+}(?h[
+};?Ux
+}@@UFAXWBkB
+}PAVSAo&
+UFCg8D{pDjID(UDaVDyPEZiEuTEkBE|EFZjFmwFn6Fc1HuX
+}[?Y0
+}^AnY
+}`@f?
+}cDd)
+UmEKk"""
+ENDS = "$*M$lL$~G%KT%LV%OT'0U'<Q(KF(UQ+@M,!L,-S,2K-,S-;T01M0}M0~L1/R1LN1~M4:M4;L4QQ4qL5EU5MQ62W6vM9?K<=W=^R>+U>JS@9L@:UA;WAzWC(SC;UDaMEfKF4FF9IFeHGUWGcSI)FKMWL-KLhSM`TNTSOORPuMQ7EQ<RRaUSVGScET#GToDTzMT~LU!KU5U"
 RULES = "Aciu Adui Ajit Alui Arbat Areas Areat Areti Arim Arui Arut Asari Asit$ Asura Atate Ateas Atest Atile Atise Atos Atrat Auta Azb Azus Azut Impru Inalt Inca Incep Incet Inch Incui Indoi Inflo Ingri Inm Inno Inot Inr Insel Intep Intre Intun Invat Qmpla Qndu$ Qnge Sai Sede Sedin Serp Snu Somaj Sti$ Stiin Stri$ Tia$ Tie$ Tiil Tinut Tioa Tion Tisa Tiuni ^Imb ^Impi ^Indr ^Inl ^Insa ^Inso ^Inta ^Intin ^Soar ^aSez ^amQna ^bunA ^cAla ^cQnta ^calA ^forT ^gAi ^gAti ^greSe ^mAre ^oTe ^pAca ^rAce ^rAst ^radA ^reTe ^tAie ^vQn aSi$ aTi$ aTie aTii aTil aTiu alAtur anAto anatA apAsat arAsi areaT asAri ascA$ atiSe bAtr bTin bdA bilA$ brAcat brAr braT cAldu cAlz cAm$ cAmin cArcat cArei cAril cAsato cAtori cQnd$ cQndu cQntar cQstig cTie cTii cTio cTiu caStig calT casAto cenuS citAri clAd crAri creSt cuTi$ cultAt dAuna dQnc depaS dusA dviS eInc eSec eSi$ eSin eSte$ eStep eTi$ eTii eTui eagA$ eanA ecAto enTie enTio eneS epAs eralA eranT erinT fAcut fAtui farA$ frQng gAtit gQnd$ gQndi gicA$ hiTi hrA iSat iSoar iStii iTi$ iTia iTie iTii iaSi iazA icatA icuT iinT imT impAra insA$ ioSi$ itAm$ itQnd ivitAti ivorT lAnui lAtit lAtori lQng lTi$ latA$ leagA liniS litAti mAgit mArf mAsu mQnca mQnes mTi mbiT menTi miSc moSte mparTi muTi mulTim mulTu nSel nStie nTei$ nTeleg nTep nTi$ nTia nTii naSte natA$ ncApat ndepA ndrA nducA neSte nesA nfrQn nitA$ nitAti nouA nrA ntAm$ ntQmp ntalA nuSa numAr nvAt nzAto oTi$ oTii oTio oaSte oasA oatA$ obiS ogaTi onaTi onalA onatA onunT oraS orbAr oritAti otAra ouAs pAia pAsit pAtan pQndit pTi$ pTii paSit paTan patA$ patQn peSt plAcu prAj pregA puSc pulaT pusA rAbd rAcie rAdin rArii rAril rAsar rAsf rAsp rAut rQnd$ rQndu rQnet rTi$ rTia raTio radiT ranTei raneSt raneT raspQ ratA$ rbAto rciTi reSte reTio reuS rieTi rinTa$ rnA$ ruSi sAnat sAra sArit sanAt sarbAt satA scAto scuTi seSt semAn serA$ sfaS sivA slAbi soT spQnd spreT stAp stapQ steSt stiTi sticA$ stinT strAdu strAnu straTi susTi tApan tAres tArile tAtes tAtil tAtit tQln tQrn taTes taTi tapQn tatA tiSa tialA tilA$ titA$ toreSt trAlu treTi tuitA uAsp uSi$ uTia uTii$ uTio uTite uaTi ucAtor$ ufA ugAc uieSt uinT ulaTi umAra umQna umiTi umpA unAta unAto unTi unatAti unoSt upTi urAto ureS urmAr uvQn vAtat vAzu vQnat vQntu veTi veliS vieTu vorbA zAp zQnd zaTi zamA zatA zeSte zgQ zvA"
 TOP = ['de sA nu In Si cA', 'the you to it is of']
 
@@ -415,6 +415,7 @@ def _num(s):
  return (ord(s) - 61) / 2.0
 
 COMBO = "BCDEFGHJKLMNOPRUVWXYZ!#$%&()*+,-./:;<=>?@[]^_`{|}~"
+IX = "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^`abcdefghijklmnopqrstuvwxyz{|}~"
 
 def _unpack(blob, costs, pre):
  words = []
@@ -445,14 +446,18 @@ def _setup():
  G["ro"] = _unpack(DATA_RO, G["cro"], pre)
  G["en"] = _unpack(DATA_EN, G["cen"], pre)
  G["pre"] = pre
+ allw = G["ro"] + G["en"]
+ ix = {}
+ for i in range(len(IX)):
+  ix[IX[i]] = i
  pairs = {}
  for line in PAIRS.split("\n"):
-  if "|" in line:
-   a, rest = line.split("|", 1)
-   pairs[a] = [[_num(x[0]), x[1:]] for x in rest.split(" ") if len(x) > 1]
+  if len(line) > 4:
+   pairs[allw[ix[line[0]] * 91 + ix[line[1]]]] = [[_num(line[j]), allw[ix[line[j + 1]] * 91 + ix[line[j + 2]]]]
+              for j in range(2, len(line), 3)]
  G["pairs"] = pairs
  G["pc"] = {a + " " + x[1]: x[0] for a in pairs for x in pairs[a]}
- G["ends"] = {x[:-1]: (ord(x[-1]) - 79) / 2.0 for x in ENDS.split(" ") if len(x) > 1}
+ G["ends"] = {allw[ix[ENDS[j]] * 91 + ix[ENDS[j + 1]]]: (ord(ENDS[j + 2]) - 79) / 2.0 for j in range(0, len(ENDS) - 2, 3)}
  G["user"] = {}
  dr = {}
  for r in RULES.split(" "):
