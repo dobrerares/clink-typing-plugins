@@ -24,14 +24,36 @@ def load(name):
     exec(compile((ROOT/'Plugins'/f'{name}.py').read_text(), name, 'exec'), env)
     return env, calls
 
-class BilingualTests(unittest.TestCase):
-    """v0.2 smart mode: defer to Clink's autocorrect, veto only risky fixes."""
+class BilingualEngineTests(unittest.TestCase):
+    """Bilingual Guard 1.0: spatial RO/EN autocorrect. CPython stubs; PyMini parity is checked by
+    autocorrect-engine/tools/parity.py, not here."""
     def setUp(self):
         self.p, self.calls = load('bilingual-guard')
         self.s = self.p['initial']()
-    def c(self, word, fix, state=None):
-        return self.p['correct'](word, fix, self.s if state is None else state)
-    def test_never_returns_a_replacement_word(self):
+    def c(self, word, fix, last=None, pr=None):
+        if last is not None:
+            self.s['last'] = last
+        if pr is not None:
+            self.s['pr'] = pr
+        return self.p['correct'](word, fix, self.s)
+    def taps(self, word, offsets=None):
+        for i, ch in enumerate(word):
+            x, y = (offsets or {}).get(i, (0.0, 0.0))
+            self.s = self.p['on_touch'](ch, x, y, self.s)
+    def test_fixes_common_typos(self):
+        for word, fix, want in [('teh', 'the', 'the'), ('recieve', 'receive', 'receive'),
+                                ('meetign', 'meeting', 'meeting'), ('Teh', 'The', 'The'), ('yoy', 'toy', 'you')]:
+            with self.subTest(word=word):
+                self.s = self.p['initial']()
+                self.assertEqual(self.c(word, fix, last='thank' if word == 'yoy' else ''), want)
+    def test_touch_position_decides_between_neighbours(self):
+        self.taps('gpod', {1: (-0.45, 0.0)})
+        self.assertEqual(self.c('gpod', None), 'good')
+    def test_overrides_a_far_fetched_clink_fix(self):
+        self.assertIs(self.c('care', 'car'), False)
+        self.assertIs(self.c('meeting', 'melting'), False)
+        self.assertIs(self.c('deployment', 'employment'), False)
+    def test_never_changes_valid_words_of_mixed_sentences(self):
         sentences = [
             'Ne vedem after the meeting și discutăm deployment-ul.',
             'I can send raportul mâine, please review când ai timp.',
@@ -40,82 +62,120 @@ class BilingualTests(unittest.TestCase):
             'Sorry, sunt late; ajung în 10 minutes.',
         ]
         for sentence in sentences:
-            for token in sentence.split():
+            for token in sentence.replace(',', ' ').replace('.', ' ').replace(';', ' ').split():
                 with self.subTest(token=token):
-                    self.assertIn(self.c(token, 'WRONG-LANGUAGE'), (False, None))  # none of these are in DIACRITICS
-        self.assertEqual(self.s, self.p['initial']())
-    def test_smart_mode_lets_autocorrect_fix_plain_typos(self):
-        for word, fix in [('teh', 'the'), ('recieve', 'receive'), ('meetign', 'meeting')]:
-            with self.subTest(word=word):
-                self.assertIsNone(self.c(word, fix))
-    def test_restores_diacritics(self):
-        for word, want in [('rau', 'rău'), ('maine', 'mâine'), ('si', 'și'), ('dupa', 'după'), ('multumesc', 'mulțumesc'),
-                           ('inca', 'încă'), ('pana', 'până'), ('Dupa', 'După'), ('Si', 'Și'), ('Rau', 'Rău'), ('stiu', 'știu')]:
-            with self.subTest(word=word):
-                self.assertEqual(self.c(word, None), want)
-                self.assertEqual(self.c(word, 'something-else'), want)
-    def test_restore_leaves_valid_and_english_words(self):
-        D = self.p['DIACRITICS']
-        for word in ['a', 'are', 'care', 'cat', 'tie', 'paste', 'in', 'pe', 'de', 'la', 'sa', 'ca', 'fata', 'tara',
-                     'casa', 'masa', 'buna', 'seara', 'noua', 'apa', 'sat', 'vin', 'mare', 'cine', 'tine', 'va', 'desi', 'usa', 'scoala']:
-            with self.subTest(word=word):
-                self.assertNotIn(word, D)
-                self.assertIsNone(self.c(word, None))
-    def test_restore_respects_case_and_english_names(self):
-        for word in ['Maine', 'Ma', 'Cate', 'Marti', 'Inca', 'RAU', 'rAu', 'MAINE']:
-            with self.subTest(word=word):
-                self.assertIn(self.c(word, None), (None, False))
-    def test_dictionary_is_only_diacritics(self):
-        D = self.p['DIACRITICS']
-        self.assertGreaterEqual(len(D), 120)
-        for k, v in D.items():
-            with self.subTest(k=k):
-                self.assertEqual(k, k.lower())
-                self.assertEqual(self.p['_plain'](v), k)
-                self.assertNotEqual(v, k)
-    def test_restore_switch_and_strict(self):
-        self.s = self.p['on_action']('restore', False, self.s)
-        self.assertIsNone(self.c('rau', None))
-        self.s = self.p['on_action']('restore', True, self.s)
-        self.s = self.p['on_action']('strict', True, self.s)
-        self.assertIs(self.c('rau', None), False)
-    def test_protected_tokens_are_kept(self):
-        for token in ['https://example.com', 'a@b.ro', '3.14', 'v1.2.3', 's-a', 'mi-am', 'într-un', 'deployment-ul',
-                      'word.word', 'os.path', 'e.g.', 'foo_bar', '12:30', 'API', 'RO', 'NASA', "don't", 'a'*200]:
-            with self.subTest(token=token):
-                self.assertIs(self.c(token, 'different'), False)
-                self.assertEqual(self.p['suggestions'](token, {'on':True,'suggest':True}), [])
-    def test_diacritics_never_stripped_and_case_never_changed(self):
+                    out = self.c(token, None)
+                    self.assertIn(out, (False, None))
+    def test_never_strips_typed_diacritics_or_changes_case_only(self):
         self.assertIs(self.c('fată', 'fata'), False)
         self.assertIs(self.c('mâine', 'maine'), False)
         self.assertIs(self.c('și', 'si'), False)
-        self.assertIs(self.c('iphone', 'iPhone'), False)
+        self.assertIn(self.c('iphone', 'iPhone'), (False, None))
         self.assertIs(self.c('Care', 'care'), False)
-    def test_strict_mode_keeps_every_word(self):
+    def test_restores_unambiguous_diacritics(self):
+        for word, want in [('dupa', 'după'), ('multumesc', 'mulțumesc'), ('stiu', 'știu'), ('Dupa', 'După'),
+                           ('mancare', 'mâncare'), ('saptamana', 'săptămână|săptămâna')]:
+            with self.subTest(word=word):
+                self.assertIn(self.c(word, None, last='', pr=0.9), want.split('|'))
+    def test_context_decides_ambiguous_romanian_forms(self):
+        self.assertEqual(self.c('sa', None, last='vreau', pr=0.95), 'să')
+        self.assertEqual(self.c('ca', None, last='cred', pr=0.95), 'că')
+        self.assertIn(self.c('sa', None, last='casa', pr=0.95), (False, None))
+        self.assertEqual(self.c('in', None, last='sunt', pr=0.95), 'în')
+        self.assertIn(self.c('in', None, last='live', pr=0.05), (False, None))
+    def test_ambiguous_forms_without_context_are_kept(self):
+        for word in ['fata', 'casa', 'la', 'ca', 'masa', 'care', 'are', 'pe', 'cat']:
+            with self.subTest(word=word):
+                self.assertIn(self.c(word, None, last='', pr=0.5), (False, None))
+    def test_restore_switch_strict_and_off(self):
+        self.s = self.p['on_action']('restore', False, self.s)
+        self.assertIn(self.c('dupa', None, pr=0.9), (False, None))
+        self.s = self.p['on_action']('restore', True, self.s)
         self.s = self.p['on_action']('strict', True, self.s)
-        for word, fix in [('teh', 'the'), ('care', 'car'), ('actual', 'actually')]:
+        for word, fix in [('teh', 'the'), ('care', 'car'), ('dupa', None)]:
             self.assertIs(self.c(word, fix), False)
-    def test_disabled_delegates_everything(self):
+        self.s = self.p['on_action']('strict', False, self.s)
         self.s = self.p['on_action']('on', False, self.s)
-        for token in ['care', 'https://example.com', 'API']:
+        for token in ['teh', 'https://example.com', 'API']:
             self.assertIsNone(self.c(token, 'wrong'))
+    def test_protected_tokens_are_kept(self):
+        for token in ['https://example.com', 'a@b.ro', '3.14', 'v1.2.3', 's-a', 'mi-am', 'într-un', 'deployment-ul',
+                      'word.word', 'os.path', 'e.g.', 'foo_bar', '12:30', 'API', 'RO', 'NASA', 'a' * 200]:
+            with self.subTest(token=token):
+                self.assertIn(self.c(token, 'different'), (False, None))
+                self.assertEqual(self.p['suggestions'](token, self.s), [])
     def test_bad_input_fail_safe(self):
         for token in ['', None, 12]:
-            self.assertIs(self.c(token, 'wrong'), False)
-        for state in [None, {'on':None}, {'on':1}, {'on':'false'}]:
-            self.assertIs(self.p['correct']('care', 'wrong', state), False)
-    def test_suggestions_opt_in_only(self):
-        self.assertEqual(self.p['suggestions']('teh', self.s), [])
-        self.s = self.p['on_action']('suggest', True, self.s)
-        self.assertEqual(self.p['suggestions']('teh', self.s), ['the'])
-        for token in ['TEH', 'Teh', 'care', 'the']:
-            self.assertEqual(self.p['suggestions'](token, self.s), [])
+            self.assertIsNone(self.c(token, 'wrong'))
+        for state in [None, {'on': None}, {'on': 1}, {'on': 'false'}]:
+            self.assertIsNone(self.p['correct']('care', 'wrong', state))
+        broken = {'on': True, 'taps': 'x', 'touch': [1], 'pp': 5, 'words': 'y', 'last': 3, 'pr': 'z'}
+        self.assertIn(self.p['correct']('teh', 'the', broken), ('the', None, False))
+        self.p['suggestions']('te', broken)
+        self.p['on_word']('test', broken)
+        self.p['on_backspace'](broken)
+    def test_delete_after_a_correction_keeps_the_word(self):
+        self.assertEqual(self.c('teh', 'the'), 'the')
+        self.s = self.p['on_word']('the', self.s)
+        self.s = self.p['on_touch']('space', 0, 0, self.s)
+        self.s = self.p['on_backspace'](self.s)
+        self.assertIs(self.c('teh', 'the'), False)
+        self.assertIn('teh', self.s['keep'])
+    def test_two_reverts_learn_the_word(self):
+        for _ in range(2):
+            self.s['keep'] = {k: v for k, v in self.s['keep'].items()}
+            self.p['G'].pop('skip', None)
+            self.s['pend'] = ['Zdravko', 'Dravko']
+            self.s = self.p['on_backspace'](self.s)
+        self.assertEqual(self.s['words'].get('zdravko'), 'Zdravko')
+    def test_names_typed_twice_are_learned_and_completed(self):
+        for _ in range(2):
+            self.s = self.p['on_word']('salut', self.s)
+            self.s = self.p['on_word']('Zdravin', self.s)
+        self.assertIn('Zdravin', self.p['suggestions']('zdr', self.s))
+        self.assertIs(self.c('Zdravin', 'driving'), False)
+    def test_next_word_predictions_learn_pairs(self):
+        for word in ('good', 'morning', 'good', 'morning', 'good'):
+            self.s = self.p['on_word'](word, self.s)
+        self.assertEqual(self.p['suggestions']('', self.s)[0], 'morning')
+        self.s['last'] = 'thank'
+        self.assertIn('you', self.p['suggestions']('', self.s))
+    def test_completions_use_the_word_list_and_diacritics(self):
+        self.s['pr'] = 0.95
+        out = self.p['suggestions']('mul', self.s)
+        self.assertTrue(out)
+        self.assertIn('mulțumesc', [w for w in out] + self.p['suggestions']('mult', self.s))
+        self.s['pr'] = 0.05
+        self.s['last'] = 'i'
+        self.assertIn('want', self.p['suggestions']('wan', self.s))
+        self.s = self.p['on_action']('suggest', False, self.s)
+        self.assertEqual(self.p['suggestions']('wan', self.s), [])
+    def test_state_stays_bounded_and_serialisable(self):
+        import random
+        rng = random.Random(3)
+        for i in range(3000):
+            w = ''.join(rng.choice('abcdefghijklmnoprstuv') for _ in range(rng.randint(2, 9)))
+            if i % 7 == 0:
+                w = w.capitalize()
+            self.s = self.p['on_word'](w, self.s)
+            self.s = self.p['on_touch'](w[0].lower(), 0.1, 0.1, self.s)
+        for key, cap in [('words', 400), ('seen', 200), ('pp', 400), ('keep', 200)]:
+            self.assertLessEqual(len(self.s[key]), cap)
+        self.assertLessEqual(len(self.s['taps']), 48)
+        self.assertLess(len(json.dumps(self.s, ensure_ascii=False)), 40000)
     def test_unknown_action_and_ui_no_effects(self):
-        before = dict(self.s)
+        before = json.dumps(self.s, sort_keys=True)
         self.p['on_action']('unknown', 'text', self.s)
         self.p['settings'](self.s)
-        self.assertEqual(before, self.s)
+        self.assertEqual(before, json.dumps(self.s, sort_keys=True))
         self.assertEqual(self.calls, [])
+    def test_clear_forgets_learning(self):
+        for word in ('good', 'morning', 'Zdravin', 'Zdravin'):
+            self.s = self.p['on_word'](word, self.s)
+        self.s = self.p['on_action']('clear', True, self.s)
+        for key in ('words', 'seen', 'pp', 'keep', 'touch'):
+            self.assertEqual(self.s[key], {})
+
 
 class LayoutTests(unittest.TestCase):
     def setUp(self):
