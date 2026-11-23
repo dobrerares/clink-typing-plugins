@@ -2,7 +2,7 @@
 # name: Bilingual Guard
 # icon: text.badge.checkmark
 # summary: Touch-aware Romanian + English autocorrect, diacritics, completions and next words
-# version: 1.2
+# version: 1.3
 # author: Rares
 # enabled: false
 # ---
@@ -472,7 +472,8 @@ def _decide(e, fix, state):
    if same and not _evidence(prev, best, state):
     margin = P["accent_ctx"]
    dm = state.get("dm", 0.5)
-   noun = len(prev) > 2 and prev[-1] in "aA" and prev[:-1] + "a" in G["cro"] and prev[:-1] + "A" in G["cro"]
+   b = prev[:-1]
+   noun = len(prev) > 2 and prev[-1] == "a" and (b + "A" in G["cro"] or b + "e" in G["cro"] or (prev[-2] == "e" and b in G["cro"])) and not _evidence(prev, best, state)
    if ((isinstance(dm, (int, float)) and dm < 0.5) or e == "sa") and pr >= 0.5 and not noun and e not in G["cen"] and not _evidence(prev, e, state):
     margin = min(margin, P["amb"] - P["acc"] * (_marks(best) - _marks(e)))
  elif " " in best:
