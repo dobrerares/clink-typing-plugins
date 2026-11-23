@@ -7,7 +7,7 @@ import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = {'period-guard', 'quiet-feedback', 'bilingual-guard', 'explicit-proofread', 'rares-qwerty'}
+IDS = {'period-guard', 'quiet-feedback', 'bilingual-guard', 'bilingual-guard-classic', 'explicit-proofread', 'rares-qwerty'}
 
 def load(name):
     calls = []
